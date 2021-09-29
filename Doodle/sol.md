@@ -382,6 +382,51 @@ class Solution {
 }
 ```
 
+```Java
+/*
+https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+
+19. Remove Nth Node From End of List
+
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+*/
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ * int val;
+ * ListNode next;
+ * ListNode() {}
+ * ListNode(int val) { this.val = val; }
+ * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        int length = 0;
+        ListNode first = head;
+        while (first != null) {
+            length++;
+            first = first.next;
+        }
+        length -= n;
+        first = dummy;
+        while (length > 0) {
+            length--;
+            first = first.next;
+        }
+        first.next = first.next.next;
+        return dummy.next;
+    }
+}
+
+```
+
 
 # 2
 
@@ -691,3 +736,91 @@ FROM
 ;
 
 ```
+
+```SQL
+/*
+https://leetcode.com/problems/winning-candidate/
+
+574. Winning Candidate
+
+Table: Candidate
+
++-----+---------+
+| id  | Name    |
++-----+---------+
+| 1   | A       |
+| 2   | B       |
+| 3   | C       |
+| 4   | D       |
+| 5   | E       |
++-----+---------+  
+
+Table: Vote
+
++-----+--------------+
+| id  | CandidateId  |
++-----+--------------+
+| 1   |     2        |
+| 2   |     4        |
+| 3   |     3        |
+| 4   |     2        |
+| 5   |     5        |
++-----+--------------+
+id is the auto-increment primary key,
+CandidateId is the id appeared in Candidate table.
+
++------+
+| Name |
++------+
+| B    |
++------+
+*/
+
+SELECT name AS 'Name'
+FROM 
+    Candidate
+JOIN
+    (
+        SELECT CandidateId
+        FROM Vote
+        GROUP BY CandidateId
+        ORDER BY COUNT(*) DESC
+        LIMIT 1
+    ) AS winner
+WHERE
+    Candidate.id = winner.CandidateId;
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
