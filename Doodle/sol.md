@@ -427,6 +427,42 @@ class Solution {
 
 ```
 
+```Java
+/*
+https://leetcode.com/problems/generate-parentheses/
+
+22. Generate Parentheses
+
+Input: n = 3
+Output: ["((()))","(()())","(())()","()(())","()()()"]
+*/
+
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> ans = new ArrayList();
+        backtrack(ans, new StringBuilder(), 0, 0, n);
+        return ans;
+    }
+
+    public void backtrack(List<String> ans, StringBuilder cur, int open, int close, int max) {
+        if (cur.length() == max * 2) {
+            ans.add(cur.toString());
+            return;
+        }
+        if (open < max) {
+            cur.append("(");
+            backtrack(ans, cur, open + 1, close, max);
+            cur.deleteCharAt(cur.length() - 1);
+        }
+        if (close < open) {
+            cur.append(")");
+            backtrack(ans, cur, open, close + 1, max);
+            cur.deleteCharAt(cur.length() - 1);
+        }
+    }
+}
+```
+
 
 # 2
 
@@ -792,7 +828,37 @@ WHERE
 
 ```
 
+```SQL
+/*
+https://leetcode.com/problems/get-highest-answer-rate-question/
 
+578. Get Highest Answer Rate Question
+
+Input:
++------+-----------+--------------+------------+-----------+------------+
+| id   | action    | question_id  | answer_id  | q_num     | timestamp  |
++------+-----------+--------------+------------+-----------+------------+
+| 5    | show      | 285          | null       | 1         | 123        |
+| 5    | answer    | 285          | 124124     | 1         | 124        |
+| 5    | show      | 369          | null       | 2         | 125        |
+| 5    | skip      | 369          | null       | 2         | 126        |
++------+-----------+--------------+------------+-----------+------------+
+Output:
++-------------+
+| survey_log  |
++-------------+
+|    285      |
++-------------+
+Explanation:
+question 285 has answer rate 1/1, while question 369 has 0/1 answer rate, so output 285.
+*/
+
+SELECT question_id AS survey_log
+FROM survey_log
+GROUP BY question_id
+ORDER BY SUM(IF(action='answer',1,0))/SUM(IF(action='show',1,0)) DESC
+LIMIT 1;
+```
 
 
 
