@@ -776,7 +776,67 @@ class Solution {
     }
 }
 ```
+```Java
+/*
+https://leetcode.com/problems/swap-nodes-in-pairs/
 
+24. Swap Nodes in Pairs
+
+Input: head = [1,2,3,4]
+Output: [2,1,4,3]
+*/
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+// 문제
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+
+        if ( _____ ) {
+            return head;
+        }
+
+        ListNode firstNode = _____
+        ListNode secondNode = _____
+
+        _____
+        _____
+
+        return secondNode;
+    }
+}
+
+// 솔루션
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+
+        // If the list has no node or has only one node left.
+        if ((head == null) || (head.next == null)) {
+            return head;
+        }
+
+        // Nodes to be swapped
+        ListNode firstNode = head;
+        ListNode secondNode = head.next;
+
+        // Swapping
+        firstNode.next = swapPairs(secondNode.next);
+        secondNode.next = firstNode;
+
+        // Now the head is the second node
+        return secondNode;
+    }
+}
+```
 
 # 2
 
@@ -1174,7 +1234,45 @@ ORDER BY SUM(IF(action='answer',1,0))/SUM(IF(action='show',1,0)) DESC
 LIMIT 1;
 ```
 
+```SQL
+/*
+https://leetcode.com/problems/count-student-number-in-departments/
 
+580. Count Student Number in Departments
+
+Here is an example input:
+
+student table:
+| student_id | student_name | gender | dept_id |
+|------------|--------------|--------|---------|
+| 1          | Jack         | M      | 1       |
+| 2          | Jane         | F      | 1       |
+| 3          | Mark         | M      | 2       |
+
+department table:
+| dept_id | dept_name   |
+|---------|-------------|
+| 1       | Engineering |
+| 2       | Science     |
+| 3       | Law         |
+
+The Output should be:
+| dept_name   | student_number |
+|-------------|----------------|
+| Engineering | 2              |
+| Science     | 1              |
+| Law         | 0              |
+*/
+
+SELECT
+    dept_name, COUNT(student_id) AS student_number
+FROM
+    department
+        LEFT JOIN
+    student ON department.dept_id = student.dept_id
+GROUP BY department.dept_name
+ORDER BY student_number DESC;
+```
 
 
 
