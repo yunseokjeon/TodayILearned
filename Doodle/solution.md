@@ -21,6 +21,32 @@ Explanation: 342 + 465 = 807.
  * }
 */
 
+// 문제
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode(0);
+        ListNode p = l1, q = l2, curr = dummyHead;
+        int carry = 0;
+        while ( _____ || _____ ) {
+            int x = p != null ? p.val : 0;
+            int y = q != null ? q.val : 0;
+            int sum = x + y + carry;
+            _____ = sum / 10;
+            _____ = new ListNode(sum % 10);
+            curr = curr.next;
+            if (_____) p = p.next;
+            if (_____) q = q.next;
+        }
+        if (carry > 0) {
+            _____ = new ListNode(carry);
+        }
+
+        return dummyHead.next;
+    }
+
+}
+
+// 솔루션
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
@@ -58,6 +84,24 @@ Output: 3
 Explanation: The answer is "abc", with the length of 3.
 */
 
+// 문제
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int i = 0, j = 0, max = 0;
+        Set<Character> set = new HashSet<>();
+        while (j < s.length()) {
+            if (_____) {
+                set.add(_____);
+                max = _____
+            } else {
+                _____
+            }
+        }
+        return max;
+    }
+}
+
+// 솔루션
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         int i = 0, j = 0, max = 0;
@@ -87,6 +131,35 @@ Note: "aba" is also a valid answer.
 
 */
 
+// 문제
+class Solution {
+    private int lo, maxLen;
+
+    public String longestPalindrome(String s) {
+        int len = s.length();
+        if (_____)
+            return s;
+        for (int i = 0; i < len; i++) {
+            _____
+            _____
+        }
+        return s.substring(lo, lo + maxLen);
+    }
+
+    private void extendPalindrome(String s, int j, int k) {
+        while (_____) {
+            j--;
+            k++;
+        }
+        if (_____) {
+            lo = j + 1;
+            maxLen = _____
+        }
+    }
+
+}
+
+// 솔루션
 class Solution {
     private int lo, maxLen;
 
@@ -125,6 +198,33 @@ Input: s = "PAYPALISHIRING", numRows = 3
 Output: "PAHNAPLSIIGYIR"
 */
 
+// 문제
+class Solution {
+    public String convert(String s, int numRows) {
+        if (numRows == 1)
+            return s;
+        List<StringBuilder> rows = new ArrayList<>();
+        for (int i = 0; i < _____ ; i++){
+            rows.add(new StringBuilder());
+        }
+        int curRow = 0;
+        boolean goingdown = false;
+        for (char c : s.toCharArray()) {
+            rows.get(curRow).append(c);
+            if (_____) {
+                goingdown = !goingdown;
+            }
+            curRow += _____
+        }
+
+        StringBuilder ret = new StringBuilder();
+        for (StringBuilder row : rows)
+            ret.append(row);
+        return ret.toString();
+    }
+}
+
+// 솔루션
 class Solution {
     public String convert(String s, int numRows) {
         if (numRows == 1)
@@ -169,7 +269,31 @@ Step 3: "4193 with words" ("4193" is read in; reading stops because the next cha
 The parsed integer is 4193.
 Since 4193 is in the range [-231, 231 - 1], the final result is 4193.
 */
+// 문제
+class Solution {
+    public int myAtoi(String str) {
+        int sign = 1, i = 0, r = 0;
+        str = _____
+        if (str.isEmpty()) 
+            return 0;
+        else if (_____) {
+            _____
+            i++;
+        } else if (_____) {
+            i++;
+        }
+        while (i < str.length() && _____ ) {
+            int d = ______
+            if (_____)
+                return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            _______
+            i++;
+        }
+        return ______
+    }
+}
 
+// 솔루션
 class Solution {
     public int myAtoi(String str) {
         int sign = 1, i = 0, r = 0;
@@ -204,6 +328,22 @@ Output: 49
 Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
 */
 
+// 문제
+class Solution {
+    public int maxArea(int[] height) {
+        int maxarea = 0, l = 0, r = height.length - 1;
+        while (l < r) {
+            maxarea = _____
+            if (______)
+                l++;
+            else
+                r--;
+        }
+        return maxarea;
+    }
+}
+
+// 솔루션
 class Solution {
     public int maxArea(int[] height) {
         int maxarea = 0, l = 0, r = height.length - 1;
@@ -229,6 +369,33 @@ Input: nums = [-1,0,1,2,-1,-4]
 Output: [[-1,-1,2],[-1,0,1]]
 */
 
+// 문제
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < nums.length && _____; i++) {
+            if (_____)
+                twoSum(nums, i, res);
+        }
+        return res;
+    }
+
+    void twoSum(int[] nums, int i, List<List<Integer>> res) {
+        Set<Integer> seen = new HashSet<>();
+        for (int j = _____; j < nums.length; j++) {
+            int complement = _____
+            if (_____) {
+                res.add(Arrays.asList(nums[i], nums[j], complement));
+                while (_____)
+                    j++;
+            }
+            _____
+        }
+    }
+}
+
+// 솔루션
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
@@ -265,7 +432,32 @@ Input: nums = [-1,2,1,-4], target = 1
 Output: 2
 Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 */
+// 문제
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        int diff = _____
+        int sz = nums.length;
+        Arrays.sort(nums);
+        for (int i = 0; i < sz && _____; i++) {
+            int lo = _____
+            int hi = _____
+            while (lo < hi) {
+                int sum = ______
+                if (______) {
+                    diff = _____
+                }
+                if (_____) {
+                    lo++;
+                } else {
+                    hi--;
+                }
+            }
+        }
+        return _______
+    }
+}
 
+// 솔루션
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
         int diff = Integer.MAX_VALUE;
@@ -301,6 +493,37 @@ Input: digits = "23"
 Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 */
 
+// 문제
+class Solution {
+    private List<String> combinations = new ArrayList<>();
+    private Map<Character, String> letters = Map.of(
+            '2', "abc", '3', "def", '4', "ghi", '5', "jkl",
+            '6', "mno", '7', "pqrs", '8', "tuv", '9', "wxyz");
+    private String phoneDigits;
+
+    public List<String> letterCombinations(String digits) {
+        if (digits.length() == 0)
+            return combinations;
+        phoneDigits = digits;
+        _____
+        return combinations;
+    }
+
+    private void backtrack(int index, StringBuilder path) {
+        if (_____) {
+            combinations.add(path.toString());
+            return;
+        }
+        String possibleLetters = letters.get(_____);
+        for (char letter : possibleLetters.toCharArray()) {
+            ______
+            ______
+            ______
+        }
+    }
+}
+
+// 솔루션
 class Solution {
     private List<String> combinations = new ArrayList<>();
     private Map<Character, String> letters = Map.of(
@@ -341,6 +564,48 @@ Input: nums = [1,0,-1,0,-2,2], target = 0
 Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
 */
 
+// 문제
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        Arrays.sort(nums);
+        return kSum(nums, target, 0, 4);
+    }
+
+    public List<List<Integer>> kSum(int[] nums, int target, int start, int k) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (_____)
+            return res;
+
+        if (k == 2)
+            return twoSum(nums, target, start);
+
+        for (int i = start; i < nums.length; i++) {
+            if (_____) {
+                for (_____) {
+                    res.add(new ArrayList<>(Arrays.asList(nums[i])));
+                    res.get(res.size() - 1)._____;
+                }
+            }
+        }
+        return res;
+    }
+
+    public List<List<Integer>> twoSum(int[] nums, int target, int start) {
+        List<List<Integer>> res = new ArrayList<>();
+        Set<Integer> s = new HashSet<>();
+        for (int i = start; i < nums.length; i++) {
+            if (res.isEmpty() || _____ != nums[i]) {
+                if (_____) {
+                    res.add(Arrays.asList(target - nums[i], nums[i]));
+                }
+            }
+            s.add(nums[i]);
+        }
+        return res;
+    }
+}
+
+// 솔루션
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         Arrays.sort(nums);
@@ -403,7 +668,29 @@ Output: [1,2,3,5]
  * }
  */
 
+// 문제
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        int length = 0;
+        ListNode first = head;
+        while (_____) {
+            _____
+            first = first.next;
+        }
+        _____
+        first = dummy;
+        while (_____) {
+            _____
+            first = first.next;
+        }
+        first.next = first.next.next;
+        return dummy.next;
+    }
+}
 
+// 솔루션
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(0);
@@ -437,6 +724,33 @@ Input: n = 3
 Output: ["((()))","(()())","(())()","()(())","()()()"]
 */
 
+// 문제
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> ans = new ArrayList();
+        _____
+        return ans;
+    }
+
+    public void backtrack(List<String> ans, StringBuilder cur, int open, int close, int max) {
+        if (_____) {
+            ans.add(cur.toString());
+            return;
+        }
+        if (_____) {
+            cur.append("(");
+            _____
+            cur.deleteCharAt(cur.length() - 1);
+        }
+        if (_____) {
+            cur.append(")");
+            _____
+            cur.deleteCharAt(cur.length() - 1);
+        }
+    }
+}
+
+// 솔루션
 class Solution {
     public List<String> generateParenthesis(int n) {
         List<String> ans = new ArrayList();
