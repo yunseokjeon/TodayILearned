@@ -838,6 +838,83 @@ class Solution {
 }
 ```
 
+```Java
+/*
+https://leetcode.com/problems/next-permutation/
+
+31. Next Permutation
+
+Input: nums = [1,2,3]
+Output: [1,3,2]
+*/
+
+// 문제
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int i = _____
+        while (_____ && _____) {
+            i--;
+        }
+        if (_____) {
+            int j = _____
+            while (_____) {
+                j--;
+            }
+            _____
+        }
+        _____
+    }
+
+    private void reverse(int[] nums, int start) {
+        int i = start, j = nums.length - 1;
+        while (i < j) {
+            swap(nums, i, j);
+            i++;
+            j--;
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+
+// 솔루션
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int i = nums.length - 2;
+        while (i >= 0 && nums[i + 1] <= nums[i]) {
+            i--;
+        }
+        if (i >= 0) {
+            int j = nums.length - 1;
+            while (nums[j] <= nums[i]) {
+                j--;
+            }
+            swap(nums, i, j);
+        }
+        reverse(nums, i + 1);
+    }
+
+    private void reverse(int[] nums, int start) {
+        int i = start, j = nums.length - 1;
+        while (i < j) {
+            swap(nums, i, j);
+            i++;
+            j--;
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+```
+
 # 2
 
 ```SQL
@@ -1274,7 +1351,63 @@ GROUP BY department.dept_name
 ORDER BY student_number DESC;
 ```
 
+```SQL
+/*
+https://leetcode.com/problems/investments-in-2016/
 
+585. Investments in 2016
+
+Sample Input
+
+| PID | TIV_2015 | TIV_2016 | LAT | LON |
+|-----|----------|----------|-----|-----|
+| 1   | 10       | 5        | 10  | 10  |
+| 2   | 20       | 20       | 20  | 20  |
+| 3   | 10       | 30       | 20  | 20  |
+| 4   | 10       | 40       | 40  | 40  |
+
+Sample Output
+
+| TIV_2016 |
+|----------|
+| 45.00    |
+
+Explanation
+
+The first record in the table, like the last record, meets both of the two criteria.
+The TIV_2015 value '10' is as the same as the third and forth record, and its location unique.
+
+The second record does not meet any of the two criteria. Its TIV_2015 is not like any other policyholders.
+
+And its location is the same with the third record, which makes the third record fail, too.
+
+So, the result is the sum of TIV_2016 of the first and last record, which is 45.
+*/
+
+SELECT
+    SUM(insurance.TIV_2016) AS TIV_2016
+FROM
+    insurance
+WHERE
+    insurance.TIV_2015 IN
+    (
+      SELECT
+        TIV_2015
+      FROM
+        insurance
+      GROUP BY TIV_2015
+      HAVING COUNT(*) > 1
+    )
+    AND CONCAT(LAT, LON) IN
+    (
+      SELECT
+        CONCAT(LAT, LON)
+      FROM
+        insurance
+      GROUP BY LAT , LON
+      HAVING COUNT(*) = 1
+    );
+```
 
 
 
