@@ -940,6 +940,16 @@ Output:
 +---------------------+
 */
 
+# 문제
+SELECT _____(
+    (SELECT _____
+FROM EMPLOYEE
+_____
+_____ _____),
+    NULL
+) AS SecondHighestSalary;
+
+# 솔루션
 SELECT IFNULL(
     (SELECT DISTINCT Salary
 FROM EMPLOYEE
@@ -973,6 +983,22 @@ Output:
 +------------------------+
 */
 
+# 문제
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  _____
+  RETURN (
+      # Write your MySQL query statement below.
+      SELECT Salary
+      FROM Employee
+      ______
+      ______
+      _____ _____
+      
+  );
+END;
+
+# 솔루션
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
   SET N=N-1;
@@ -1019,6 +1045,10 @@ Output:
 +-------+------+
 */
 
+# 문제
+SELECT SCORE, _____ OVER (_____) AS `Rank` FROM Scores;
+
+# 솔루션
 SELECT SCORE, DENSE_RANK() OVER (ORDER BY Score DESC) AS `Rank` FROM Scores;
 ```
 
@@ -1050,6 +1080,19 @@ Output:
 Explanation: 1 is the only number that appears consecutively for at least three times.
 */
 
+# 문제
+SELECT _____ AS ConsecutiveNums
+FROM 
+    LOGS L1,
+    LOGS L2,
+    LOGS L3
+WHERE
+    _____
+    AND _____
+    AND _____
+    AND _____
+
+# 솔루션
 SELECT DISTINCT L1.NUM AS ConsecutiveNums
 FROM 
     LOGS L1,
@@ -1097,6 +1140,20 @@ Output:
 Explanation: Max and Jim both have the highest salary in the IT department and Henry has the highest salary in the Sales department.
 */
 
+# 문제
+SELECT _____ AS 'Department',
+        _____ AS 'Employee', 
+        Salary
+FROM Employee
+JOIN Department ON Employee.DepartmentId = Department.Id
+WHERE (_____, _____) IN
+(
+    SELECT _____, _____
+    FROM Employee
+    _____
+);
+
+# 솔루션
 SELECT Department.Name AS 'Department',
         Employee.Name AS 'Employee', 
         Salary
@@ -1143,6 +1200,13 @@ For the player with id 3, 0 + 5 = 5 games played by 2018-07-03.
 Note that for each player we only care about the days when the player logged in.
 */
 
+# 문제
+select a1.player_id, a1.event_date, _____ as games_played_so_far
+from Activity a1 join Activity a2 
+on _____ and _____
+_____
+
+# 솔루션
 select a1.player_id, a1.event_date, sum(a2.games_played) as games_played_so_far
 from Activity a1 join Activity a2 
 on a1.event_date >= a2.event_date and a1.player_id = a2.player_id
@@ -1176,6 +1240,15 @@ Explanation:
 Only the player with id 1 logged back in after the first day he had logged in so the answer is 1/3 = 0.33
 */
 
+# 문제
+select _____( _____(case when _____ then 1 else 0 end)
+             / _____, 2) 
+             as fraction
+from (select player_id, _____ as min_date from activity _____) as temp
+join activity a
+on temp.player_id = a.player_id
+
+# 솔루션
 select round( sum(case when temp.min_date+1 = a.event_date then 1 else 0 end)
              / count(distinct temp.player_id), 2) 
              as fraction
@@ -1209,6 +1282,20 @@ Employee
 +-------+
 */
 
+# 문제
+SELECT
+    Name
+FROM
+    Employee AS t1 JOIN
+    (SELECT
+        ManagerId
+    FROM
+        Employee
+    _____
+    _____) AS t2
+    ON _____
+
+# 솔루션
 SELECT
     Name
 FROM
@@ -1219,8 +1306,7 @@ FROM
         Employee
     GROUP BY ManagerId
     HAVING COUNT(ManagerId) >= 5) AS t2
-    ON t1.Id = t2.ManagerId
-;
+    ON t1.Id = t2.ManagerId;
 
 ```
 
@@ -1263,6 +1349,22 @@ CandidateId is the id appeared in Candidate table.
 +------+
 */
 
+# 문제
+SELECT name AS 'Name'
+FROM 
+    Candidate
+JOIN
+    (
+        SELECT CandidateId
+        FROM Vote
+        _____
+        _____
+        _____
+    ) AS winner
+WHERE
+    Candidate.id = winner.CandidateId;
+
+# 솔루션
 SELECT name AS 'Name'
 FROM 
     Candidate
@@ -1304,6 +1406,14 @@ Explanation:
 question 285 has answer rate 1/1, while question 369 has 0/1 answer rate, so output 285.
 */
 
+# 문제
+SELECT _____ AS survey_log
+FROM survey_log
+GROUP BY _____
+ORDER BY _____/_____ DESC
+LIMIT 1;
+
+# 솔루션
 SELECT question_id AS survey_log
 FROM survey_log
 GROUP BY question_id
@@ -1341,6 +1451,17 @@ The Output should be:
 | Law         | 0              |
 */
 
+# 문제
+SELECT
+    dept_name, _____ AS student_number
+FROM
+    department
+        LEFT JOIN
+    student ON department.dept_id = student.dept_id
+_____
+_____
+
+# 솔루션
 SELECT
     dept_name, COUNT(student_id) AS student_number
 FROM
@@ -1384,6 +1505,32 @@ And its location is the same with the third record, which makes the third record
 So, the result is the sum of TIV_2016 of the first and last record, which is 45.
 */
 
+# 문제
+SELECT
+    _____ AS TIV_2016
+FROM
+    insurance
+WHERE
+    insurance.TIV_2015 IN
+    (
+      SELECT
+        TIV_2015
+      FROM
+        insurance
+      _____
+      _____
+    )
+    AND _____ IN
+    (
+      SELECT
+        _____
+      FROM
+        insurance
+      _____
+      _____
+    );
+
+# 솔루션
 SELECT
     SUM(insurance.TIV_2016) AS TIV_2016
 FROM
