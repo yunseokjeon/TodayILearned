@@ -638,5 +638,53 @@ WHERE
     );
 ```
 
+```SQL
+/*
+https://leetcode.com/problems/friend-requests-ii-who-has-the-most-friends/
 
+602. Friend Requests II: Who Has the Most Friends
+
+Table request_accepted
+
++--------------+-------------+------------+
+| requester_id | accepter_id | accept_date|
+|--------------|-------------|------------|
+| 1            | 2           | 2016_06-03 |
+| 1            | 3           | 2016-06-08 |
+| 2            | 3           | 2016-06-08 |
+| 3            | 4           | 2016-06-09 |
++--------------+-------------+------------+
+This table holds the data of friend acceptance, while requester_id and accepter_id both are the id of a person.
+
+Result table:
++------+------+
+| id   | num  |
+|------|------|
+| 3    | 3    |
++------+------+
+The person with id '3' is a friend of people '1', '2' and '4', so he has 3 friends in total, which is the most number than any others.
+*/
+
+# 문제
+select _____, _____ from 
+(
+      (select _____ _____ from request_accepted) 
+      _____ 
+      (select _____ _____ from request_accepted)
+) tb 
+_____ 
+_____ 
+_____
+
+# 솔루션
+select id, count(*) num from 
+(
+      (select requester_id id from request_accepted) 
+      union all 
+      (select accepter_id id from request_accepted)
+) tb 
+group by id 
+order by num desc 
+limit 1;
+```
 
