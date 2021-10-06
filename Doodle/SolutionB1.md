@@ -688,3 +688,64 @@ order by num desc
 limit 1;
 ```
 
+```SQL
+/*
+https://leetcode.com/problems/tree-node/
+
+608. Tree Node
+
++----+------+
+| id | p_id |
++----+------+
+| 1  | null |
+| 2  | 1    |
+| 3  | 1    |
+| 4  | 2    |
+| 5  | 2    |
++----+------+
+
++----+------+
+| id | Type |
++----+------+
+| 1  | Root |
+| 2  | Inner|
+| 3  | Leaf |
+| 4  | Leaf |
+| 5  | Leaf |
++----+------+
+
+			  1
+			/   \
+          2       3
+        /   \
+      4       5
+*/
+
+# 문제
+SELECT
+    id AS `Id`,
+    CASE
+        WHEN tree.id = _____
+          THEN 'Root'
+        WHEN tree.id IN _____
+          THEN 'Inner'
+        ELSE 'Leaf'
+    END AS Type
+FROM
+    tree
+ORDER BY `Id`;
+
+# 솔루션
+SELECT
+    id AS `Id`,
+    CASE
+        WHEN tree.id = (SELECT atree.id FROM tree atree WHERE atree.p_id IS NULL)
+          THEN 'Root'
+        WHEN tree.id IN (SELECT atree.p_id FROM tree atree)
+          THEN 'Inner'
+        ELSE 'Leaf'
+    END AS Type
+FROM
+    tree
+ORDER BY `Id`;
+```
