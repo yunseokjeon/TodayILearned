@@ -749,3 +749,37 @@ FROM
     tree
 ORDER BY `Id`;
 ```
+
+```SQL
+/*
+https://leetcode.com/problems/shortest-distance-in-a-plane/
+
+612. Shortest Distance in a Plane
+
+| x  | y  |
+|----|----|
+| -1 | -1 |
+| 0  | 0  |
+| -1 | -2 |
+
+| shortest |
+|----------|
+| 1.00     |
+*/
+
+# 문제
+SELECT
+    _____(_____( _____((_____(p1.x - p2.x, 2) + _____(p1.y - p2.y, 2))) ), 2) AS shortest
+FROM
+    point_2d p1
+        JOIN
+    point_2d p2 ON _____ OR _____;
+
+# 솔루션
+SELECT
+    ROUND(SQRT(MIN((POW(p1.x - p2.x, 2) + POW(p1.y - p2.y, 2)))), 2) AS shortest
+FROM
+    point_2d p1
+        JOIN
+    point_2d p2 ON p1.x != p2.x OR p1.y != p2.y;
+```
