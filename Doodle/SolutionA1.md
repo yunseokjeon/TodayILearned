@@ -1122,3 +1122,92 @@ class Solution {
     }
 }
 ```
+
+```Java
+/*
+https://leetcode.com/problems/count-and-say/
+
+38. Count and Say
+
+Input: n = 4
+Output: "1211"
+Explanation:
+countAndSay(1) = "1"
+countAndSay(2) = say "1" = one 1 = "11"
+countAndSay(3) = say "11" = two 1's = "21"
+countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
+
+https://leetcode.com/problems/count-and-say/discuss/15995/Examples-of-nth-sequence
+
+ 1.     1
+ 2.     11
+ 3.     21
+ 4.     1211
+ 5.     111221 
+ 6.     312211
+ 7.     13112221
+ 8.     1113213211
+ 9.     31131211131221
+ 10.   13211311123113112211
+*/
+
+// 문제 
+class Solution {
+    public String countAndSay(int n) {
+        String s = _____
+        for (int i = _____; _____; i++) {
+            s = _____
+        }
+        return s;
+    }
+
+    public String countIdx(String s) {
+        StringBuilder sb = new StringBuilder();
+        char c = _____
+        int count = _____
+        for (int i = _____; _____; i++) {
+            if (_____) {
+                count++;
+            } else {
+                sb.append(_____);
+                sb.append(_____);
+                c = _____
+                count = _____
+            }
+        }
+        sb.append(_____);
+        sb.append(_____);
+        return sb.toString();
+    }
+}
+
+// 솔루션
+class Solution {
+    public String countAndSay(int n) {
+        String s = "1";
+        for (int i = 1; i < n; i++) {
+            s = countIdx(s);
+        }
+        return s;
+    }
+
+    public String countIdx(String s) {
+        StringBuilder sb = new StringBuilder();
+        char c = s.charAt(0);
+        int count = 1;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == c) {
+                count++;
+            } else {
+                sb.append(count);
+                sb.append(c);
+                c = s.charAt(i);
+                count = 1;
+            }
+        }
+        sb.append(count);
+        sb.append(c);
+        return sb.toString();
+    }
+}
+```
