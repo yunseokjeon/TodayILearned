@@ -783,3 +783,47 @@ FROM
         JOIN
     point_2d p2 ON p1.x != p2.x OR p1.y != p2.y;
 ```
+
+```SQL
+/*
+https://leetcode.com/problems/second-degree-follower/
+
+614. Second Degree Follower
+
+For example:
++-------------+------------+
+| followee    | follower   |
++-------------+------------+
+|     A       |     B      |
+|     B       |     C      |
+|     B       |     D      |
+|     D       |     E      |
++-------------+------------+
+
+should output:
++-------------+------------+
+| follower    | num        |
++-------------+------------+
+|     B       |  2         |
+|     D       |  1         |
++-------------+------------+
+
+Explaination:
+Both B and D exist in the follower list, when as a followee, B's follower is C and D, and D's follower is E. A does not exist in follower list.
+*/
+
+# 문제
+Select f1.follower, count(_____ _____) as num
+from follow f1
+inner join follow f2 on f1._____ = f2._____
+Group by _____
+
+
+# 솔루션
+Select f1.follower, count(distinct f2.follower) as num
+from follow f1
+inner join follow f2 on f1.follower = f2.followee
+Group by f1.follower
+```
+
+
