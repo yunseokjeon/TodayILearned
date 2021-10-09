@@ -826,4 +826,64 @@ inner join follow f2 on f1.follower = f2.followee
 Group by f1.follower
 ```
 
+```SQL
+/*
+https://leetcode.com/problems/exchange-seats/solution/
 
+626. Exchange Seats
+
++---------+---------+
+|    id   | student |
++---------+---------+
+|    1    | Abbot   |
+|    2    | Doris   |
+|    3    | Emerson |
+|    4    | Green   |
+|    5    | Jeames  |
++---------+---------+
+For the sample input, the output is:
+
++---------+---------+
+|    id   | student |
++---------+---------+
+|    1    | Doris   |
+|    2    | Abbot   |
+|    3    | Green   |
+|    4    | Emerson |
+|    5    | Jeames  |
++---------+---------+
+*/
+
+# 문제
+SELECT
+    (CASE
+        WHEN _____ != 0 AND _____ THEN id + 1
+        WHEN _____ != 0 AND _____ THEN id
+        ELSE id - 1
+    END) AS id,
+    student
+FROM
+    seat,
+    (SELECT
+        _____ AS counts
+    FROM
+        seat) AS seat_counts
+ORDER BY _____
+
+
+# 솔루션
+SELECT
+    (CASE
+        WHEN MOD(id, 2) != 0 AND counts != id THEN id + 1
+        WHEN MOD(id, 2) != 0 AND counts = id THEN id
+        ELSE id - 1
+    END) AS id,
+    student
+FROM
+    seat,
+    (SELECT
+        COUNT(*) AS counts
+    FROM
+        seat) AS seat_counts
+ORDER BY id;
+```

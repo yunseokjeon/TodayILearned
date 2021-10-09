@@ -1294,3 +1294,135 @@ class Solution {
     }
 }
 ```
+
+```Java
+/*
+https://leetcode.com/problems/combination-sum-ii/
+
+40. Combination Sum II
+
+Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output: 
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]
+*/
+
+// 문제
+class Solution {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        
+        List<List<Integer>> results = new ArrayList<>();
+        LinkedList<Integer> comb = new LinkedList<>();
+        HashMap<Integer, Integer> counter = new HashMap<>();
+
+        for (int candidate : candidates) {
+            if (counter._____)
+                counter.put(candidate, _____);
+            else
+                counter.put(candidate, _____);
+        }
+
+        List<int[]> counterList = new ArrayList<>();
+        counter._____((key, value) -> {
+            counterList.add(new int[]{key, value});
+        });
+
+        backtrack(comb, target, _____, counterList, results);
+        return results;
+    }
+
+    private void backtrack(LinkedList<Integer> comb,
+                           int remain, int curr,
+                           List<int[]> counter,
+                           List<List<Integer>> results) {
+
+        if (_____) {
+            if (_____) {
+                results.add(new ArrayList<Integer>(comb));
+            }
+            return;
+        }
+
+        for (int nextCurr = _____; nextCurr < counter.size(); ++nextCurr) {
+            int[] entry = counter.get(_____);
+            Integer candidate = _____, freq = _____
+
+            if (_____)
+                continue;
+
+            comb.addLast(_____);
+            counter.set(_____, new int[]{_____, _____});
+
+            backtrack(comb, _____, nextCurr, counter, results);
+
+            counter.set(_____, new int[]{_____, _____});
+            comb._____
+        }
+    }
+}
+
+
+// 솔루션
+class Solution {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        // container to hold the final combinations
+        List<List<Integer>> results = new ArrayList<>();
+        LinkedList<Integer> comb = new LinkedList<>();
+
+        HashMap<Integer, Integer> counter = new HashMap<>();
+        for (int candidate : candidates) {
+            if (counter.containsKey(candidate))
+                counter.put(candidate, counter.get(candidate) + 1);
+            else
+                counter.put(candidate, 1);
+        }
+
+        // convert the counter table to a list of (num, count) tuples
+        List<int[]> counterList = new ArrayList<>();
+        counter.forEach((key, value) -> {
+            counterList.add(new int[]{key, value});
+        });
+
+        backtrack(comb, target, 0, counterList, results);
+        return results;
+    }
+
+    private void backtrack(LinkedList<Integer> comb,
+                           int remain, int curr,
+                           List<int[]> counter,
+                           List<List<Integer>> results) {
+
+        if (remain <= 0) {
+            if (remain == 0) {
+                // make a deep copy of the current combination.
+                results.add(new ArrayList<Integer>(comb));
+            }
+            return;
+        }
+
+        for (int nextCurr = curr; nextCurr < counter.size(); ++nextCurr) {
+            int[] entry = counter.get(nextCurr);
+            Integer candidate = entry[0], freq = entry[1];
+
+            if (freq <= 0)
+                continue;
+
+            // add a new element to the current combination
+            comb.addLast(candidate);
+            counter.set(nextCurr, new int[]{candidate, freq - 1});
+
+            // continue the exploration with the updated combination
+            backtrack(comb, remain - candidate, nextCurr, counter, results);
+
+            // backtrack the changes, so that we can try another candidate
+            counter.set(nextCurr, new int[]{candidate, freq});
+            comb.removeLast();
+        }
+    }
+}
+```
+
