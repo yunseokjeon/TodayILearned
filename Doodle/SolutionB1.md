@@ -887,3 +887,51 @@ FROM
         seat) AS seat_counts
 ORDER BY id;
 ```
+
+```SQL
+/*
+https://leetcode.com/problems/customers-who-bought-all-products/
+
+1045. Customers Who Bought All Products
+
+Customer table:
++-------------+-------------+
+| customer_id | product_key |
++-------------+-------------+
+| 1           | 5           |
+| 2           | 6           |
+| 3           | 5           |
+| 3           | 6           |
+| 1           | 6           |
++-------------+-------------+
+
+Product table:
++-------------+
+| product_key |
++-------------+
+| 5           |
+| 6           |
++-------------+
+
+Result table:
++-------------+
+| customer_id |
++-------------+
+| 1           |
+| 3           |
++-------------+
+The customers who bought all the products (5 and 6) are customers with id 1 and 3.
+*/
+
+# 문제
+select customer_id
+from customer 
+group by customer_id
+having count(_____ _____)=(select count(_____ _____) from product)
+
+# 솔루션
+select customer_id
+from customer 
+group by customer_id
+having count(distinct product_key)=(select count(distinct product_key) from product)
+```
