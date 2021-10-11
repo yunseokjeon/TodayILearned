@@ -1425,4 +1425,47 @@ class Solution {
     }
 }
 ```
+```Java
+/*
+https://leetcode.com/problems/jump-game-ii/
 
+45. Jump Game II
+
+Input: nums = [2,3,1,1,4]
+Output: 2
+Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
+*/
+
+// 문제
+class Solution {
+    public int jump(int[] nums) {
+        int jumps = 0, currentJumpEnd = 0, farthest = 0;
+        for (int i = 0; i < _____; i++) {     
+            farthest = Math.max(farthest, _____);
+            if (i == currentJumpEnd) {
+                _____
+                currentJumpEnd = _____
+            }
+        }
+        return jumps;
+    }
+}
+
+// 솔루션
+class Solution {
+    public int jump(int[] nums) {
+        int jumps = 0, currentJumpEnd = 0, farthest = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            // we continuously find the how far we can reach in the current jump
+            farthest = Math.max(farthest, i + nums[i]);
+            // if we have come to the end of the current jump,
+            // we need to make another jump
+            if (i == currentJumpEnd) {
+                jumps++;
+                currentJumpEnd = farthest;
+            }
+        }
+        return jumps;
+    }
+}
+```
