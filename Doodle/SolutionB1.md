@@ -985,3 +985,465 @@ SELECT product_id, MIN(year) as year
 FROM Sales
 GROUP BY product_id);
 ```
+
+```SQL
+/*
+https://leetcode.com/problems/project-employees-iii/
+
+1077. Project Employees III
+
+Project table:
++-------------+-------------+
+| project_id  | employee_id |
++-------------+-------------+
+| 1           | 1           |
+| 1           | 2           |
+| 1           | 3           |
+| 2           | 1           |
+| 2           | 4           |
++-------------+-------------+
+
+Employee table:
++-------------+--------+------------------+
+| employee_id | name   | experience_years |
++-------------+--------+------------------+
+| 1           | Khaled | 3                |
+| 2           | Ali    | 2                |
+| 3           | John   | 3                |
+| 4           | Doe    | 2                |
++-------------+--------+------------------+
+
+Result table:
++-------------+---------------+
+| project_id  | employee_id   |
++-------------+---------------+
+| 1           | 1             |
+| 1           | 3             |
+| 2           | 1             |
++-------------+---------------+
+Both employees with id 1 and 3 have the most experience among the employees of the first project. For the second project, the employee with id 1 has the most experience.
+*/
+
+# 문제
+SELECT p1.project_id, p1.employee_id
+FROM Project p1 JOIN Employee e1 ON p1._____ = e1._____
+    JOIN (
+        SELECT _____ AS project_id, MAX(_____) AS m
+        FROM Project p2 JOIN Employee e2 ON p2.employee_id = e2.employee_id
+        GROUP BY p2.project_id
+        ) AS t ON p1._____ = t._____
+WHERE e1._____ = t._____
+
+# 솔루션
+SELECT p1.project_id, p1.employee_id
+FROM Project p1 JOIN Employee e1 ON p1.employee_id = e1.employee_id
+    JOIN (
+        SELECT p2.project_id AS project_id, MAX(e2.experience_years) AS m
+        FROM Project p2 JOIN Employee e2 ON p2.employee_id = e2.employee_id
+        GROUP BY p2.project_id
+        ) AS t ON p1.project_id = t.project_id
+WHERE e1.experience_years = t.m
+```
+
+```SQL
+/*
+https://leetcode.com/problems/unpopular-books/
+
+1098. Unpopular Books
+
+Books table:
++---------+--------------------+----------------+
+| book_id | name               | available_from |
++---------+--------------------+----------------+
+| 1       | "Kalila And Demna" | 2010-01-01     |
+| 2       | "28 Letters"       | 2012-05-12     |
+| 3       | "The Hobbit"       | 2019-06-10     |
+| 4       | "13 Reasons Why"   | 2019-06-01     |
+| 5       | "The Hunger Games" | 2008-09-21     |
++---------+--------------------+----------------+
+
+Orders table:
++----------+---------+----------+---------------+
+| order_id | book_id | quantity | dispatch_date |
++----------+---------+----------+---------------+
+| 1        | 1       | 2        | 2018-07-26    |
+| 2        | 1       | 1        | 2018-11-05    |
+| 3        | 3       | 8        | 2019-06-11    |
+| 4        | 4       | 6        | 2019-06-05    |
+| 5        | 4       | 5        | 2019-06-20    |
+| 6        | 5       | 9        | 2009-02-02    |
+| 7        | 5       | 8        | 2010-04-13    |
++----------+---------+----------+---------------+
+
+Result table:
++-----------+--------------------+
+| book_id   | name               |
++-----------+--------------------+
+| 1         | "Kalila And Demna" |
+| 2         | "28 Letters"       |
+| 5         | "The Hunger Games" |
++-----------+--------------------+
+*/
+
+# 문제
+select b.book_id, b.name from
+(select * from books where _____ < '2019-05-23') b
+_____ join
+(select * from Orders where _____ > '2018-06-23') o
+on b._____ = o._____
+group by b.book_id, b.name
+having sum(o._____) is null or sum(o._____) <10;
+
+# 솔루션
+select b.book_id, b.name from
+(select * from books where available_from < '2019-05-23') b
+left join
+(select * from Orders where dispatch_date > '2018-06-23') o
+on b.book_id = o.book_id
+group by b.book_id, b.name
+having sum(o.quantity) is null or sum(o.quantity) <10;
+```
+
+```SQL
+/*
+https://leetcode.com/problems/new-users-daily-count/
+
+1107. New Users Daily Count
+
+Traffic table:
++---------+----------+---------------+
+| user_id | activity | activity_date |
++---------+----------+---------------+
+| 1       | login    | 2019-05-01    |
+| 1       | homepage | 2019-05-01    |
+| 1       | logout   | 2019-05-01    |
+| 2       | login    | 2019-06-21    |
+| 2       | logout   | 2019-06-21    |
+| 3       | login    | 2019-01-01    |
+| 3       | jobs     | 2019-01-01    |
+| 3       | logout   | 2019-01-01    |
+| 4       | login    | 2019-06-21    |
+| 4       | groups   | 2019-06-21    |
+| 4       | logout   | 2019-06-21    |
+| 5       | login    | 2019-03-01    |
+| 5       | logout   | 2019-03-01    |
+| 5       | login    | 2019-06-21    |
+| 5       | logout   | 2019-06-21    |
++---------+----------+---------------+
+
+Result table:
++------------+-------------+
+| login_date | user_count  |
++------------+-------------+
+| 2019-05-01 | 1           |
+| 2019-06-21 | 2           |
++------------+-------------+
+Note that we only care about dates with non zero user count.
+The user with id 5 first logged in on 2019-03-01 so he's not counted on 2019-06-21.
+*/
+
+# 문제
+select login_date, _____ user_count
+from
+(select user_id, _____(activity_date) login_date
+from traffic
+where activity = 'login'
+group by _____) a
+where _____ between _____('2019-06-30', interval -90 day) and '2019-06-30'
+group by login_date
+
+# 솔루션
+select login_date, count(1) user_count
+from
+(select user_id, min(activity_date) login_date
+from traffic
+where activity = 'login'
+group by user_id) a
+where login_date between date_add('2019-06-30', interval -90 day) and '2019-06-30'
+group by login_date
+```
+
+```SQL
+/*
+https://leetcode.com/problems/highest-grade-for-each-student/
+
+1112. Highest Grade For Each Student
+
+Enrollments table:
++------------+-------------------+
+| student_id | course_id | grade |
++------------+-----------+-------+
+| 2          | 2         | 95    |
+| 2          | 3         | 95    |
+| 1          | 1         | 90    |
+| 1          | 2         | 99    |
+| 3          | 1         | 80    |
+| 3          | 2         | 75    |
+| 3          | 3         | 82    |
++------------+-----------+-------+
+
+Result table:
++------------+-------------------+
+| student_id | course_id | grade |
++------------+-----------+-------+
+| 1          | 2         | 99    |
+| 2          | 2         | 95    |
+| 3          | 3         | 82    |
++------------+-----------+-------+
+*/
+
+# 문제
+SELECT student_id, _____(course_id) AS course_id, grade
+FROM Enrollments
+WHERE (student_id, grade) IN
+(SELECT student_id, _____(grade)
+FROM Enrollments
+GROUP BY student_id)
+GROUP BY student_id, grade
+ORDER BY student_id
+
+# 솔루션
+SELECT student_id, MIN(course_id) AS course_id, grade
+FROM Enrollments
+WHERE (student_id, grade) IN
+(SELECT student_id, MAX(grade)
+FROM Enrollments
+GROUP BY student_id)
+GROUP BY student_id, grade
+ORDER BY student_id
+```
+
+```SQL
+/*
+https://leetcode.com/problems/active-businesses/
+
+1126. Active Businesses
+
+Events table:
++-------------+------------+------------+
+| business_id | event_type | occurences |
++-------------+------------+------------+
+| 1           | reviews    | 7          |
+| 3           | reviews    | 3          |
+| 1           | ads        | 11         |
+| 2           | ads        | 7          |
+| 3           | ads        | 6          |
+| 1           | page views | 3          |
+| 2           | page views | 12         |
++-------------+------------+------------+
+
+Result table:
++-------------+
+| business_id |
++-------------+
+| 1           |
++-------------+ 
+The average activity for each event can be calculated as follows:
+- 'reviews': (7+3)/2 = 5
+- 'ads': (11+7+6)/3 = 8
+- 'page views': (3+12)/2 = 7.5
+The business with id=1 has 7 'reviews' events (more than 5) and 11 'ads' events (more than 8), so it is an active business.
+*/
+
+# 문제
+select business_id                                      
+from
+(select event_type, _____(occurences) as ave_occurences   
+ from events as e1
+ group by _____
+) as temp1
+join events as e2 on temp1.event_type = e2.event_type   
+where e2._____ > temp1._____             
+group by business_id
+having count(distinct _____) > 1    
+
+# 솔루션
+select business_id                                      
+# Finally, select 'business_id'
+from
+(select event_type, avg(occurences) as ave_occurences   
+# First, take the average of 'occurences' group by 'event_type'
+ from events as e1
+ group by event_type
+) as temp1
+join events as e2 on temp1.event_type = e2.event_type   
+# Second, join Events table on 'event_type'
+where e2.occurences > temp1.ave_occurences              
+# Third, the 'occurences' should be greater than the average of 'occurences'
+group by business_id
+having count(distinct temp1.event_type) > 1             
+# (More than one event type with 'occurences' greater than 1)
+```
+
+```SQL
+/*
+https://leetcode.com/problems/reported-posts-ii/
+
+1132. Reported Posts II
+
+Actions table:
++---------+---------+-------------+--------+--------+
+| user_id | post_id | action_date | action | extra  |
++---------+---------+-------------+--------+--------+
+| 1       | 1       | 2019-07-01  | view   | null   |
+| 1       | 1       | 2019-07-01  | like   | null   |
+| 1       | 1       | 2019-07-01  | share  | null   |
+| 2       | 2       | 2019-07-04  | view   | null   |
+| 2       | 2       | 2019-07-04  | report | spam   |
+| 3       | 4       | 2019-07-04  | view   | null   |
+| 3       | 4       | 2019-07-04  | report | spam   |
+| 4       | 3       | 2019-07-02  | view   | null   |
+| 4       | 3       | 2019-07-02  | report | spam   |
+| 5       | 2       | 2019-07-03  | view   | null   |
+| 5       | 2       | 2019-07-03  | report | racism |
+| 5       | 5       | 2019-07-03  | view   | null   |
+| 5       | 5       | 2019-07-03  | report | racism |
++---------+---------+-------------+--------+--------+
+
+Removals table:
++---------+-------------+
+| post_id | remove_date |
++---------+-------------+
+| 2       | 2019-07-20  |
+| 3       | 2019-07-18  |
++---------+-------------+
+
+Result table:
++-----------------------+
+| average_daily_percent |
++-----------------------+
+| 75.00                 |
++-----------------------+
+The percentage for 2019-07-04 is 50% because only one post of two spam reported posts was removed.
+The percentage for 2019-07-02 is 100% because one post was reported as spam and it was removed.
+The other days had no spam reports so the average is (50 + 100) / 2 = 75%
+Note that the output is only one number and that we do not care about the remove dates.
+*/
+
+# 문제
+SELECT ROUND(_____(cnt), 2) AS average_daily_percent FROM
+(SELECT (COUNT(DISTINCT _____.post_id)/ COUNT(DISTINCT _____.post_id))*100  AS cnt
+FROM Actions a
+LEFT JOIN Removals r
+ON a._____ = r._____
+WHERE extra='_____'
+GROUP BY action_date) tmp
+
+# 솔루션
+SELECT ROUND(AVG(cnt), 2) AS average_daily_percent FROM
+(SELECT (COUNT(DISTINCT r.post_id)/ COUNT(DISTINCT a.post_id))*100  AS cnt
+FROM Actions a
+LEFT JOIN Removals r
+ON a.post_id = r.post_id
+WHERE extra='spam'
+GROUP BY action_date) tmp
+```
+
+```SQL
+/*
+https://leetcode.com/problems/article-views-ii/
+
+1149. Article Views II
+
+Views table:
++------------+-----------+-----------+------------+
+| article_id | author_id | viewer_id | view_date  |
++------------+-----------+-----------+------------+
+| 1          | 3         | 5         | 2019-08-01 |
+| 3          | 4         | 5         | 2019-08-01 |
+| 1          | 3         | 6         | 2019-08-02 |
+| 2          | 7         | 7         | 2019-08-01 |
+| 2          | 7         | 6         | 2019-08-02 |
+| 4          | 7         | 1         | 2019-07-22 |
+| 3          | 4         | 4         | 2019-07-21 |
+| 3          | 4         | 4         | 2019-07-21 |
++------------+-----------+-----------+------------+
+
+Result table:
++------+
+| id   |
++------+
+| 5    |
+| 6    |
++------+
+*/
+
+# 문제
+SELECT DISTINCT viewer_id AS id
+FROM Views
+GROUP BY _____, _____
+HAVING COUNT(DISTINCT _____) > 1
+ORDER BY 1
+
+# 솔루션
+SELECT DISTINCT viewer_id AS id
+FROM Views
+GROUP BY viewer_id, view_date
+HAVING COUNT(DISTINCT article_id) > 1
+ORDER BY 1
+```
+
+```SQL
+/*
+https://leetcode.com/problems/market-analysis-i/
+
+1158. Market Analysis I
+
+Users table:
++---------+------------+----------------+
+| user_id | join_date  | favorite_brand |
++---------+------------+----------------+
+| 1       | 2018-01-01 | Lenovo         |
+| 2       | 2018-02-09 | Samsung        |
+| 3       | 2018-01-19 | LG             |
+| 4       | 2018-05-21 | HP             |
++---------+------------+----------------+
+
+Orders table:
++----------+------------+---------+----------+-----------+
+| order_id | order_date | item_id | buyer_id | seller_id |
++----------+------------+---------+----------+-----------+
+| 1        | 2019-08-01 | 4       | 1        | 2         |
+| 2        | 2018-08-02 | 2       | 1        | 3         |
+| 3        | 2019-08-03 | 3       | 2        | 3         |
+| 4        | 2018-08-04 | 1       | 4        | 2         |
+| 5        | 2018-08-04 | 1       | 3        | 4         |
+| 6        | 2019-08-05 | 2       | 2        | 4         |
++----------+------------+---------+----------+-----------+
+
+Items table:
++---------+------------+
+| item_id | item_brand |
++---------+------------+
+| 1       | Samsung    |
+| 2       | Lenovo     |
+| 3       | LG         |
+| 4       | HP         |
++---------+------------+
+
+Result table:
++-----------+------------+----------------+
+| buyer_id  | join_date  | orders_in_2019 |
++-----------+------------+----------------+
+| 1         | 2018-01-01 | 1              |
+| 2         | 2018-02-09 | 2              |
+| 3         | 2018-01-19 | 0              |
+| 4         | 2018-05-21 | 0              |
++-----------+------------+----------------+
+*/
+
+# 문제
+SELECT user_id AS buyer_id, join_date, IFNULL(_____(o.order_id),0) AS orders_in_2019
+FROM Users u
+LEFT JOIN Orders o ON u._____ = o._____ AND _____(order_date)='2019'
+GROUP BY user_id
+ORDER BY user_id
+
+# 솔루션
+SELECT user_id AS buyer_id, join_date, IFNULL(COUNT(o.order_id),0) AS orders_in_2019
+FROM Users u
+LEFT JOIN Orders o ON u.user_id = o.buyer_id AND YEAR(order_date)='2019'
+GROUP BY user_id
+ORDER BY user_id
+```
+
