@@ -1545,3 +1545,274 @@ class Solution {
 }
 
 ```
+
+```Java
+/*
+https://leetcode.com/problems/permutations-ii/
+
+47. Permutations II
+
+Input: nums = [1,1,2]
+Output:
+[[1,1,2],
+ [1,2,1],
+ [2,1,1]]
+*/
+
+// 문제
+class Solution {
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> results = new ArrayList<>();
+        HashMap<Integer, Integer> counter = new HashMap<>();
+
+        for (int num : nums) {
+            if (!counter._____)
+                counter.put(num, _____);
+            counter.put(num, _____);
+        }
+
+        LinkedList<Integer> comb = new LinkedList<>();
+        this.backtrack(comb, nums.length, counter, results);
+        return results;
+    }
+
+    protected void backtrack(
+            LinkedList<Integer> comb,
+            Integer N,
+            HashMap<Integer, Integer> counter,
+            List<List<Integer>> results) {
+
+        if (_____) {
+            results.add(_____(comb));
+            return;
+        }
+
+        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
+            Integer num = entry._____
+            Integer count = entry._____
+            if (_____)
+                continue;
+
+            comb.addLast(_____);
+            counter.put(num, _____);
+
+            backtrack(comb, N, counter, results);
+
+            comb._____
+            counter._____
+        }
+    }
+}
+
+
+// 솔루션
+class Solution {
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> results = new ArrayList<>();
+
+        // count the occurrence of each number
+        HashMap<Integer, Integer> counter = new HashMap<>();
+        for (int num : nums) {
+            if (!counter.containsKey(num))
+                counter.put(num, 0);
+            counter.put(num, counter.get(num) + 1);
+        }
+
+        LinkedList<Integer> comb = new LinkedList<>();
+        this.backtrack(comb, nums.length, counter, results);
+        return results;
+    }
+
+    protected void backtrack(
+            LinkedList<Integer> comb,
+            Integer N,
+            HashMap<Integer, Integer> counter,
+            List<List<Integer>> results) {
+
+        if (comb.size() == N) {
+            // make a deep copy of the resulting permutation,
+            // since the permutation would be backtracked later.
+            results.add(new ArrayList<Integer>(comb));
+            return;
+        }
+
+        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
+            Integer num = entry.getKey();
+            Integer count = entry.getValue();
+            if (count == 0)
+                continue;
+            // add this number into the current combination
+            comb.addLast(num);
+            counter.put(num, count - 1);
+
+            // continue the exploration
+            backtrack(comb, N, counter, results);
+
+            // revert the choice for the next exploration
+            comb.removeLast();
+            counter.put(num, count);
+        }
+    }
+}
+
+```
+
+```Java
+/*
+https://leetcode.com/problems/rotate-image/
+
+48. Rotate Image
+
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [[7,4,1],[8,5,2],[9,6,3]]
+*/
+
+// 문제
+class Solution {
+    public void rotate(int[][] matrix) {
+        transpose(matrix);
+        reflect(matrix);
+    }
+
+    public void transpose(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < _____; i++) {
+            for (int j = _____; j < _____; j++) {
+                int tmp = matrix[_][_];
+                matrix[_][_] = matrix[_][_];
+                matrix[_][_] = tmp;
+            }
+        }
+    }
+
+    public void reflect(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < _____; i++) {
+            for (int j = 0; j < _____; j++) {
+                int tmp = matrix[_][_];
+                matrix[_][_] = matrix[_][_];
+                matrix[_][_] = tmp;
+            }
+        }
+    }
+}
+
+// 솔루션
+class Solution {
+    public void rotate(int[][] matrix) {
+        transpose(matrix);
+        reflect(matrix);
+    }
+
+    public void transpose(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int tmp = matrix[j][i];
+                matrix[j][i] = matrix[i][j];
+                matrix[i][j] = tmp;
+            }
+        }
+    }
+
+    public void reflect(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n / 2; j++) {
+                int tmp = matrix[i][j];
+                matrix[i][j] = matrix[i][n - j - 1];
+                matrix[i][n - j - 1] = tmp;
+            }
+        }
+    }
+}
+```
+
+```Java
+/*
+https://leetcode.com/problems/group-anagrams/
+
+49. Group Anagrams
+
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+*/
+
+// 문제
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if (_____)
+            return new ArrayList();
+        Map<String, List> ans = new HashMap<>();
+        for (String s : strs) {
+            char[] ca = s._____
+            Arrays._____
+            String key = String._____
+            if (!ans._____)
+                ans.put(_____, new ArrayList());
+            ans.get(_____).add(_____);
+        }
+        return new ArrayList(ans._____);
+    }
+}
+
+// 솔루션
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if (strs.length == 0)
+            return new ArrayList();
+        Map<String, List> ans = new HashMap<>();
+        for (String s : strs) {
+            char[] ca = s.toCharArray();
+            Arrays.sort(ca);
+            String key = String.valueOf(ca);
+            if (!ans.containsKey(key))
+                ans.put(key, new ArrayList());
+            ans.get(key).add(s);
+        }
+        return new ArrayList(ans.values());
+    }
+}
+```
+
+```Java
+/*
+
+*/
+
+// 문제
+
+// 솔루션
+```
+
+```Java
+/*
+
+*/
+
+// 문제
+
+// 솔루션
+```
+
+```Java
+/*
+
+*/
+
+// 문제
+
+// 솔루션
+```
+
+```Java
+/*
+
+*/
+
+// 문제
+
+// 솔루션
+```
