@@ -1779,12 +1779,202 @@ class Solution {
 
 ```Java
 /*
+https://leetcode.com/problems/powx-n/
 
+50. Pow(x, n)
+
+Input: x = 2.00000, n = 10
+Output: 1024.00000
 */
 
 // 문제
+class Solution {
+    private double fastPow(double x, long n) {
+        if (_____) {
+            return 1.0;
+        }
+        double half = fastPow(x, _____);
+        if (_____) {
+            return half * half;
+        } else {
+            return half * half * x;
+        }
+    }
+
+    public double myPow(double x, int n) {
+        long N = n;
+        if (N < 0) {
+            x = _____
+            N = _____
+        }
+        return fastPow(x, N);
+    }
+}
 
 // 솔루션
+class Solution {
+    private double fastPow(double x, long n) {
+        if (n == 0) {
+            return 1.0;
+        }
+        double half = fastPow(x, n / 2);
+        if (n % 2 == 0) {
+            return half * half;
+        } else {
+            return half * half * x;
+        }
+    }
+
+    public double myPow(double x, int n) {
+        long N = n;
+        if (N < 0) {
+            x = 1 / x;
+            N = -N;
+        }
+        return fastPow(x, N);
+    }
+}
+```
+
+```Java
+/*
+https://leetcode.com/problems/spiral-matrix/
+
+54. Spiral Matrix
+
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+*/
+
+// 문제
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        int up = _____
+        int left = _____
+        int right = _____
+        int down = _____
+
+        while (result.size() < _____) {
+           
+            for (int col = _____; col _____ right; col++) {
+                result.add(matrix[up][col]);
+            }
+            
+            for (int row = _____; row _____ down; row++) {
+                result.add(matrix[row][right]);
+            }
+            
+            if (up _____ down) {
+                
+                for (int col = _____; col _____ left; col--) {
+                    result.add(matrix[down][col]);
+                }
+            }
+            
+            if (left _____ right) {
+                
+                for (int row = _____; row _____ up; row--) {
+                    result.add(matrix[row][left]);
+                }
+            }
+            left++;
+            right--;
+            up++;
+            down--;
+        }
+
+        return result;
+    }
+}
+
+
+// 솔루션
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        int up = 0;
+        int left = 0;
+        int right = columns - 1;
+        int down = rows - 1;
+
+        while (result.size() < rows * columns) {
+            // Traverse from left to right.
+            for (int col = left; col <= right; col++) {
+                result.add(matrix[up][col]);
+            }
+            // Traverse downwards.
+            for (int row = up + 1; row <= down; row++) {
+                result.add(matrix[row][right]);
+            }
+            // Make sure we are now on a different row.
+            if (up != down) {
+                // Traverse from right to left.
+                for (int col = right - 1; col >= left; col--) {
+                    result.add(matrix[down][col]);
+                }
+            }
+            // Make sure we are now on a different column.
+            if (left != right) {
+                // Traverse upwards.
+                for (int row = down - 1; row > up; row--) {
+                    result.add(matrix[row][left]);
+                }
+            }
+            left++;
+            right--;
+            up++;
+            down--;
+        }
+
+        return result;
+    }
+}
+
+```
+
+```Java
+/*
+https://leetcode.com/problems/jump-game/
+
+55. Jump Game
+
+Input: nums = [3,2,1,0,4]
+Output: false
+Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+*/
+
+// 문제
+class Solution {
+    public boolean canJump(int[] A) {
+        int max = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (_____) {
+                return false;
+            }
+            max = Math.max(_____, max);
+        }
+        return true;
+    }
+}
+
+// 솔루션
+class Solution {
+    public boolean canJump(int[] A) {
+        int max = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (i > max) {
+                return false;
+            }
+            max = Math.max(A[i] + i, max);
+        }
+        return true;
+    }
+}
 ```
 
 ```Java
@@ -1816,3 +2006,15 @@ class Solution {
 
 // 솔루션
 ```
+
+```Java
+/*
+
+*/
+
+// 문제
+
+// 솔루션
+```
+
+
