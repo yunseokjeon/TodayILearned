@@ -1512,6 +1512,146 @@ group by product_id)
 
 ```SQL
 /*
+https://leetcode.com/problems/immediate-food-delivery-ii/
+
+1174. Immediate Food Delivery II
+
+Delivery table:
++-------------+-------------+------------+-----------------------------+
+| delivery_id | customer_id | order_date | customer_pref_delivery_date |
++-------------+-------------+------------+-----------------------------+
+| 1           | 1           | 2019-08-01 | 2019-08-02                  |
+| 2           | 2           | 2019-08-02 | 2019-08-02                  |
+| 3           | 1           | 2019-08-11 | 2019-08-12                  |
+| 4           | 3           | 2019-08-24 | 2019-08-24                  |
+| 5           | 3           | 2019-08-21 | 2019-08-22                  |
+| 6           | 2           | 2019-08-11 | 2019-08-13                  |
+| 7           | 4           | 2019-08-09 | 2019-08-09                  |
++-------------+-------------+------------+-----------------------------+
+
+Result table:
++----------------------+
+| immediate_percentage |
++----------------------+
+| 50.00                |
++----------------------+
+The customer id 1 has a first order with delivery id 1 and it is scheduled.
+The customer id 2 has a first order with delivery id 2 and it is immediate.
+The customer id 3 has a first order with delivery id 5 and it is scheduled.
+The customer id 4 has a first order with delivery id 7 and it is immediate.
+Hence, half the customers have immediate first orders.
+*/
+
+# 문제
+SELECT
+    ROUND(100 * _____(CASE WHEN _____ = _____ THEN 1
+    ELSE 0 END)/ COUNT(distinct customer_id) ,2) AS immediate_percentage
+FROM
+    Delivery
+WHERE
+    (customer_id, order_date)
+IN
+(SELECT
+    customer_id, _____ as min_date
+FROM
+    Delivery
+GROUP BY
+    _____
+);
+
+# 솔루션
+SELECT
+    ROUND(100*SUM(CASE WHEN order_date = customer_pref_delivery_date THEN 1
+    ELSE 0 END)/ COUNT(distinct customer_id) ,2) AS immediate_percentage
+FROM
+    Delivery
+WHERE
+    (customer_id, order_date)
+IN
+(SELECT
+    customer_id, min(order_date) as min_date
+FROM
+    Delivery
+GROUP BY
+    customer_id
+);
+```
+
+```SQL
+/*
+https://leetcode.com/problems/monthly-transactions-i/
+
+1193. Monthly Transactions I
+
+Transactions table:
++------+---------+----------+--------+------------+
+| id   | country | state    | amount | trans_date |
++------+---------+----------+--------+------------+
+| 121  | US      | approved | 1000   | 2018-12-18 |
+| 122  | US      | declined | 2000   | 2018-12-19 |
+| 123  | US      | approved | 2000   | 2019-01-01 |
+| 124  | DE      | approved | 2000   | 2019-01-07 |
++------+---------+----------+--------+------------+
+
+Result table:
++----------+---------+-------------+----------------+--------------------+-----------------------+
+| month    | country | trans_count | approved_count | trans_total_amount | approved_total_amount |
++----------+---------+-------------+----------------+--------------------+-----------------------+
+| 2018-12  | US      | 2           | 1              | 3000               | 1000                  |
+| 2019-01  | US      | 1           | 1              | 2000               | 2000                  |
+| 2019-01  | DE      | 1           | 1              | 2000               | 2000                  |
++----------+---------+-------------+----------------+--------------------+-----------------------+
+*/
+
+# 문제
+SELECT 
+_____(trans_date, _____) AS month, country, 
+COUNT(id) AS trans_count, 
+SUM(state = _____) AS approved_count, 
+SUM(amount) AS trans_total_amount, 
+SUM(CASE 
+    WHEN state = _____ THEN _____ 
+    ELSE 0 
+    END) AS approved_total_amount
+FROM Transactions
+GROUP BY month, country
+
+# 솔루션
+SELECT 
+LEFT(trans_date, 7) AS month, country, 
+COUNT(id) AS trans_count, 
+SUM(state = 'approved') AS approved_count, 
+SUM(amount) AS trans_total_amount, 
+SUM(CASE 
+    WHEN state = 'approved' THEN amount 
+    ELSE 0 
+    END) AS approved_total_amount
+FROM Transactions
+GROUP BY month, country
+```
+
+```SQL
+/*
+
+*/
+
+# 문제
+
+# 솔루션
+```
+
+```SQL
+/*
+
+*/
+
+# 문제
+
+# 솔루션
+```
+
+```SQL
+/*
 
 */
 
