@@ -1979,12 +1979,144 @@ class Solution {
 
 ```Java
 /*
+https://leetcode.com/problems/merge-intervals/
 
+56. Merge Intervals
+
+Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
+Output: [[1,6],[8,10],[15,18]]
+Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].
 */
 
 // 문제
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> Integer._____(_____, _____));
+        LinkedList<int[]> merged = new LinkedList<>();
+        for (int[] interval : intervals) {
+           
+            if (merged._____ || merged._____ < interval[_____]) {
+                merged.add(interval);
+            }
+            
+            else {
+                merged._____ = Math.max(merged._____, interval[_____]);
+            }
+        }
+        return merged._____(new int[merged.size()][]);
+    }
+}
+
 
 // 솔루션
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        LinkedList<int[]> merged = new LinkedList<>();
+        for (int[] interval : intervals) {
+            // if the list of merged intervals is empty or if the current
+            // interval does not overlap with the previous, simply append it.
+            if (merged.isEmpty() || merged.getLast()[1] < interval[0]) {
+                merged.add(interval);
+            }
+            // otherwise, there is overlap, so we merge the current and previous
+            // intervals.
+            else {
+                merged.getLast()[1] = Math.max(merged.getLast()[1], interval[1]);
+            }
+        }
+        return merged.toArray(new int[merged.size()][]);
+    }
+}
+
+```
+
+```Java
+/*
+https://leetcode.com/problems/insert-interval/
+
+57. Insert Interval
+
+Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
+Output: [[1,5],[6,9]]
+*/
+
+// 문제
+class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        
+        int newStart = newInterval[0], newEnd = newInterval[1];
+        int idx = 0, n = intervals.length;
+        LinkedList<int[]> output = new LinkedList<>();
+
+        while (idx < n && newStart > intervals_____)
+            output.add(intervals[_____]);
+
+        int[] interval = new int[_____];
+        if (output._____ || output._____ < newStart)
+            output.add(newInterval);
+        else {
+            interval = output._____
+            interval[1] = Math.max(interval[1], _____);
+            output.add(interval);
+        }
+
+        while (idx < _____) {
+            interval = intervals[idx++];
+            int start = interval[0], end = interval[1];
+           
+            if (output._____ < start) output.add(interval);
+               
+            else {
+                interval = output._____
+                interval[1] = Math.max(interval[1], _____);
+                output.add(interval);
+            }
+        }
+        return output.toArray(new int[_____][2]);
+    }
+}
+
+// 솔루션
+class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        // init data
+        int newStart = newInterval[0], newEnd = newInterval[1];
+        int idx = 0, n = intervals.length;
+        LinkedList<int[]> output = new LinkedList<>();
+
+        // add all intervals starting before newInterval
+        while (idx < n && newStart > intervals[idx][0])
+            output.add(intervals[idx++]);
+
+        // add newInterval
+        int[] interval = new int[2];
+        // if there is no overlap, just add the interval
+        if (output.isEmpty() || output.getLast()[1] < newStart)
+            output.add(newInterval);
+            // if there is an overlap, merge with the last interval
+        else {
+            interval = output.removeLast();
+            interval[1] = Math.max(interval[1], newEnd);
+            output.add(interval);
+        }
+
+        // add next intervals, merge with newInterval if needed
+        while (idx < n) {
+            interval = intervals[idx++];
+            int start = interval[0], end = interval[1];
+            // if there is no overlap, just add an interval
+            if (output.getLast()[1] < start) output.add(interval);
+                // if there is an overlap, merge with the last interval
+            else {
+                interval = output.removeLast();
+                interval[1] = Math.max(interval[1], end);
+                output.add(interval);
+            }
+        }
+        return output.toArray(new int[output.size()][2]);
+    }
+}
 ```
 
 ```Java
@@ -2017,4 +2149,13 @@ class Solution {
 // 솔루션
 ```
 
+```Java
+/*
+
+*/
+
+// 문제
+
+// 솔루션
+```
 
