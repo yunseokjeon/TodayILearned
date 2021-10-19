@@ -2121,12 +2121,77 @@ class Solution {
 
 ```Java
 /*
+https://leetcode.com/problems/rotate-list/
 
+61. Rotate List
+
+Input: head = [1,2,3,4,5], k = 2
+Output: [4,5,1,2,3]
 */
 
 // 문제
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        
+        if (_____ == null) return null;
+        if (h_____ == null) return head;
+
+        ListNode old_tail = _____
+        int n;
+        for(n = 1; _____ != null; n++)
+            old_tail = old_tail.next;
+        old_tail.next = _____
+
+        ListNode new_tail = _____
+        for (int i = 0; i < _____; i++)
+            new_tail = new_tail.next;
+        ListNode new_head = _____
+
+        new_tail.next = _____
+
+        return new_head;
+    }
+}
 
 // 솔루션
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        // base cases
+        if (head == null) return null;
+        if (head.next == null) return head;
+
+        // close the linked list into the ring
+        ListNode old_tail = head;
+        int n;
+        for(n = 1; old_tail.next != null; n++)
+            old_tail = old_tail.next;
+        old_tail.next = head;
+
+        // find new tail : (n - k % n - 1)th node
+        // and new head : (n - k % n)th node
+        ListNode new_tail = head;
+        for (int i = 0; i < n - k % n - 1; i++)
+            new_tail = new_tail.next;
+        ListNode new_head = new_tail.next;
+
+        // break the ring
+        new_tail.next = null;
+
+        return new_head;
+    }
+}
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 ```
 
 ```Java

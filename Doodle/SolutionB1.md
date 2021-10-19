@@ -1632,12 +1632,57 @@ GROUP BY month, country
 
 ```SQL
 /*
+https://leetcode.com/problems/last-person-to-fit-in-the-bus/
 
+1204. Last Person to Fit in the Bus
+
+Queue table:
++-----------+-------------+--------+------+
+| person_id | person_name | weight | turn |
++-----------+-------------+--------+------+
+| 5         | Alice       | 250    | 1    |
+| 4         | Bob         | 175    | 5    |
+| 3         | Alex        | 350    | 2    |
+| 6         | John Cena   | 400    | 3    |
+| 1         | Winston     | 500    | 6    |
+| 2         | Marie       | 200    | 4    |
++-----------+-------------+--------+------+
+
+Result table
++-------------+
+| person_name |
++-------------+
+| John Cena   |
++-------------+
+
+The table is ordered by the turn for simplicity.
++------+----+-----------+--------+--------------+
+| Turn | ID | Name      | Weight | Total Weight |
++------+----+-----------+--------+--------------+
+| 1    | 5  | Alice     | 250    | 250          |
+| 2    | 3  | Alex      | 350    | 600          |
+| 3    | 6  | John Cena | 400    | 1000         | (last person to board)
+| 4    | 2  | Marie     | 200    | 1200         | (cannot board)
+| 5    | 4  | Bob       | 175    | ___          |
+| 6    | 1  | Winston   | 500    | ___          |
++------+----+-----------+--------+--------------+
 */
 
 # 문제
+SELECT q1.person_name
+FROM Queue q1 JOIN Queue q2 ON _____
+GROUP BY q1._____
+HAVING _____ <= 1000
+ORDER BY _____ DESC
+LIMIT 1
 
 # 솔루션
+SELECT q1.person_name
+FROM Queue q1 JOIN Queue q2 ON q1.turn >= q2.turn
+GROUP BY q1.turn
+HAVING SUM(q2.weight) <= 1000
+ORDER BY SUM(q2.weight) DESC
+LIMIT 1
 ```
 
 ```SQL
