@@ -1025,24 +1025,35 @@ Both employees with id 1 and 3 have the most experience among the employees of t
 */
 
 # 문제
-SELECT p1.project_id, p1.employee_id
-FROM Project p1 JOIN Employee e1 ON p1._____ = e1._____
-    JOIN (
-        SELECT _____ AS project_id, MAX(_____) AS m
-        FROM Project p2 JOIN Employee e2 ON p2.employee_id = e2.employee_id
-        GROUP BY p2.project_id
-        ) AS t ON p1._____ = t._____
-WHERE e1._____ = t._____
+select
+    project_id, employee_id
+from(
+    select
+        a.project_id, a.employee_id,
+        _____ over (partition by _____ order by _____ desc) as rk
+    from Project as a 
+    left join (
+        select employee_id, _____
+        from Employee
+    )as b on a.employee_id = b.employee_id
+)t
+where _____ = 1
 
 # 솔루션
-SELECT p1.project_id, p1.employee_id
-FROM Project p1 JOIN Employee e1 ON p1.employee_id = e1.employee_id
-    JOIN (
-        SELECT p2.project_id AS project_id, MAX(e2.experience_years) AS m
-        FROM Project p2 JOIN Employee e2 ON p2.employee_id = e2.employee_id
-        GROUP BY p2.project_id
-        ) AS t ON p1.project_id = t.project_id
-WHERE e1.experience_years = t.m
+select
+    project_id, employee_id
+from(
+    select
+        a.project_id, a.employee_id,
+        rank() over (partition by a.project_id order by experience_years desc) as rk
+    from Project as a 
+    left join (
+        select employee_id, experience_years
+        from Employee
+    )as b on a.employee_id = b.employee_id
+)t
+where t.rk = 1
+
 ```
 
 ```SQL
