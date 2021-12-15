@@ -184,8 +184,27 @@ class Solution {
     }
 }
 ```
-6
+6 https://leetcode.com/problems/range-addition/
+```Java
+// 370. Range Addition
 
+class Solution {
+    public int[] getModifiedArray(int length, int[][] updates) {
+        int[] result = new int[length];
+
+        for (int[] update : updates) {
+            int start = update[0];
+            int end = update[1];
+            int value = update[2];
+
+            for (int i = start; i < end + 1; i++) {
+                result[i] += value;
+            }
+        }
+        return result;
+    }
+}
+```
 7
 
 8
