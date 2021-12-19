@@ -10,8 +10,8 @@ Hyperledger Indy 원장에 연결해 에이전트들의 요청을 처리하는 A
 Indy Walkthrough 를 보면서 코드 한 줄 한 줄 공부했고, 공부한 지식을 바탕으로 Aries 코드를 직접 읽으면서 필요한 기능들을 찾아서 사용했다.
 >
 >이 때 공부하며 그린 흐름도이다. 내가 해본 것 중에 제일 개발 난이도가 높았다고 감히 말할 수 있다.
-
-<img src="https://miryang.dev/posts/2021-review/indy.jpeg">
-
-https://miryang.dev/blog/2021-review
+>
+> <img src="https://miryang.dev/posts/2021-review/indy.jpeg">
+>
+> https://miryang.dev/blog/2021-review
 
