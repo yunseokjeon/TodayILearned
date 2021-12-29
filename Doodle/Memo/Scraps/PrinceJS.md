@@ -5,3 +5,6 @@
 - 모바일/데스크탑 지원 : 커서+Shift 및 화면 터치로 조작 가능
 
 https://news.hada.io/topic?id=5639
+
+Easily add 3D and 3D Physics to your Phaser games with this powerful modular plugin. https://phaser.io/news/2020/04/enable3d 
+
