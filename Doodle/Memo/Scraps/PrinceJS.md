@@ -6,5 +6,7 @@
 
 https://news.hada.io/topic?id=5639
 
+oklemenz/PrinceJS https://github.com/oklemenz/PrinceJS
+
 Easily add 3D and 3D Physics to your Phaser games with this powerful modular plugin. https://phaser.io/news/2020/04/enable3d 
 
