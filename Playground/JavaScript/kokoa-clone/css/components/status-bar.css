@@ -1,0 +1,34 @@
+.status-bar {
+  /*세개를 같은 줄에 놓기*/
+  display: flex;
+  /*space-between을 사용하면 시계가 가운데에 위치하지 않는다. 그래서
+  1) .status-bar -> justify-content: center;
+  2) .status-bar__column -> width: 33%;
+  3) .status-bar__column:nth-child(2) -> display: flex;  justify-content: center;
+  4) 마지막 칼럼이 오른쪽에 붙지 않는 문제가 있으므로
+    .status-bar__column:last-child -> display: flex; justify-content: flex-end;  align-items: center;
+  5) 그런데 숫자와 배터리 아이콘 등이 너무 붙었으므로
+    .status-bar__column .fa-battery-full -> margin: 0px 5px;
+  */
+  justify-content: center;
+  padding: 5px 3px;
+}
+.status-bar__column {
+  width: 33%;
+}
+.status-bar__column:first-child span {
+  margin-right: 5px;
+}
+.status-bar__column:nth-child(2) {
+  display: flex;
+  justify-content: center;
+}
+.status-bar__column:last-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.status-bar__column .fa-battery-full {
+  margin: 0px 5px;
+}
