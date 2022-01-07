@@ -124,3 +124,6 @@ A : 아래로 오는 화살표는 한 마디로 원격 저장소에 최신 커�
 
 https://twitter.com/joosings/status/1478880619157663744
 
+
+https://github.com/Jsing/git-intellij-trouble-qanda
+
