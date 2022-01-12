@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85eafda6-46ce-4283-b0b8-fe16a91f9399" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/kokoa-clone.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +41,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641362977757</updated>
       <workItem from="1641362979310" duration="6506000" />
+      <workItem from="1641961808368" duration="1183000" />
     </task>
     <servers />
   </component>
