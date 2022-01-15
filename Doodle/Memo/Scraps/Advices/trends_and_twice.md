@@ -86,3 +86,27 @@ https://twitter.com/KrComet/status/1479261344277098496
 
 https://twitter.com/KrComet/status/1479263090323894272
 
+이것도 꽤 생각해볼만한 포인트인듯
+
+오전 11:50 · 2022년 1월 11일·Twitter Web App
+
+https://twitter.com/darjeelingt/status/1480733837852549121
+
+IT 종사자지만 공부는 하기 싫으면 금융권을 오면 되는데 여긴 아직도 Java6가 현역이고 심지어 Java 코드를 직접 다루지 않는 방향으로 흘러가고 있음
+
+오전 11:29 · 2022년 1월 11일·Twitter Web App
+
+https://twitter.com/_PRPC_/status/1480728517575061506
+
+하지만 그만큼 정치력을 키워야 살아남는다는 거.
+
+오전 11:33 · 2022년 1월 11일·Twitter Web App
+
+https://twitter.com/_PRPC_/status/1480729434290552832
+
+입구는 있지만 출구는 없는 쥐덫 같은 업계
+
+오전 11:35 · 2022년 1월 11일·Twitter Web App
+
+https://twitter.com/_PRPC_/status/1480729937221160960
+
