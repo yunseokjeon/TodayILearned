@@ -27,3 +27,12 @@
 > 스프링도 다른 프레임워크처럼 좋은 예제를 제공했으면 정말 좋겠네요! 저는 깃허브에 배포된 코드로 많이 배웠어요.
 > 
 > https://peing.net/ko/q/97af35d7-ce3e-4d46-9724-bea2fa3fe909
+
+
+> GitHub의 예제 코드에서 많이 배운다고 하셨는데, 필요하신 코드를 어떻게 검색하시나요?
+>	
+> fsoftwareengineer
+>
+>코드를 검색한다기 본다는 구글링을 할 때 키워드를 넣어서 XYZ example이런식(spring oauth example/ spring kassandra example)으로 검색하면 나오는 코드들를 많이 봅니다. 여러개를 봐야 겨우 이해되는편이에요.
+> 
+> https://ask.fm/fsoftwareengineer9/answers/170309020549
