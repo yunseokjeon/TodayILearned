@@ -36,3 +36,13 @@
 >코드를 검색한다기 본다는 구글링을 할 때 키워드를 넣어서 XYZ example이런식(spring oauth example/ spring kassandra example)으로 검색하면 나오는 코드들를 많이 봅니다. 여러개를 봐야 겨우 이해되는편이에요.
 > 
 > https://ask.fm/fsoftwareengineer9/answers/170309020549
+
+
+>React Native 공식문서는 예제 코드를 충분히 제공해 준다고 보시나요?
+>
+>kms_bernard
+>
+>돌이켜보면 그리 충분하지 않은 것 같아요. 가장 단순한 상황에 대해서만 다루는 것 같다는 생각이 드는군요. 응용을 위한 사례들이 잘 안 다루어진다고나 할까요? 이런건 블로그 포스트를 많이 참고했던것 같아요.
+>
+>https://curiouscat.live/kms_bernard/post/1261177277
+
