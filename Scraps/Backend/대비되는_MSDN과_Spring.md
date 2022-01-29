@@ -46,3 +46,10 @@
 >
 >https://curiouscat.live/kms_bernard/post/1261177277
 
+>출판하신 책을 다 읽고 나서 스프링을 더 배우고 싶은데, 추천 스프링 학습 로드맵이나 책/강의가 있으신가요? (영문이면 더 좋고요). 한국에는 주로 토비의 스프링, 그리고 최근에는 인프런에 김영한님 강의 듣는데, 실리콘 밸리 엔지니어들은 어떤 자료를 가지고 어떻게 학습 하는지 궁금합니다. 아니면 전부 스프링 doc으로 학습하시는지… oreilly랑 udemy강의도 보는데, 실리콘 밸리 개발자들은 어떤 자료를 보고 배우는지 궁금해서 질문 드립니다. 다른 예제 책 보다가 작가님 책 보니 코드가 달라서 호기심이 생겼습니다.
+>	
+>fsoftwareengineer
+>
+>저는 O’Reilly 에서 Spring Boot Up & Running, Just Spring를 참고했습니다. 블로그는 Baeldung많이 봤고요. 저도 스프링을 안한지 오래돼서 다시 공부한게 많아요.
+>
+>https://ask.fm/fsoftwareengineer9/answers/170422427013
