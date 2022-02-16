@@ -1,1 +1,11 @@
-JDeploy – Deploy desktop Java apps as native bundles on Mac, Linux, and Windows https://jdeploy.com
+jDeploy - Java앱을 맥/윈/리눅스에 네이티브 번들로 배포하기 (jdeploy.com)
+
+- 실행가능한 Jar파일을 각 플랫폼의 Native앱으로 묶어주는 오픈소스
+ㅤ→ 빌드 플랫폼 상관없이 빌드(맥이 없어도 맥용 빌드가능)
+- 맥/윈/리눅스용 네이티브 인스톨러 생성
+- 번들링한 앱의 자동 업데이트 지원(실행시 자동 업데이트 체크)
+- 실행시에 필요한 자바 런타임(JRE) 알아서 다운로드
+- 맥 코드사이닝은 jDeploy가 알아서 처리
+- 다운로드 페이지를 생성, 클라우드 퍼블리시 가능
+
+https://news.hada.io/topic?id=5986
