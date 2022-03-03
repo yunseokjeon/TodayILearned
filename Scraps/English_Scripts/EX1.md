@@ -327,3 +327,50 @@ The deliverance of the troops from Dunkirk changes attitudes at home and abroad.
 
 Similarly, Joseph Kennedy, who had hopes of one day becoming president and believed that Britain could never defeat the Nazis, becomes increasingly unpopular in his role as Ambassador to Britain.
 
+83. 원래는 친구들 몇명이랑 영화 보고 같이 점심을 먹으려고 했는데 친구 하나가 갑자기 일이 생겨서 결국은 다 취소하게 됐어.
+
+I was actually going to go to the movies with some friends and we were going to have lunch together but one of them suddenly had something to do so we ended up cancelling the whole thing.
+
+84. 원래는 상급 모델을 사고 싶었는데, 돈이 좀 부족해서 결국엔 이걸로 사게 됐어요.
+
+I actually wanted to buy a higher model, but I didn't have enough money. So, I ended up buying this one.
+
+85. 원래는 해외여행을 계획했었는데 표를 못 구해서 결국에는 아무데도 못 가게 됐어.
+
+We were actually planning to travel abroad but we couldn't get tickets so eventually we coundn't go anywhere.
+
+86. 원래는 디저트를 진짜 안 먹으려고 했는데 케익이 너무 맛있어 보이는거야. 그래서 안 먹을 수가 없었어. 결국에 3조각이나 먹었어.
+
+I really wasn't going to eat any desert but cake looked so good! I couldn't resist, I ended up eating 3 pieces.
+
+87. 원래는 얘기를 안 하려고 그랬었어. 근데 너가 얘기를 꺼내서 말인데, 사실 궁금한게 하나 있어.
+
+I wasn't going to say anything but since you bring it up, I have something I want to ask you.
+
+88. 1년 전까지만 해도 우리는 완전히 모르는 사이였어. 근데 어떤 파티에서 만나고 나서, 우리는 아주 가까워졌어. 지금은 제일 친한 친구가 됐어.
+
+Up until a year ago, we were complete strangers. But after we met at a party, we got really closer. Now, we have become best friends.
+
+89.  오늘 아침에, 집에서, 막 아침을 다 먹고 딱 나오려고 하고 있는데 갑자기 화장실이 너무 급했어. 
+
+This morning, I was at home. I had just eaten breakfast. Just as I was about to leave, I had to go to the bathroom really bad.
+
+90. 어제 밤에, 막 퇴근을 하고 나서, 사무실 건물 밖에서 딱 버스를 타려고 하고 있는데 지갑을 안 가지고 온거야.
+
+Last night, I had just gotten off work. I was int front of my office building. And just as I was about to take the bus, I noticed I didn't have my wallet with me.
+
+91. 며칠 전에, 학교 도서관에서, 레포트를 막 다 작성하고 나서 이제 딱 교수님한테 보낼려고 하고 있는데, 와이파이 연결에 문제가 생긴거야.
+
+A few days ago, I was in the school library. I had just finished my report. And just as I was trying to send it to my professor, I started having problems with my Wi-Fi connection.
+
+92. 어제 백화점에 갔었어. 정말 마음에 드는 코트가 있었어. 점원이 그게 마지막거라고 했어. 그래서 그냥 그걸 바로 살 수도 있었어. 근데 더 좋은 게 있는지 한번 보고 싶었어. 근데 더 좋은 게 없었어. 근데 그 첫번째 가게로 다시 돌아갔을 때는 이미 누가 그 코트를 사간 후였어. 살 수 있었을 때, 그걸 내가 샀어야 했어.
+
+Yesterday, I went to the department store. There was a coat that I really liked. The clerk said that it was the last one. I could've just bought it, right away. I wanted to see if there was anything better. But I couldn't find anything better. But by the time I went back to the first store, someone had already purchased that coat. I should have bought it when I had the chance.
+
+93. 제 친구 중 하나가요, 최근에 일을 그만뒀어요. 글쎄요, 상사랑 문제가 좀 있어나보죠? 그게 아니라면, 몸이 갑자기 안 좋아졌던 것일 수도 있고요. 어쨌든 걔가 그 일이 질려서 그랬었을리가 없어.
+
+One of my friends recently quit her job. I don't know, she must've had some problems with her boss. Either that or, he might've had some health problems. Either way, it couldn't have been because he was sick and tired of the job.
+
+94. 최근에 세탁기를 사서 어제 도착했어요. 근데 막상 보니까, 생각보다 훨씬 큰거예요. 화장실에 놓으려고 그랬었는데, 안 들어가는거야. 그래서 어쩔 수 없었죠, 그냥 반품시켰죠. 그렇다고 그걸 침실에 놓고 사용할 수는 없잖아요. 근데요, 다른 모델을 찾아보고 배송 일정도 다시 잡고 이런게 다 너무 귀찮아서 그냥 환불처리하고 원래 쓰던거 그냥 계속 쓰기로 했어요.
+
+Recently, I bought a new laundry machine and it arrived yesterday. It turn out to be much bigger than I thought. I was going to put it in my bathroom, but it didn't fit. So, there wasn't anything I could do. I had to send it back. It's not like I could keep it in my bedroom, right? But it just felt like too much trouble looking for a different model and scheduling another delivery, I just canceled the purchase and I decided to keep using my old one.
