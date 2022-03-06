@@ -42,3 +42,13 @@ WebAssembly에 주목해야 할 이유
 
 https://news.hada.io/topic?id=5914
 
+
+성능 때문에 Java나 C#이 아닌 C++를 선택하는 상황이 있다고 가정해 보죠. 그런데 어떤 코드든(Java든 C++이든) WebAssembly로 컴파일된다면, 성능을 이유로 C++를 고집할 필요는 없는 것 아닌가요?
+
+괴골
+
+웹 환경에서는 그럴 수 있는데, 보통 C/C++은 웹 환경 말고 다른데서 많이 쓰니까요.
+
+https://ask.fm/cfr0g/answers/169838575850
+
+
