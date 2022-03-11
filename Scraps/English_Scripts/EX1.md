@@ -374,3 +374,28 @@ One of my friends recently quit her job. I don't know, she must've had some prob
 94. 최근에 세탁기를 사서 어제 도착했어요. 근데 막상 보니까, 생각보다 훨씬 큰거예요. 화장실에 놓으려고 그랬었는데, 안 들어가는거야. 그래서 어쩔 수 없었죠, 그냥 반품시켰죠. 그렇다고 그걸 침실에 놓고 사용할 수는 없잖아요. 근데요, 다른 모델을 찾아보고 배송 일정도 다시 잡고 이런게 다 너무 귀찮아서 그냥 환불처리하고 원래 쓰던거 그냥 계속 쓰기로 했어요.
 
 Recently, I bought a new laundry machine and it arrived yesterday. It turn out to be much bigger than I thought. I was going to put it in my bathroom, but it didn't fit. So, there wasn't anything I could do. I had to send it back. It's not like I could keep it in my bedroom, right? But it just felt like too much trouble looking for a different model and scheduling another delivery, I just canceled the purchase and I decided to keep using my old one.
+
+95. 우유를 마시면 칼슘과 비타민 D가 풍부해서 강하고 건강한 뼈를 위해 충분하다고 생각할 수 있습니다. 이 메시지는 긴 세월 동안 우유 판매에 큰 도움이 되었죠. 하지만 이건 과학적으로 정확하지 않습니다.
+
+You might believe that drinking milk, with all its calcium and vitamin D, is the one thing you need for strong and healthy bones. And it's a really nice message that sold a lot of milk over the years, but it's just not scientifically accurate.
+
+96. 우유에 집중하면 뼈 건강의 큰 그림을 놓칠 수 있습니다. 그러니 처음부터 시작해봅시다. 성인은 뼈가 206개 있고 이 뼈들은 골격 계통의 주요 부분을 형성합니다. 이 뼈들은 장기를 보호하는 구조와 틀이기도 하지만 훨씬 더 많은 일을 합니다.
+
+When we focus on milk, we lose the bigger picture of bone health. So let's start at the beginning. Adults have 206 bones that form the main part of the skeletal system. They're the support structure or cage that protects our organs, but they do so much more.
+
+97. 몸을 움직이기 위해 근육과 함께 일하고 중요한 미네랄을 저장하고 호르몬을 생산하며 피를 만들기도 합니다. 많은 사람들은 뼈하면 장난감 해골을 떠올리지만 그건 일차원적인 면만 보여줍니다.
+
+They work with our muscles to move our bodies, they store important minerals, they produce hormones, and they even make our blood. Many people think of a Halloween skeleton when they imagine bone, but that only gives us a one-dimensional view.
+
+98. 뼈는 사실 세 층으로 이루어져 있습니다. 바깥쪽에는 골막이 있는데 겉을 덮고 보호해주는 단단한 막입니다. 그 다음은 단단한 뼈의 두터운 층이 있는데 대부분 사람들이 익숙한 희고, 단단하고 매끄러운 부분입니다. 하지만 내부에는 해면체, 또는 해면질 골이 있고 골수로 채워진 내핵에는 혈액을 만들고 끊임없이 분열하는 줄기세포가 들어있습니다.
+
+Bone actually has three layers. On the outside, there's the periosteum, a tough membrane that covers and protects. Next, there's a thick layer of compact bone, the white, hard, smooth part that most people are familiar with. But inside, there is spongy or trabecular bone, and an inner core filled with bone marrow, which contains stem cells that make blood and are constantly dividing.
+
+99. 대부분 사람들은 뼈가 어린이와 청소년일 때 성장한다는 것을 알고 있습니다. 인간은 20대에 최고 골량에 도달합니다. 하지만 사람들이 잘 모르는 것은 성장이 멈추더라도 우리는 계속해서 오래된 뼈를 없애고 새로운 뼈로 대체한다는 것이죠.
+
+Most people understand that our bones grow when we're kids and adolescents. We reach our peak bone mass in our 20s. What many people don't know is even after we stop growing, we are constantly removing old bone and replacing it with new.
+
+100. 한 추정치를 보면 뼈가 제거되고 교체되어 10년마다 골격이 새로 만들어진다고 합니다. 최고 골량에 도달하고 나면 골 제거 속도가 대체 속도를 앞지르기 시작합니다. 이는 결국 뼈의 온전성에 영향을 줄 수 있고 골량, 즉 뼈의 양을 감소시킵니다. 골다공증은 이 과정의 극단적인 형태입니다. 골 손실이 골 대체 속도를 초과하고 다른 변화와 결합하게 되면 살짝 부딪치거나 넘어져도 쉽게 부러질 수 있습니다.
+
+One estimate is enough bone is removed and replaced that a new skeleton is made every 10 years. After we reach our peak bone mass, bone removal starts to outpace replacement. This can eventually affect the integrity of the bone and it lowers the bone mass or the amount of bone that we have. The bone disease osteoporosis is an extreme version of this process. Bone loss outpaces replacement, and combined with other changes, this can lead to so much fragility that even small bumps or falls can create fractures.
+
