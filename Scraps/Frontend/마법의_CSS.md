@@ -10,3 +10,10 @@
 
 https://twitter.com/drypot/status/1451499507158437890
 
+<hr>
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+
+https://studiomeal.com/archives/197
+
+
