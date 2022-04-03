@@ -116,4 +116,4 @@ This morning, I was at home. I had just eaten breakfast. Just as I was about to 
 
 30. 어제 밤에, 막 퇴근을 하고 나서, 사무실 건물 밖에서 딱 버스를 타려고 하고 있는데 지갑을 안 가지고 온거야.
 
-Last night, I had just gotten off work. I was int front of my office building. And just as I was about to take the bus, I noticed I didn't have my wallet with me.
+Last night, I had just gotten off work. I was in front of my office building. And just as I was about to take the bus, I noticed I didn't have my wallet with me.
