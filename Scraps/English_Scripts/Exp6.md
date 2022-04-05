@@ -62,3 +62,59 @@ But it's also interesting because this new flourish of entrepreneur, you know, o
 
 They speak the language of oil and gas. They understand the business models of oil and gas. They are out building partnerships and relationships with oil and gas entities that are based on decades of trust and experience they have with one another.
 
+17. 제 친구 중에 하나가요, 최근에 일을 그만뒀어요. 글쎄요, 상사랑 문제가 좀 있었나보죠?
+
+One of my friends recently quit his / her job. I don't know, she must've had some problems with her boss.
+
+18. 그게 아니라면, 몸이 갑자기 안 좋아졌던 것일 수도 있고요. 어쨌든(어느 쪽이든 간에), 걔가 그 일이 질려서 그랬었을리가 없어.
+
+Either that or, he might've had some health problems. Either way, it couldn't have been because he was sick and tired of the job.
+
+19. 다음 달 연휴 때, 무슨 계획 있어요?
+
+Do you have any plans during the holidays next month?
+
+20. 부모님이랑 짧게 여행을 가게 될지도 몰라요. 근데 아직 확실한건 아니예요. 아직까지는 어디에 갈지만 정해놓은 상태예요.
+
+I might be going on a short trip with my parents. But it's not for sure yet. So far, we've only decided where to go.
+
+21. 아직 정확한 날짜도 못 정했어요. 게다가 그 주에 제 근무일정이 어떨지에 대해서 상사랑 아직 얘기를 해봐야 되는 상황이에요.
+
+We haven't even decided on a specific date yet. I still have to check with my boss about what my work schedule is going to look like that week.
+
+22. 어떻게 됐어? 학교에서는 연락 왔어?
+
+How did it go? Did you hear from the school?
+
+23. 아니, 사실은 지원서를 아직 작성 중이야.
+
+No, I'm still working on my application.
+
+24. 왜? 어떻게 된거야? 지금쯤이면 제출했을 줄 알았는데.
+
+What happened? I thought you would've submitted it by now.
+
+25. 오타가 있을까봐 밤새 검토를 했어. 부주의해 보이면 안 되잖아.
+
+I was afraid there might be some typos, so I was up all night double-checking it. I don't want to look careless.
+
+26. 책임감이 부족하다는 인상을 주고 싶지 않아. 오타를 보고 지원서를 다 읽지도 않으면 어떡해?
+
+I don't want them to think that I lack responsibility. What if they find a typo and don't even read through the entire application.
+
+27. 이번 주 주말에 친구들 몇명이랑 스키타러 가기로 했어요. 이번에는 정말 좀 갈 수 있었으면 좋겠어요.
+
+I'm planning to go skiing this weekend with some friends. I'm really hoping that we can go this time.
+
+28. 벌써 두번이나 미룬거예요. 이제 다들 곧 바빠져서 이번에 안 가면 올해에는 더 이상 기회가 없을지도 몰라요.
+
+We've already postponed it twice. Everyone is going to get pretty busy soon. If we don't go this time, we might not have another chance this year.
+
+29. 그래서 이번엔 약속을 했어요. 아주 급한 일만 아니면 취소하기 없기로요.
+
+So this time, we made a promise. As long as it's not an emergency, no one can cancel. 
+
+30. 그래서 별일만 안 생기면 이번에는 갈 수 있을 것 같아요.
+
+Unless something comes up, I think we're going to able to go this time.
+
