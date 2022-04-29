@@ -86,3 +86,38 @@ https://brunch.co.kr/@godrm77/20 이 글을 읽고, DM으로 KJH님께 의견을
 https://twitter.com/digit0xff/status/1516236606390251521
 
 
+<hr>
+
+아니 넘 신기한게 다들 어케 시간내서 그정도 경지에 오르신거죠? 나는 dp 문제 하나 푸느라 이틀이나 썼는데 어떻게 다들 시간을 내서 플젝 하면서 cs도 공부하면서 인강 들으면서 백준 풀면서 플젝 하면서 ci/cd도 공부하면서 책도 읽으면서 회사도 다니는 건가요; 다 헤르미온느고 나만 인간인가,,
+
+오후 10:49 · 2022년 4월 28일·Twitter for iPhone
+
+https://twitter.com/AutowiredJam/status/1519675292268507136
+
+제가 느끼는 둘의 차이는
+
+CS 기초지식 전공지식이 튼튼한 사람은 새로 뭔가를 접해도 대충 90%가 이미 다 아는범위에서 나와서 뭔가를 습득하는 속도가 무지하게 빠른 반면
+
+그렇지 못하고 이제 알고리즘부터 해서 CS 배우는 사람이 응용도 같이 배우려다보면 매번 모르는게 나와서 느린거같습니다
+
+오전 12:42 · 2022년 4월 29일·Twitter for iPhone
+
+https://twitter.com/simnalamburt/status/1519703637659844608
+
+
+컴퓨테이셔널 띵킹이란 무엇인가? 를 MIT에서 들었던적이 있는데
+
+겁내 좋아졌네 다시 들어야되나
+
+https://computationalthinking.mit.edu/Spring21/
+
+오전 12:36 · 2022년 4월 27일·Twitter Web App
+
+https://twitter.com/_Akamig/status/1518977341757612032
+
+<hr>
+
+
+<hr>
+
+<hr>
