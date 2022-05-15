@@ -94,3 +94,11 @@ We had succeeded in many ways, but we also were lagging in too many other ways.
 
 Even with speculation swirling about who would succeed Steve, quite frankly, my wife, Anu, and I largely ignored the rumors.
 
+15p
+
+I worried that failing to ask these questions, and truly answer them, risked perpetuating earlier mistakes and, worse, not being honest.
+
+If only it were as easy as punching that little refresh button on your browser.
+
+hitting refresh may sound quaint,
+
