@@ -102,3 +102,48 @@ If only it were as easy as punching that little refresh button on your browser.
 
 hitting refresh may sound quaint,
 
+16p
+
+But those plans were suddenly and understandably shelved when he was selected to join the Indian Administrative Service (IAS).
+
+The IAS was essentially a remnant of the old Raj system left by the British to govern after the UK turned over control of the country in 1947.
+
+Throughout my childhood, he was posted in many districts across the state of Andhra Pradesh in India.
+
+17p
+
+I remember moving from place to place, growing up in the sixties and early seventies in old colonial buildings in the middle of nowhere with lots of time and space, and in a country being transformed.
+
+Among the children of IAS fathers, it was a rat race.
+
+For some of the IAS dads, simply passing the grueling entrance test meant they were set for life.
+
+He was a quintessential lifelong learner.
+
+That suited me just fine.
+
+the Indian goddess of plentitude and contentment.
+
+Nowhere is the intensity for cricket greater than in India, even if the game was invented in England.
+
+18p
+
+a body of literature brimming with the grace
+
+In his novel, Netherland, Joseph O’Neill describes the beauty of the game, its eleven players converging in unison toward the batsman and then returning again and again to their starting point, “a repetition or pulmonary rhythm, as if the field breathed through its luminous visitors.” I think of that metaphor of the cricket team now as a CEO when reflecting on the culture we need in order to be successful.
+
+a northern Indian city tucked into the foothills of the Himalayas
+
+convent 수녀원
+
+19p
+
+formative 발달에 중요한
+
+strata stratum(사회 계층)의 복수형
+
+20p
+
+intense 극심한
+
+
