@@ -146,4 +146,10 @@ strata stratum(사회 계층)의 복수형
 
 intense 극심한
 
+He wasn’t too fond of my laid-back attitude.
+
+fond 애정을 느끼는
+
+laid-back 느긋한
+
 
