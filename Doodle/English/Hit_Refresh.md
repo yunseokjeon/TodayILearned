@@ -152,4 +152,15 @@ fond 애정을 느끼는
 
 laid-back 느긋한
 
+21p
+
+I was being provincial with my ambitions.
+
+I flunked the Indian Institutes of Technology (IIT) entrance exam, the holy grail of all things academic for middle-class kids growing up in India at that time. My father, who never met an entrance test he did not pass, was more amused than annoyed.
+
+I chose Manipal based on a hunch that pursuing EE was going to get me closer to computers and software. software. And fortuitously the hunch was right.
+
+So long as you enjoy it, do it mindfully and well, and have an honest purpose behind it, life won’t fail you.
+
+In those days, the student visa was bit of a crapshoot, and frankly I was hoping it would be rejected.
 
