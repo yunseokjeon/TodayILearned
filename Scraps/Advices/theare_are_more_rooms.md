@@ -285,5 +285,47 @@ https://wesbos.com/courses
 https://twitter.com/eunjae_lee/status/1490620263280656397
 
 <hr>
+개발자에게 영어 공부는 필수라는 말을 트위터에서 많이 보이지만, 도대체 어떻게 할까 막막하신 분들이 계실 것 같아서.. 
+
+도움이 될진 모르겠지만 제가 화교 출신 초-중학생들과 언어치료 수업을 진행할 때 사용하는 유익한 사이트들을 공유해볼까 해요 :)
+
+https://twitter.com/boyeonihn/status/1533268566514057216
+
+1) Readworks https://readworks.org - 독해 (난이도 - 상중하)
+K-12 학년들을 위한 독해 지문들이 엄-청나게 많은 무료 사이트에요. 'Article a Day'는 짤막한 지문들부터 독해 문제까지 포함된 Reading Passages도 있어요. 지문 내용들이 정-말 다양하고, 무엇보다 오디오 재생도 가능해요.
+
+https://twitter.com/boyeonihn/status/1533268567961001993
+
+2) NewsELA https://newsela.com - 독해 (난이도 상-중) 
+실제 영문 기사들을 3-12학년 학생들이 더 쉽게 이해하고 읽을 수 있게 문법 구조와 어휘력 난이도를 조정해준 사이트에요. 유료 지문들이 있긴 하지만 무료 콘텐츠가 워낙 많아서 아쉬우시지는 않을 거에요!
+
+https://twitter.com/boyeonihn/status/1533268569647206401
+
+NewsELA와 Readworks 둘다 회원가입할 때는 'Teacher'로 가입하시면 되시고, 지문들을 유포만 안 하시면 교사가 아니셔도 사이트 이용은 문제없어요 :)
+
+https://twitter.com/boyeonihn/status/1533268571152859136
+
+3) Mystery Doug https://youtube.com/c/MysteryDoug/videos - 듣기 (난이도 상-중)
+5-8분 가량의 짧은 시간 안에 흥미로운 과학 개념에 대해 설명해주는 재미있는 채널이에요. CC 자막도 제공되어있으니,  자막 OFF -> 자막 ON -> 자막 OFF 들어보시면 영어 듣기에 도움이 될 거 같아요.
+
+https://twitter.com/boyeonihn/status/1533268573044592640
+
+4) Language Guide https://languageguide.org - 어휘 (난이도 - 하) 
+사실 고급... 어휘는 아니지만, 일상용어를 테마별로 배울 수 있는 사이트에요. Listening/Speaking Challenge로 단어 암기 연습도 가능해용 :)
+
+https://twitter.com/boyeonihn/status/1533268574621556737
+
+5) http://Vocabulary.com - 어휘력 (난이도 상-중)
+사이트가 살짝 요란하긴 하지만 (UX가 살짝..) Quizlet과 비슷하게 여러 퀴즈를 통해 어휘력 공부를 할 수 있는 사이트에요. Vocabulary list 섹션에는 책 혹은 특정 테마별로 어휘 단어들도 정리되어 있어요.
+
+https://twitter.com/boyeonihn/status/1533268576341204992
+
+특히 회원가입 하시고 나면 https://vocabulary.com/lists/tjm3nmha/words-every-student-should-know 에 5-12학년 학년별로 알아야 할 단어 뜻 100여개가 정리된 리스트도 있으니 따로 찾아보지 않아도 되어서 너무 편해요.
+
+https://twitter.com/boyeonihn/status/1533268578060980230
+
+사실 공부를 마음 먹고 시작하고 싶어도 학습자료 찾느라 시간을 애먹을 때가 많잖아요? 비록 학생들을 대상으로 만든 자료들이지만, 그래도 좋은 콘텐츠라서 (심지어 무료!) 공유해드려요. 조금이나마 도움이 되길 바라며, 모두 영어 공부 화이팅 💪🏻
+
+https://twitter.com/boyeonihn/status/1533268579608576002
 
 <hr>
