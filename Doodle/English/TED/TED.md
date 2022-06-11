@@ -97,3 +97,6 @@ How sleep can improve your immunity | Sleeping with Science, a TED series https:
 Big data, small farms and a tale of two tomatoes | Erin Baumgartner https://youtu.be/O4F40SsEFyY
 
 How animals and plants are evolving in cities | Menno Schilthuizen https://youtu.be/YW1-7OFolJg
+
+Meet the inventor of the electronic spreadsheet | Dan Bricklin https://youtu.be/YDvbDiJZpy0
+
