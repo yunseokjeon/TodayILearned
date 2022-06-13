@@ -100,3 +100,5 @@ How animals and plants are evolving in cities | Menno Schilthuizen https://youtu
 
 Meet the inventor of the electronic spreadsheet | Dan Bricklin https://youtu.be/YDvbDiJZpy0
 
+The War in Ukraine Could Change Everything | Yuval Noah Harari | TED https://youtu.be/yQqthbvYE8M
+
