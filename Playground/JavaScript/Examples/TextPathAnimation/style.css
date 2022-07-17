@@ -1,0 +1,27 @@
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+svg {
+    width: 35vw;
+    height: 35vw;
+    animation: rotate linear 20s infinite;
+}
+
+svg text {
+    font-size: 30px;
+    fill: white;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    background: #161616;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto Condensed", sans-serif;
+    text-transform: uppercase;
+}
