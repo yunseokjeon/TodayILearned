@@ -16,4 +16,4 @@ https://twitter.com/minicheddar18/status/1555364985554870272
 
 https://twitter.com/minicheddar18/status/1555365465026809856
 
-EX R V LC LCR
+EX E LC LCR
