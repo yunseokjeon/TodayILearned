@@ -17,3 +17,6 @@ https://twitter.com/minicheddar18/status/1555364985554870272
 https://twitter.com/minicheddar18/status/1555365465026809856
 
 https://apps.apple.com/kr/app/learn-american-english-podcast/id893509851
+
+서메리 | 영어 쉐도잉, 무조건 정답일까? (광고 X) | 미드 영어가 들리지 않는 리스닝 초중급을 위한 꿀팁 | 쉐도잉 사전단계 영어 공부법 | 이코노미스트 | 무료 리딩 소스 https://youtu.be/J2k9NOZwsDU
+
