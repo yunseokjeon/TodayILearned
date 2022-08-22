@@ -36,5 +36,3 @@ https://ask.fm/fsoftwareengineer9/answers/172253046917
 
 https://bit.ly/3As1xHK
 
-EX > LC 17 > VOA 23 > ED 02 >> BIG
-
