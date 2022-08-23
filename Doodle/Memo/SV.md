@@ -16,11 +16,17 @@ https://twitter.com/minicheddar18/status/1555364985554870272
 
 https://twitter.com/minicheddar18/status/1555365465026809856
 
+<hr>
+
 https://learningenglish.voanews.com/
 
 https://apps.apple.com/kr/app/learn-american-english-podcast/id893509851
 
+<hr>
+
 서메리 | 영어 쉐도잉, 무조건 정답일까? (광고 X) | 미드 영어가 들리지 않는 리스닝 초중급을 위한 꿀팁 | 쉐도잉 사전단계 영어 공부법 | 이코노미스트 | 무료 리딩 소스 https://youtu.be/J2k9NOZwsDU
+
+<hr>
 
 영어를 학습할 때, '이것 하나만은 해라'라는 것 있으신가요?
 
@@ -30,9 +36,13 @@ fsoftwareengineer 2022년 08월 15일 (월)
 
 https://ask.fm/fsoftwareengineer9/answers/172253046917
 
+<hr>
+
 출퇴근할 때는 지하철 역에서 무료로 배포하는 신문, 메트로(Metro)를 집어 들고 읽었습니다(독자 투고란을 주로 많이 봤습니다). 퇴근 후에는 하루 1시간에서 3시간씩 영어책을 매일 읽었습니다. 기술서적 뿐 아니라 역사, 철학, 서양 건축사, 에세이 등 다양한 종류의 책을 선택했습니다. 물론 회사에서도 거친 영어 문장의 온갖 문서들을 틈나는대로 계속 읽었습니다.
 
 이런 식으로 1년을 보내고 나니 어느 순간 무엇인가 달라지는 것을 느꼈습니다. 영어책이나 문서를 읽는 것이 갑자기 편해진 것입니다. 모르는 단어가 나와도 별로 불편하지 않았고, 글이 뭔가 물 흐르는 듯한 느낌으로 자연스럽게 머리속으로 들어왔습니다.
 
 https://bit.ly/3As1xHK
+
+<hr>
 
