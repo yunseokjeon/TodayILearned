@@ -56,3 +56,14 @@ https://twitter.com/fsoftwareengin1/status/1560849155764789249
 
 https://twitter.com/fsoftwareengin1/status/1560860919197868033
 
+막연히 공식문서를 읽으니 효과적이지 못한 것 같아요. 삐멜님이 Spring Security를 사용해서 구현해 볼 기능 열 가지를 선정해 주세요. :)
+	
+fsoftwareengineer 2022년 09월 21일 (수)
+
+기본 로그인구현
+세션을 이용한 로그인구현
+토큰을 이용한 로그인 구현
+소셜로그인 구현
+OAuth 인가서버 구현
+
+https://ask.fm/fsoftwareengineer9/answers/172455419013
