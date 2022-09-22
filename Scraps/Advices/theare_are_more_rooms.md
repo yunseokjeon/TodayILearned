@@ -76,3 +76,21 @@ https://twitter.com/simnalamburt/status/1474618024498167811
 오후 2:51 · 2021년 12월 25일·Twitter for iPhone
 
 https://twitter.com/simnalamburt/status/1474618821977976834
+
+<hr>
+
+개발 블로그가 실력을 속이기 좋은 수단이라는 이야기는 옛날에도 떠돌았지만 예나 지금이나 공감을 못하고 있다. 블로그에 속는 사람은 어차피 다른 거에도 쉽게 속을 테니 별 차이 없지 않을까? 도대체 어떤 블로그들이 그렇게 면접관들을 잘 속이는지 구경하고 싶다.
+
+오후 9:33 · 2022년 9월 19일 ·Twitter Web App
+
+https://twitter.com/pakyoungrok/status/1571839846314029065
+
+<hr>
+
+초보 개발자에게 정말 권하고 싶은 학습 방법. 이미 트위터에서도 여러 번 썼지만, 오늘 또 다른 이유로 한 번 더 소개. 매일매일 작지만 유용한 프로그램을 작성해보기 https://wiki.c2.com/?WriteSmallButUsefulProgramsEveryDay
+
+오전 12:32 · 2022년 9월 22일 ·Twitter Web App
+
+https://twitter.com/pakyoungrok/status/1572609639627526146
+
+<hr>
