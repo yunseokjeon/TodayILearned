@@ -971,4 +971,66 @@ class Solution {
 }
 ```
 
-[34] 
+[34] 1144. Decrease Elements To Make Array Zigzag
+
+https://leetcode.com/problems/decrease-elements-to-make-array-zigzag/
+
+```Java
+class Solution {
+    public int movesToMakeZigzag(int[] nums) {
+        int[] result = new int[2];
+        int N = nums.length, left, right;
+        for (int i = 0; i < N; i++) {
+            left = 0 < i ? nums[i - 1] : 1001;
+            right = i + 1 < N ? nums[i + 1] : 1001;
+            result[i % 2] += Math.max(0, nums[i] - Math.min(left, right) + 1);
+        }
+        return Math.min(result[0], result[1]);
+    }
+}
+```
+
+[35] 456. 132 Pattern
+
+https://leetcode.com/problems/132-pattern/
+
+```Java
+class Solution {
+    public boolean find132pattern(int[] nums) {
+        int N = nums.length;
+        if (N < 3) {
+            return false;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        int[] min = new int[N];
+        min[0] = nums[0];
+        for (int i = 1; i < N; i++) {
+            min[i] = Math.min(min[i - 1], nums[i]);
+        }
+
+        for (int j = N - 1; j >= 0; j--) {
+            if (nums[j] > min[j]) {
+                while (!stack.isEmpty() && stack.peek() <= min[j]) {
+                    stack.pop();
+                }
+                if (!stack.isEmpty() && stack.peek() < nums[j]) {
+                    return true;
+                }
+                stack.push(nums[j]);
+            }
+        }
+
+        return false;
+    }
+
+    /*
+    nums 3 1 4 2
+    min  3 1 1 1
+    stack 2
+    i 2 >> 2 < 4 >> return true
+     */
+}
+```
+
+[36] 
