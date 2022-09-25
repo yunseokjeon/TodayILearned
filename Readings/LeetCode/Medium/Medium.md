@@ -1033,4 +1033,47 @@ class Solution {
 }
 ```
 
-[36] 
+[36] 633. Sum of Square Numbers
+
+https://leetcode.com/problems/sum-of-square-numbers/
+
+```Java
+class Solution {
+    public boolean judgeSquareSum(int c) {
+        for (long a = 0; a * a <= c; a++) {
+            double b = Math.sqrt(c - a * a);
+            if (b == (int) b) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+[37] 755. Pour Water
+
+https://leetcode.com/problems/pour-water/
+
+```Java
+class Solution {
+    public int[] pourWater(int[] heights, int volume, int k) {
+        for (int i = 0; i < volume; i++) {
+            int current = k;
+            while (current > 0 && heights[current - 1] <= heights[current]) {
+                current--;
+            }
+            while (current < heights.length - 1 && heights[current] >= heights[current + 1]) {
+                current++;
+            }
+            while (k < current && heights[current - 1] == heights[current]) {
+                current--;
+            }
+            heights[current]++;
+        }
+        return heights;
+    }
+}
+```
+
+[38]
