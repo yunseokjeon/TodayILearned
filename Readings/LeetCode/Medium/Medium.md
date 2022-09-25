@@ -1076,4 +1076,71 @@ class Solution {
 }
 ```
 
-[38]
+[38] 1999. Smallest Greater Multiple Made of Two Digits
+
+https://leetcode.com/problems/smallest-greater-multiple-made-of-two-digits/
+
+```Java
+class Solution {
+    public int findInteger(int k, int digit1, int digit2) {
+        return explore(k, digit1, digit2, 0L);
+    }
+
+    public int explore(int k, int digit1, int digit2, long x) {
+        if (x > Integer.MAX_VALUE) {
+            return -1;
+        }
+        if (x > k && x % k == 0) {
+            return (int) x;
+        }
+
+        int d1 = (x + digit1 == 0) ? -1 : explore(k, digit1, digit2, 10 * x + digit1);
+        int d2 = (x + digit2 == 0) ? -1 : explore(k, digit1, digit2, 10 * x + digit2);
+        return d1 > 1 && d2 > 1 ? Math.min(d1, d2) : Math.max(d1, d2);
+    }
+}
+```
+
+[39] 2385. Amount of Time for Binary Tree to Be Infected
+
+https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
+
+```Java
+class Solution {
+    public int amountOfTime(TreeNode root, int start) {
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        createGraph(root, graph);
+        return maxDistance(graph, new HashSet<>(), start, 0, 0);
+    }
+
+    public void createGraph(TreeNode root, Map<Integer, List<Integer>> graph) {
+        List<Integer> adjacent = graph.computeIfAbsent(root.val, param -> new ArrayList<>());
+
+        if (root.left != null) {
+            graph.computeIfAbsent(root.left.val, param -> new ArrayList<>()).add(root.val);
+            adjacent.add(root.left.val);
+            createGraph(root.left, graph);
+        }
+
+        if (root.right != null) {
+            graph.computeIfAbsent(root.right.val, param -> new ArrayList<>()).add(root.val);
+            adjacent.add(root.right.val);
+            createGraph(root.right, graph);
+        }
+    }
+
+    public int maxDistance(Map<Integer, List<Integer>> graph, Set<Integer> visited,
+                           int currentNode, int maxDistance, int currentDistance) {
+        if (!visited.contains(currentNode)) {
+            visited.add(currentNode);
+            maxDistance = Math.max(maxDistance, currentDistance);
+
+            for (int neighbor : graph.get(currentNode)) {
+                maxDistance = Math.max(maxDistance, maxDistance(graph, visited, neighbor, maxDistance, currentDistance + 1));
+            }
+        }
+        return maxDistance;
+    }
+}
+```
+
