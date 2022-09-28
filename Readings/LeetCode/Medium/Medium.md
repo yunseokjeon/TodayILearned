@@ -1144,3 +1144,49 @@ class Solution {
 }
 ```
 
+[40] 951. Flip Equivalent Binary Trees
+
+https://leetcode.com/problems/flip-equivalent-binary-trees/
+
+```Java
+class Solution {
+    public boolean flipEquiv(TreeNode root1, TreeNode root2) {
+        if (root1 == root2) {
+            return true;
+        }
+        if (root1 == null || root2 == null || root1.val != root2.val) {
+            return false;
+        }
+        return flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right) ||
+                flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left);
+    }
+}
+```
+
+[41] 1423. Maximum Points You Can Obtain from Cards
+
+https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
+
+```Java
+class Solution {
+    public int maxScore(int[] cardPoints, int k) {
+        int n = cardPoints.length;
+        int[] frontSetOfCards = new int[k + 1];
+        int[] rearSetOfCards = new int[k + 1];
+
+        for (int i = 0; i < k; i++) {
+            frontSetOfCards[i + 1] = frontSetOfCards[i] + cardPoints[i];
+            rearSetOfCards[i + 1] = rearSetOfCards[i] + cardPoints[n - i - 1];
+        }
+
+        int maxScore = 0;
+        for (int i = 0; i <= k; i++) {
+            int currentScore = frontSetOfCards[i] + rearSetOfCards[k - i];
+            maxScore = Math.max(currentScore, maxScore);
+        }
+        return maxScore;
+    }
+}
+```
+
+[42]
