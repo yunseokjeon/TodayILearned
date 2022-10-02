@@ -23,4 +23,23 @@ public:
 };
 ```
 
-[2] 
+[2] 270. Closest Binary Search Tree Value
+
+https://leetcode.com/problems/closest-binary-search-tree-value/
+
+```C++
+class Solution {
+public:
+    int closestValue(TreeNode *root, double target) {
+        int a = root->val;
+        auto kid = target < a ? root->left : root->right;
+        if (!kid) {
+            return a;
+        }
+        int b = closestValue(kid, target);
+        return abs(a - target) < abs(b - target) ? a : b;
+    }
+};
+```
+
+[3]

@@ -1225,4 +1225,31 @@ class Solution {
 }
 ```
 
-[43]
+[43] 621. Task Scheduler
+
+https://leetcode.com/problems/task-scheduler/
+
+```Java
+class Solution {
+    public int leastInterval(char[] tasks, int n) {
+        int[] frequencies = new int[26];
+        for (char task : tasks) {
+            frequencies[task - 'A']++;
+        }
+        Arrays.sort(frequencies);
+        int fMax = frequencies[25];
+        int idelTime = (fMax - 1) * n;
+
+        for (int i = frequencies.length - 2; i >= 0 && idelTime > 0; i--) {
+            idelTime -= Math.min(fMax - 1, frequencies[i]);
+        }
+        idelTime = Math.max(0, idelTime);
+
+        return idelTime + tasks.length;
+    }
+}
+```
+
+[44]
+
+
