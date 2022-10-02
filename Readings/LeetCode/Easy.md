@@ -23,6 +23,17 @@ public:
 };
 ```
 
+```Python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in hashmap:
+                return [i, hashmap[complement]]
+            hashmap[nums[i]] = i
+```
+
 [2] 270. Closest Binary Search Tree Value
 
 https://leetcode.com/problems/closest-binary-search-tree-value/
@@ -40,6 +51,17 @@ public:
         return abs(a - target) < abs(b - target) ? a : b;
     }
 };
+```
+
+```Python
+class Solution:
+    def closestValue(self, root, target):
+        a = root.val
+        kid = root.left if target < a else root.right
+        if not kid: return a
+        b = self.closestValue(kid, target)
+        return min((b, a), key=lambda x: abs(target - x))
+
 ```
 
 [3]
