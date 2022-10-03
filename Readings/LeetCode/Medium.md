@@ -1238,14 +1238,13 @@ class Solution {
         }
         Arrays.sort(frequencies);
         int fMax = frequencies[25];
-        int idelTime = (fMax - 1) * n;
+        int idleTime = (fMax - 1) * n;
 
-        for (int i = frequencies.length - 2; i >= 0 && idelTime > 0; i--) {
-            idelTime -= Math.min(fMax - 1, frequencies[i]);
+        for (int i = frequencies.length - 2; i >= 0 && idleTime > 0; i--) {
+            idleTime -= Math.min(fMax - 1, frequencies[i]);
         }
-        idelTime = Math.max(0, idelTime);
-
-        return idelTime + tasks.length;
+        idleTime = Math.max(0, idleTime);
+        return idleTime + tasks.length;
     }
 }
 ```
