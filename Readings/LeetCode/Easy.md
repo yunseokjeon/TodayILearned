@@ -2,6 +2,22 @@
 
 https://leetcode.com/problems/two-sum/
 
+```Java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+        return null;
+    }
+}
+```
+
 ```C++
 class Solution {
 public:
@@ -38,6 +54,20 @@ class Solution:
 
 https://leetcode.com/problems/closest-binary-search-tree-value/
 
+```Java
+class Solution {
+    public int closestValue(TreeNode root, double target) {
+        int a = root.val;
+        TreeNode kid = target < a ? root.left : root.right;
+        if (Objects.isNull(kid)) {
+            return a;
+        }
+        int b = closestValue(kid, target);
+        return Math.abs(a - target) < Math.abs(b - target) ? a : b;
+    }
+}
+```
+
 ```C++
 class Solution {
 public:
@@ -64,4 +94,25 @@ class Solution:
 
 ```
 
-[3]
+[3] 9. Palindrome Number
+
+https://leetcode.com/problems/palindrome-number/
+
+```Java
+class Solution {
+    public boolean isPalindrome(int x) {
+        if (x < 0 || (x != 0 && x % 10 == 0)) {
+            return false;
+        }
+        int reverse = 0;
+        while (x > reverse) {
+            reverse = reverse * 10 + x % 10;
+            x /= 10;
+        }
+        // 12 and 1 >> 1 == 12 / 10
+        return x == reverse || x == reverse / 10;
+    }
+}
+```
+
+[4]

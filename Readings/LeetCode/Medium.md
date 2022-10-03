@@ -1250,6 +1250,33 @@ class Solution {
 }
 ```
 
-[44]
+[44] 1698. Number of Distinct Substrings in a String
 
+https://leetcode.com/problems/number-of-distinct-substrings-in-a-string/
 
+```Java
+class Node {
+    Node[] children = new Node[26];
+}
+
+class Solution {
+    // s = "aabbaba"
+    public int countDistinct(String s) {
+        Node root = new Node();
+        int result = 0;
+        for (int i = 0; i < s.length(); i++) {
+            Node current = root;
+            for (int j = i; j < s.length(); j++) {
+                if (current.children[s.charAt(j) - 'a'] == null) {
+                    current.children[s.charAt(j) - 'a'] = new Node();
+                    result++;
+                }
+                current = current.children[s.charAt(j) - 'a'];
+            }
+        }
+        return result;
+    }
+}
+```
+
+[45]
