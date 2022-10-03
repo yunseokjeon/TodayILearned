@@ -1279,4 +1279,38 @@ class Solution {
 }
 ```
 
-[45]
+[45] 1836. Remove Duplicates From an Unsorted Linked List
+
+https://leetcode.com/problems/remove-duplicates-from-an-unsorted-linked-list/
+
+```Java
+class Solution {
+    public ListNode deleteDuplicatesUnsorted(ListNode head) {
+        Map<Integer, Integer> repeated = new HashMap<>();
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode current = dummy.next;
+
+        while (current != null) {
+            repeated.put(current.val, repeated.getOrDefault(current.val, 0) + 1);
+            current = current.next;
+        }
+
+        ListNode previous = dummy;
+        current = dummy.next;
+
+        while (current != null) {
+            if (repeated.get(current.val) > 1) {
+                previous.next = current.next;
+                current.next = null;
+                current = previous;
+            }
+            previous = current;
+            current = current.next;
+        }
+        return dummy.next;
+    }
+}
+```
+
+[46]
