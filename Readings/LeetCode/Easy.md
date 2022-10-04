@@ -187,4 +187,36 @@ class Solution {
 }
 ```
 
-[6]
+[6] 1694. Reformat Phone Number
+
+https://leetcode.com/problems/reformat-phone-number/
+
+```Java
+class Solution {
+    public String reformatNumber(String number) {
+        Queue<Character> queue = new LinkedList<>();
+        for (Character now : number.toCharArray()) {
+            if (Character.isDigit(now)) {
+                queue.offer(now);
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        while (queue.size() > 4) {
+            result.append(queue.poll()).append(queue.poll()).append(queue.poll()).append('-');
+        }
+
+        if (queue.size() == 4) {
+            result.append(queue.poll()).append(queue.poll()).append('-');
+        }
+
+        while (!queue.isEmpty()) {
+            result.append(queue.poll());
+        }
+
+        return result.toString();
+    }
+}
+```
+
+[7]
