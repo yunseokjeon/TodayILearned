@@ -141,3 +141,50 @@ class Solution {
     }
 }
 ```
+
+[5] 13. Roman to Integer
+
+https://leetcode.com/problems/roman-to-integer/
+
+
+```Java
+class Solution {
+
+    static Map<String, Integer> values = new HashMap<>();
+
+    static {
+        values.put("M", 1000);
+        values.put("D", 500);
+        values.put("C", 100);
+        values.put("L", 50);
+        values.put("X", 10);
+        values.put("V", 5);
+        values.put("I", 1);
+    }
+
+    public int romanToInt(String s) {
+        int sum = 0;
+        int i = 0;
+        while (i < s.length()) {
+            String current = s.substring(i, i + 1);
+            int currentNumber = values.get(current);
+            int nextNumber = 0;
+            if (i + 1 < s.length()) {
+                String next = s.substring(i + 1, i + 2);
+                nextNumber = values.get(next);
+            }
+
+            if (currentNumber < nextNumber) {
+                sum += (nextNumber - currentNumber);
+                i += 2;
+            }else{
+                sum += currentNumber;
+                i++;
+            }
+        }
+        return sum;
+    }
+}
+```
+
+[6]

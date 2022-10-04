@@ -1312,4 +1312,28 @@ class Solution {
 }
 ```
 
-[46]
+[46] 991. Broken Calculator
+
+https://leetcode.com/problems/broken-calculator/
+
+```Java
+class Solution {
+    /*
+    startValue = 2, target = 3
+    2 >> 4 >> 3, 2
+     */
+    public int brokenCalc(int startValue, int target) {
+        if (startValue >= target) {
+            return startValue - target;
+        }
+        if (target % 2 == 0) {
+            return 1 + brokenCalc(startValue, target / 2);
+        }else{
+            return 1 + brokenCalc(startValue, target + 1);
+        }
+    }
+}
+```
+
+[47]
+
