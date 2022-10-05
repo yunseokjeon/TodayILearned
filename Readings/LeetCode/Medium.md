@@ -1383,4 +1383,45 @@ class Solution {
 }
 ```
 
-[48] 
+[48] 2080. Range Frequency Queries
+
+https://leetcode.com/problems/range-frequency-queries/
+
+```Java
+/*
+[12, 33, 4, 56, 22, 2, 34, 33, 22, 12, 34, 56]
+33 -> TreeMap 1 : 0
+33 -> TreeMap 7 : 1
+
+[0, 11, 33]
+33 -> TreeMap 1:0, 7:1
+
+TreeMap.ceilingKey()  : The least key greater than or equal to the key passed as an argument or null
+TreeMap.floorKey() :  The greatest key less than or equal to key, or null
+ */
+class RangeFreqQuery {
+    Map<Integer, TreeMap<Integer, Integer>> map = new HashMap<>();
+
+    public RangeFreqQuery(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            map.putIfAbsent(arr[i], new TreeMap<>());
+            map.get(arr[i]).put(i, map.get(arr[i]).size());
+        }
+    }
+
+    public int query(int left, int right, int value) {
+        if (!map.containsKey(value)) {
+            return 0;
+        }
+        TreeMap<Integer, Integer> treeMap = map.get(value);
+        Integer first = treeMap.ceilingKey(left);
+        Integer second = treeMap.floorKey(right);
+        if (first == null || second == null) {
+            return 0;
+        }
+        return treeMap.get(second) - treeMap.get(first) + 1;
+    }
+}
+```
+
+[49] 
