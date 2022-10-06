@@ -1424,4 +1424,42 @@ class RangeFreqQuery {
 }
 ```
 
-[49] 
+[49] 1447. Simplified Fractions
+
+https://leetcode.com/problems/simplified-fractions/
+
+```Java
+/*
+n = 3
+0 1 1 1
+0 1 1 2
+0 1 1 3
+1 3 1 2
+1 2 1 1 -> 2 / 3
+1 2 2 3
+2 3 1 1
+ */
+
+class Solution {
+    public List<String> simplifiedFractions(int n) {
+        List<String> result = new ArrayList<>();
+        dfs(0, 1, 1, 1, n, result);
+        return result;
+
+    }
+
+    public void dfs(int leftNumerator, int leftDenominator, int rightNumerator, int rightDenominator, int n, List<String> result) {
+        if (leftDenominator + rightDenominator > n) {
+            return;
+        }
+        int numerator = leftNumerator + rightNumerator;
+        int denominator = leftDenominator + rightDenominator;
+        result.add(numerator + "/" + denominator);
+        dfs(leftNumerator, leftDenominator, numerator, denominator, n, result);
+        dfs(numerator, denominator, rightNumerator, rightDenominator, n, result);
+    }
+}
+```
+
+[50]
+

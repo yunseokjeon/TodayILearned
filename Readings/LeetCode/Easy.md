@@ -241,5 +241,25 @@ class Solution {
 }
 ```
 
-[8]
+[8] 1137. N-th Tribonacci Number
+
+https://leetcode.com/problems/n-th-tribonacci-number/
+
+```Java
+class Solution {
+    public int tribonacci(int n) {
+        if (n < 3) {
+            return n == 0 ? 0 : 1;
+        }
+        int temporary, x = 0, y = 1, z = 1;
+        for (int i = 3; i <= n; i++) {
+            temporary = x + y + z;
+            x = y;
+            y = z;
+            z = temporary;
+        }
+        return z;
+    }
+}
+```
 
