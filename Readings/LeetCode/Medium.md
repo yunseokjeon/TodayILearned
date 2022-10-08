@@ -1461,5 +1461,49 @@ class Solution {
 }
 ```
 
-[50]
+[50] 939. Minimum Area Rectangle
 
+https://leetcode.com/problems/minimum-area-rectangle/
+
+```Java
+/*
+points = [[1,1],[1,3],[3,1],[3,3],[2,2]]
+map : 1 -> 1, 3
+      2 -> 2
+      3 -> 1, 3
+
+x1 = 1, y1 = 1, x2 = 3, y2 = 3
+x1 = 1, y1 = 3, x2 = 3, y2 = 1
+x1 = 3, y1 = 1, x2 = 1, y2 = 3
+x1 = 3, y1 = 3, x2 = 1, y2 = 1
+
+ */
+class Solution {
+    public int minAreaRect(int[][] points) {
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for (int[] point : points) {
+            if (!map.containsKey(point[0])) {
+                map.put(point[0], new HashSet<>());
+            }
+            map.get(point[0]).add(point[1]);
+        }
+
+        int minimumArea = Integer.MAX_VALUE;
+
+        for (int i = 0; i < points.length; i++) {
+            for (int j = 0; j < points.length; j++) {
+                int x1 = points[i][0], y1 = points[i][1];
+                int x2 = points[j][0], y2 = points[j][1];
+                if (x1 != x2 && y1 != y2) {
+                    if (map.get(x1).contains(y2) && map.get(x2).contains(y1)) {
+                        minimumArea = Math.min(minimumArea, Math.abs(x1 - x2) * Math.abs(y1 - y2));
+                    }
+                }
+            }
+        }
+        return minimumArea != Integer.MAX_VALUE ? minimumArea : 0;
+    }
+}
+```
+
+[51] 
