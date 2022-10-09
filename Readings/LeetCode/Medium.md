@@ -1506,4 +1506,26 @@ class Solution {
 }
 ```
 
-[51] 
+[51] 1535. Find the Winner of an Array Game
+
+https://leetcode.com/problems/find-the-winner-of-an-array-game/
+
+```Java
+class Solution {
+    public int getWinner(int[] arr, int k) {
+        int current = arr[0], count = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (current < arr[i]) {
+                current = arr[i];
+                count = 0;
+            }
+            if (++count == k) {
+                break;
+            }
+        }
+        return current;
+    }
+}
+```
+
+[52]
