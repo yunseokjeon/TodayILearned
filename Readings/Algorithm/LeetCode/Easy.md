@@ -328,7 +328,23 @@ class Solution {
 }
 ```
 
-[12]
+[12] 504. Base 7
+
+https://leetcode.com/problems/base-7/
+
+```Java
+class Solution {
+    public String convertToBase7(int num) {
+        if (num < 0) {
+            return "-" + convertToBase7(-num);
+        }
+        if (num < 7) {
+            return Integer.toString(num);
+        }
+        return convertToBase7(num / 7) + Integer.toString(num % 7);
+    }
+}
+```
 
 [13]
 
