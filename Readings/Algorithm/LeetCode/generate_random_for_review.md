@@ -21,3 +21,17 @@ function getRandomInt(min, max) {
 ```
 
 https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+
+
+```JavaScript
+const getRandomIntWithCounter = (function(){
+    let counter = 1;
+    return function (min, max) {
+        let index = counter++;
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        return [index, randomNumber]
+    }
+})()
+```
