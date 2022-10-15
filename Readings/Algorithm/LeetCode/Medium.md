@@ -1613,6 +1613,74 @@ class Solution {
 }
 ```
 
-[54]
+[54] 820. Short Encoding of Words
+
+https://leetcode.com/problems/short-encoding-of-words/
+
+```Java
+/*
+TrieNode.get(char) -> 현재 객체가 char를 가지고 있으면, count를 하나 증가시킨 후 새로운 TrieNode 객체 반환.
+
+TrieNode.count == 0 ->
+root TrieNode에 time에 세팅된 상태에서 me가 들어오면 반복문 후 Map에 저장되는 객체는 TrieNode[]에 i를 가지고 있는, 즉 count가 1인 객체이다.
+TrieNode.count == 0라는 의미는 인코딩이 될 수 없는(다른 단어에 포함될 수 없는) 글자이니 결과에 반영되어야 함을 의미한다.
+ */
+
+class Solution {
+    public int minimumLengthEncoding(String[] words) {
+        TrieNode root = new TrieNode();
+        Map<TrieNode, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            TrieNode current = root;
+            for (int j = word.length() - 1; j >= 0; j--) {
+                current = current.get(word.charAt(j));
+            }
+            map.put(current, i);
+        }
+
+        int result = 0;
+        for (TrieNode node : map.keySet()) {
+            if (node.count == 0) {
+                result += words[map.get(node)].length() + 1;
+            }
+        }
+        return result;
+    }
+}
+
+class TrieNode {
+    TrieNode[] children;
+    int count;
+
+    TrieNode() {
+        children = new TrieNode[26];
+        count = 0;
+    }
+
+    public TrieNode get(char c) {
+        if (children[c - 'a'] == null) {
+            children[c - 'a'] = new TrieNode();
+            count++;
+        }
+        return children[c - 'a'];
+    }
+}
+```
 
 [55]
+
+[56]
+
+[57]
+
+[58]
+
+[59]
+
+[60]
+
+[61]
+
+[62]
