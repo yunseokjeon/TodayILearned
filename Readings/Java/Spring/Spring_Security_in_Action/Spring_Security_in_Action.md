@@ -216,3 +216,117 @@ public class WebAuthorizationConfig extends WebSecurityConfigurerAdapter {
 
 # 3. 사용자 관리
 
+스프링 시큐리티가 사용자를 이해할 수 있도록 애플리케이션의 사용자를 기술하는 방법을 배우는데, 프레임워크가 사용자를 인식할 수 있게 사용자를 나타내는 방법을 배우는 것은 인증 흐름을 구축하기 위한 필수 단계다.
+
+## UserDetailsService 계약의 이해
+
+AuthenticationPovider는 인증 논리에서 UserDetailsService를 이용해 사용자 세부 정보를 로드한다. 데이터베이스 등에서 사용자를 로드하도록 UserDetailsService를 구현할 수 있다.
+
+AuthenticationPrivider는 인증 논리를 구현하고 UserDetailsService를 이용해 사용자 세부 정보를 로드하는 구성 요소이며 사용자 이름으로 사용자를 찾기 위해 loadUserByUsername(String username) 메서드를 호출한다.
+
+## ssia-ch3-ex1
+
+```Java
+// InMemoryUserDetailsService.java
+
+public class InMemoryUserDetailsService implements UserDetailsService {
+
+    private final List<UserDetails> users;
+
+    public InMemoryUserDetailsService(List<UserDetails> users) {
+        this.users = users;
+    }
+
+    /*
+    users가 일종의 데이터베이스 역할을 하고 있고, 이 저장소에서 사용자를 조회하는 메서드를 오버라이딩하고 있다. 
+    */
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return users.stream()
+                .filter(u -> u.getUsername().equals(username))
+                .findFirst()
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
+}
+```
+
+```Java
+// User.java
+
+// UserDetails를 구현하는 저장소에 저장될 클래스
+
+public class User implements UserDetails {
+
+    private final String username;
+    private final String password;
+    private final String authority;
+
+    public User(String username, String password, String authority) {
+        this.username = username;
+        this.password = password;
+        this.authority = authority;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(() -> authority);
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+}
+```
+
+```Java
+// ProjectConfig.java
+
+@Configuration
+public class ProjectConfig {
+
+    // UserDetails 객체 하나를 담고 있는, UserDetailsService 빈 생성.
+    @Bean
+    public UserDetailsService userDetailsService() {
+        UserDetails u = new User("john", "12345", "read");
+        List<UserDetails> users = List.of(u);
+        return new InMemoryUserDetailsService(users);
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
+    }
+}
+
+```
+
+## UserDetailsManager 계약 구현
+
+스프링 시큐리티가 인증을 수행하려면 UserDetailsService 계약이 필요한데, 일반적으로 애플리케이션에는 사용자를 관리하는 기능이 필요하고 대부분의 앱은 새 사용자를 추가하거나 기존 사용자를 삭제할 수 있어야 한다. 이때는 스프링 시큐리티에 정의된 더 구체적인 인테페이스인 UserDetailsManager를 구현한다.
+
