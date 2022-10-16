@@ -1669,7 +1669,37 @@ class TrieNode {
 }
 ```
 
-[55]
+[55] 1508. Range Sum of Sorted Subarray Sums
+
+https://leetcode.com/problems/range-sum-of-sorted-subarray-sums/
+
+```Java
+// Time: O(N^2 * log(N)), Space: O(N^2)
+class Solution {
+    private static final int MOD = 1_000_000_007;
+
+    public int rangeSum(int[] nums, int n, int left, int right) {
+        int nn = n * (n + 1) / 2;
+        long[] prefixes = new long[nn];
+        int k = 0;
+        for (int i = 0; i < n; i++) {
+            long runningSum = 0;
+            for (int j = i; j < n; j++) {
+                runningSum += nums[j];
+                prefixes[k++] = runningSum;
+            }
+        }
+
+        Arrays.sort(prefixes);
+        long result = 0;
+        while (left <= right) {
+            result += prefixes[left - 1];
+            left++;
+        }
+        return (int) (result % MOD);
+    }
+}
+```
 
 [56]
 
