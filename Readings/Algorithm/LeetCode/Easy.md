@@ -17,25 +17,16 @@ class Solution {
     }
 }
 ```
-
-```C++
-class Solution {
-public:
-    vector<int> twoSum(vector<int> &nums, int target) {
-        unordered_map<int, int> hash;
-        vector<int> result;
-
-        for (int i = 0; i < nums.size(); i++) {
-            int numberToFind = target - nums[i];
-            if (hash.find(numberToFind) != hash.end()) {
-                result.push_back(hash[numberToFind]);
-                result.push_back(i);
-                return result;
-            }
-            hash[nums[i]] = i;
+```TypeScript
+function twoSum(nums: number[], target: number): number[] {
+    const map: Map<number, number> = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        if (map.has(nums[i])) {
+            return [map.get(nums[i]), i];
         }
-        return result;
+        map.set(target - nums[i], i);
     }
+    return [];
 };
 ```
 
@@ -68,18 +59,15 @@ class Solution {
 }
 ```
 
-```C++
-class Solution {
-public:
-    int closestValue(TreeNode *root, double target) {
-        int a = root->val;
-        auto kid = target < a ? root->left : root->right;
-        if (!kid) {
-            return a;
-        }
-        int b = closestValue(kid, target);
-        return abs(a - target) < abs(b - target) ? a : b;
+```TypeScript
+function closestValue(root: TreeNode | null, target: number): number {
+    const a:number = root.val;
+    const kid: TreeNode = target < root.val ? root.left : root.right;
+    if (kid == null) {
+        return a;
     }
+    const b: number = closestValue(kid, target);
+    return Math.abs(target - a) < Math.abs(target - b) ? a : b;
 };
 ```
 
@@ -115,6 +103,20 @@ class Solution {
 }
 ```
 
+```TypeScript
+function isPalindrome(x: number): boolean {
+    if (x < 0 || (x != 0 && x % 10 == 0)) {
+        return false;
+    }
+    let reverse: number = 0;
+    while (x > reverse) {
+        reverse = reverse * 10 + x % 10;
+        x = Math.floor(x / 10);
+    }
+    return x == reverse || x == Math.floor(reverse / 10);
+};
+```
+
 [4] 202. Happy Number
 
 https://leetcode.com/problems/happy-number/
@@ -140,6 +142,27 @@ class Solution {
         return n == 1;
     }
 }
+```
+
+```TypeScript
+function isHappy(n: number): boolean {
+    const getNext = (n: number) => {
+        let totalSum: number = 0;
+        while (n > 0) {
+            let d: number = n % 10;
+            n = Math.floor(n / 10);
+            totalSum += d * d;
+        }
+        return totalSum;
+    }
+
+    const seen: Set<number> = new Set();
+    while (n != 1 && !seen.has(n)) {
+        seen.add(n);
+        n = getNext(n);
+    }
+    return n == 1;
+};
 ```
 
 [5] 13. Roman to Integer
@@ -185,6 +208,40 @@ class Solution {
         return sum;
     }
 }
+```
+
+```TypeScript
+function romanToInt(s: string): number {
+    const values: Map<string, number> = new Map<string, number>();
+    values.set("M", 1000);
+    values.set("D", 500);
+    values.set("C", 100);
+    values.set("L", 50);
+    values.set("X", 10);
+    values.set("V", 5);
+    values.set("I", 1);
+
+    let sum: number = 0;
+    let i: number = 0;
+    while (i < s.length) {
+        let current: string = s.substring(i, i + 1);
+        let currentNumber: number = values.get(current);
+        let nextNumber: number = 0;
+        if (i + 1 < s.length) {
+            let next: string = s.substring(i + 1, i + 2);
+            nextNumber = values.get(next);
+        }
+
+        if (currentNumber < nextNumber) {
+            sum += (nextNumber - currentNumber);
+            i += 2;
+        } else {
+            sum += currentNumber;
+            i++;
+        }
+    }
+    return sum;
+};
 ```
 
 [6] 1694. Reformat Phone Number
