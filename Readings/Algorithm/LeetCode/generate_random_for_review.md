@@ -35,3 +35,30 @@ const getRandomIntWithCounter = (function(){
     }
 })()
 ```
+```JavaScript
+const getRandomIntWithCounterSet = (function(){
+    let counter = 1;
+    let set = new Set();
+
+    return function (min, max) {
+    
+        min = Math.ceil(min);
+        max = Math.floor(max);
+
+        if(set.size >= (max - min + 1)){
+            return [-1, -1]
+        }
+
+        let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        while(set.has(randomNumber)){
+            randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        set.add(randomNumber);
+
+        let index = counter++;
+        return [index, randomNumber]
+    }
+})()
+```
