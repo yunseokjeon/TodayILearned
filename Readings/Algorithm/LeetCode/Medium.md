@@ -1725,7 +1725,28 @@ class Solution {
 }
 ```
 
-[57]
+[57] 754. Reach a Number
+
+https://leetcode.com/problems/reach-a-number/
+
+```Java
+class Solution {
+    public int reachNumber(int target) {
+        target = Math.abs(target);
+        int step = 0;
+        int sum = 0;
+        while (sum < target) {
+            step++;
+            sum += step;
+        }
+        while ((sum - target) % 2 != 0) {
+            step++;
+            sum += step;
+        }
+        return step;
+    }
+}
+```
 
 [58]
 
