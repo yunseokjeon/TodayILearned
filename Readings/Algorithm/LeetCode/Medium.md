@@ -1748,7 +1748,25 @@ class Solution {
 }
 ```
 
-[58]
+[58] 172. Factorial Trailing Zeroes
+
+https://leetcode.com/problems/factorial-trailing-zeroes/
+
+```Java
+class Solution {
+    public int trailingZeroes(int n) {
+        int zeroCount = 0;
+        for (int i = 5; i <= n; i++) {
+            int current = i;
+            while (current % 5 == 0) {
+                zeroCount++;
+                current /= 5;
+            }
+        }
+        return zeroCount;
+    }
+}
+```
 
 [59]
 
