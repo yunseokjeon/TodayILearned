@@ -427,11 +427,50 @@ class Solution {
 }
 ```
 
-[14]
+[14] 35. Search Insert Position
 
-[15]
+https://leetcode.com/problems/search-insert-position/
 
-[16]
+```Java
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return low;
+    }
+}
+```
+
+[15] 1217. Minimum Cost to Move Chips to The Same Position
+
+https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/
+
+```Java
+class Solution {
+    public int minCostToMoveChips(int[] position) {
+        int evenCount = 0, oddCount = 0;
+        for (int i : position) {
+            if (i % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
+        return Math.min(oddCount, evenCount);
+    }
+}
+```
+
+[16] 
 
 [17]
 

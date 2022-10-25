@@ -1768,7 +1768,31 @@ class Solution {
 }
 ```
 
-[59]
+[59] 2311. Longest Binary Subsequence Less Than or Equal to K
+
+https://leetcode.com/problems/longest-binary-subsequence-less-than-or-equal-to-k/
+
+```Java
+class Solution {
+    /*
+    s = "1001010", k = 5
+    power <<= 1을 통해 비트가 왼쪽으로 하나씩 증가할 때마다, power도 2배씩 증가.
+    value + power <= k를 만족한다는 것은 아직 k 이하의 숫자라는 것을 의미.
+    if (s.charAt(i) == '1')이 참이라는 것은 현재 위치에서 subsequence를 만들 때 고려되어야 할 위치에 도달했다는 의미.
+     */
+    public int longestSubsequence(String s, int k) {
+        int value = 0, count = 0, power = 1;
+        for (int i = s.length() - 1; i >= 0 && value + power <= k; i--) {
+            if (s.charAt(i) == '1') {
+                count++;
+                value += power;
+            }
+            power <<= 1;
+        }
+        return (int)s.chars().filter(ch -> ch == '0').count() + count;
+    }
+}
+```
 
 [60]
 
