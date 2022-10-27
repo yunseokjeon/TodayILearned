@@ -33,7 +33,71 @@ class Solution {
 }
 ```
 
-[2]
+[2] 51. N-Queens
+
+https://leetcode.com/problems/n-queens/
+
+```Java
+class Solution {
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        s.solveNQueens(4);
+    }
+
+    private int size;
+    private List<List<String>> solutions = new ArrayList<List<String>>();
+
+    public List<List<String>> solveNQueens(int n) {
+        size = n;
+        char[][] emptyBoard = new char[size][size];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                emptyBoard[i][j] = '.';
+            }
+        }
+        backtrack(0, new HashSet<>(), new HashSet<>(), new HashSet<>(), emptyBoard);
+        return solutions;
+    }
+
+    private List<String> createBoard(char[][] state) {
+        List<String> board = new ArrayList<>();
+        for (int row = 0; row < size; row++) {
+            String currentRow = new String(state[row]);
+            board.add(currentRow);
+        }
+        return board;
+    }
+
+    private void backtrack(int row, Set<Integer> diagonals, Set<Integer> antiDiagonals, Set<Integer> cols, char[][] state) {
+        if (row == size) {
+            solutions.add(createBoard(state));
+            return;
+        }
+
+        for (int col = 0; col < size; col++) {
+            int currentDiagonal = row - col;
+            int currentAntiDiagonal = row + col;
+
+            if (cols.contains(col) || diagonals.contains(currentDiagonal) || antiDiagonals.contains(currentAntiDiagonal)) {
+                continue;
+            }
+
+            cols.add(col);
+            diagonals.add(currentDiagonal);
+            antiDiagonals.add(currentAntiDiagonal);
+            state[row][col] = 'Q';
+
+            backtrack(row + 1, diagonals, antiDiagonals, cols, state);
+
+            cols.remove(col);
+            diagonals.remove(currentDiagonal);
+            antiDiagonals.remove(currentAntiDiagonal);
+            state[row][col] = '.';
+        }
+    }
+}
+```
 
 [3]
 
