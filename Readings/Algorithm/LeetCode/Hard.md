@@ -40,11 +40,6 @@ https://leetcode.com/problems/n-queens/
 ```Java
 class Solution {
 
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        s.solveNQueens(4);
-    }
-
     private int size;
     private List<List<String>> solutions = new ArrayList<List<String>>();
 
