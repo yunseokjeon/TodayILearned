@@ -94,7 +94,59 @@ class Solution {
 }
 ```
 
-[3]
+[3] 52. N-Queens II
+
+https://leetcode.com/problems/n-queens-ii/
+
+```Java
+class Solution {
+    private int size;
+
+    public int totalNQueens(int n) {
+        size = n;
+        return backtrack(0, new HashSet<>(), new HashSet<>(), new HashSet<>());
+    }
+
+    private int backtrack(int row, Set<Integer> diagonals, Set<Integer> antiDiagonals, Set<Integer> cols) {
+        if (row == size) {
+            return 1;
+        }
+        int result = 0;
+        for (int col = 0; col < size; col++) {
+            int currentDiagonal = row - col;
+            int currentAntiDiagonal = row + col;
+
+            if (cols.contains(col) || diagonals.contains(currentDiagonal) || antiDiagonals.contains(currentAntiDiagonal)) {
+                continue;
+            }
+
+            cols.add(col);
+            diagonals.add(currentDiagonal);
+            antiDiagonals.add(currentAntiDiagonal);
+
+            result += backtrack(row + 1, diagonals, antiDiagonals, cols);
+
+            cols.remove(col);
+            diagonals.remove(currentDiagonal);
+            antiDiagonals.remove(currentAntiDiagonal);
+        }
+        return result;
+    }
+}
+```
 
 [4]
+
+[5]
+
+[6]
+
+[7]
+
+[8]
+
+[9]
+
+[10]
+
 
