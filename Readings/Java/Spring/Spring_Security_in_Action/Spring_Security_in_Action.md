@@ -369,3 +369,11 @@ PasswordEncoder - 암호를 암호화 또는 해시하는 방법과 주어진 �
 
 암호기 - 데이터를 암호화 및 복호화하는 객체
 
+
+# 5. 인증 구현
+
+인증 논리를 담당하는 것은 AuthenticationProvider 계층이며 여기에서 요청을 허용할지 결정하는 조건과 명령을 발견할 수 있다. AuthenticationManager는 HTTP 필터 계층에서 요청을 수신하고 이 책임을 AuthenticationProvider에 위임하는 구성 요소다.
+
+<img src="https://raw.githubusercontent.com/yunseokjeon/TodayILearned/main/Readings/Java/Spring/Spring_Security_in_Action/images/5/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202022-10-31%20221206.png">
+
+## AuthenticationProvider의 이해
