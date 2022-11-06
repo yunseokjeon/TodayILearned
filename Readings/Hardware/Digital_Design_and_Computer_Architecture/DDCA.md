@@ -27,3 +27,5 @@ contamination delay는 short path 위에 놓인 요소들의 contamination delay
 
 # Sequential Logic Design
 
+sequential logic의 아웃풋은 현재 그리고 이전의 인풋에 달려있고, 따라서 sequential logic은 memory를 갖는다. sequential logic은 특정 이전 인풋을 기억할 수 있고, 또한 이전 인풋을 state라 불리는 더 작은 정보로 바꿀 수도 있다. digital sequential circuit의  state는 state variables라고 하는 비트의 집합인데, 회로의 미래 동작을 설명하는 데 필요한 과거에 대한 정보를 담고 있다.
+

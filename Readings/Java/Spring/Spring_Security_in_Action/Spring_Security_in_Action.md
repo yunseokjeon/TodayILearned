@@ -377,3 +377,81 @@ PasswordEncoder - 암호를 암호화 또는 해시하는 방법과 주어진 �
 <img src="https://raw.githubusercontent.com/yunseokjeon/TodayILearned/main/Readings/Java/Spring/Spring_Security_in_Action/images/5/%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202022-10-31%20221206.png">
 
 ## AuthenticationProvider의 이해
+
+1) 인증 프로세스 중 요청 나타내기
+
+애플리케이션에 접근을 요청하는 사용자를 주체(principal)라고 한다.
+
+스프링 시큐리티의 Authentication 계약은 주체만 나타내는 것이 아니라 인증 프로세스 완료 여부, 권한의 컬렉션 같은 정보를 추가로 가진다.
+
+2) 맞춤형 인증 논리 구현
+
+스프링 시큐리티의 AuthenticationProvider는 인증 논리를 처리한다. AuthenticationProvider 인터페이스의 기본 구현은 시스템의 사용자를 찾는 책임을 UserDetailService에 위임하고 PasswordEncoder로 인증 프로세스에서 암호를 관리한다.
+
+3) 맞춤형 인증 논리 적용
+
+### ssia-ch5-ex1
+
+```Java
+// ProjectConfig.java
+
+@Configuration
+public class ProjectConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private AuthenticationProvider authenticationProvider;
+
+    @Bean
+    public UserDetailsService userDetailsService(DataSource dataSource) {
+        return new JdbcUserDetailsManager(dataSource);
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) {
+        auth.authenticationProvider(authenticationProvider);
+    }
+}
+```
+
+```Java
+// CustomAuthenticationProvider.java 
+
+@Component
+public class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Override
+    public Authentication authenticate(Authentication authentication) {
+        String username = authentication.getName();
+        String password = authentication.getCredentials().toString();
+
+        UserDetails u = userDetailsService.loadUserByUsername(username);
+        if (passwordEncoder.matches(password, u.getPassword())) {
+            return new UsernamePasswordAuthenticationToken(username, password, u.getAuthorities());
+            // 암호가 일치하면 필요헨 세부 정보가 포함된 Authentication 계약의 구현을 반환한다.
+
+        } else {
+            throw new BadCredentialsException("Something went wrong!");
+        }
+    }
+
+    @Override
+    public boolean supports(Class<?> authenticationType) {
+        return authenticationType.equals(UsernamePasswordAuthenticationToken.class);
+        // UsernamePasswordAuthenticationToken.class는 Authentication 인터페이스의 한 구현이며 사용자 이름과 암호를 이용하는 표준 인증 요청을 나타낸다.
+    }
+}
+```
+
+
+

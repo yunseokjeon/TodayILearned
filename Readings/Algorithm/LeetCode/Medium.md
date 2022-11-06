@@ -1823,6 +1823,37 @@ class Solution {
 }
 ```
 
-[61]
+[61] 1049. Last Stone Weight II
+
+https://leetcode.com/problems/last-stone-weight-ii/description/
+
+```Java
+class Solution {
+    /*
+    돌맹이를 왼쪽 가방에 모두 넣거나, 오른쪽 가방에 모두 넣으면 남아있는 돌맹이의 무게가 최대가 된다.
+    결국 최소가 되게 두 가방에 잘 분배해야 한다.
+     */
+    public int lastStoneWeightII(int[] stones) {
+        int sumStoneWeight = 0;
+        for (int stone : stones) {
+            sumStoneWeight += stone;
+        }
+        Integer[][] dp = new Integer[stones.length][sumStoneWeight];
+        return helper(stones, 0, 0, 0, dp);
+    }
+
+    private int helper(int[] stones, int index, int sumL, int sumR, Integer[][] dp) {
+        if (index == stones.length) {
+            return Math.abs(sumL - sumR);
+        }
+        if (dp[index][sumL] != null) {
+            return dp[index][sumL];
+        }
+        dp[index][sumL] = Math.min(helper(stones, index + 1, sumL + stones[index], sumR, dp),
+                helper(stones, index + 1, sumL, sumR + stones[index], dp));
+        return dp[index][sumL];
+    }
+}
+```
 
 [62]
