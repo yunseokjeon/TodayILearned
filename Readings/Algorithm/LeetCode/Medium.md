@@ -1884,4 +1884,115 @@ class Solution {
 }
 ```
 
-[63]
+[63] 939. Minimum Area Rectangle
+
+https://leetcode.com/problems/minimum-area-rectangle/
+
+```Java
+/*
+points = new int[][]{{1, 1}, {1, 3}, {3, 1}, {3, 3}, {2, 2}} 인 경우
+p1=[1,1], p2=[3,3]에서 넓이가 계산된다.
+ */
+class Solution {
+    public int minAreaRect(int[][] points) {
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        for (int[] point : points) {
+            if (!map.containsKey(point[0])) {
+                map.put(point[0], new HashSet<>());
+            }
+            map.get(point[0]).add(point[1]);
+        }
+
+        int result = Integer.MAX_VALUE;
+        for (int[] p1 : points) {
+            for (int[] p2 : points) {
+                if (p1[0] == p2[0] || p1[1] == p2[1]) {
+                    continue;
+                }
+                if (map.get(p1[0]).contains(p2[1]) && map.get(p2[0]).contains(p1[1])) {
+                    result = Math.min(result, Math.abs(p1[0] - p2[0]) * Math.abs(p1[1] - p2[1]));
+                }
+            }
+        }
+        return result == Integer.MAX_VALUE ? 0 : result;
+    }
+}
+```
+
+[64] 695. Max Area of Island
+
+https://leetcode.com/problems/max-area-of-island/
+
+```Java
+class Solution {
+    int[][] grid;
+    boolean[][] seen;
+
+    public int maxAreaOfIsland(int[][] grid) {
+        this.grid = grid;
+        this.seen = new boolean[grid.length][grid[0].length];
+        int result = 0;
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[0].length; c++) {
+                result = Math.max(result, area(r, c));
+            }
+        }
+        return result;
+    }
+
+    public int area(int r, int c) {
+        if (r < 0 || r >= grid.length || c < 0 || c >= grid[0].length || seen[r][c] || grid[r][c] == 0) {
+            return 0;
+        }
+        seen[r][c] = true;
+        return 1 + area(r - 1, c) + area(r + 1, c) + area(r, c - 1) + area(r, c + 1);
+    }
+}
+```
+
+[65] 48. Rotate Image
+
+https://leetcode.com/problems/rotate-image/
+
+```Java
+/*
+1 2 3
+4 5 6
+7 8 9
+
+1 4 7
+2 5 8
+3 6 9
+
+7 4 1
+8 5 2
+9 6 3
+ */
+
+class Solution {
+    public void rotate(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = i; j < matrix[0].length; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
+        for (int i = 0; i < matrix.length; i++) {
+            int left = 0, right = matrix[0].length - 1;
+            while (left < right) {
+                int temp = matrix[i][left];
+                matrix[i][left] = matrix[i][right];
+                matrix[i][right] = temp;
+                left++;
+                right--;
+            }
+        }
+    }
+}
+```
+
+[66]
+
+
