@@ -23,6 +23,28 @@ class Solution {
 }
 ```
 
+```C++
+class Solution {
+public:
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+        ListNode *dummyHead = new ListNode(0);
+        ListNode *current = dummyHead;
+        int carry = 0;
+        while (l1 != NULL || l2 != NULL || carry != 0) {
+            int number1 = l1 ? l1->val : 0;
+            int number2 = l2 ? l2->val : 0;
+            int sum = number1 + number2 + carry;
+            current->next = new ListNode(sum % 10);
+            carry = sum / 10;
+            current = current->next;
+            l1 = l1 ? l1->next : nullptr;
+            l2 = l2 ? l2->next : nullptr;
+        }
+        return dummyHead->next;
+    }
+};
+```
+
 [2] 3. Longest Substring Without Repeating Characters
 
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
@@ -1993,6 +2015,23 @@ class Solution {
 }
 ```
 
-[66]
+[66] 453. Minimum Moves to Equal Array Elements
+
+https://leetcode.com/problems/minimum-moves-to-equal-array-elements/
+
+```Java
+class Solution {
+    public int minMoves(int[] nums) {
+        Arrays.sort(nums);
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += Math.abs(nums[0] - nums[i]);
+        }
+        return sum;
+    }
+}
+```
+
+[67]
 
 
