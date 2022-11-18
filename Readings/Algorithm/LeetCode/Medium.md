@@ -2059,4 +2059,28 @@ class SubrectangleQueries {
 }
 ```
 
-[68]
+[68] 2375. Construct Smallest Number From DI String
+
+https://leetcode.com/problems/construct-smallest-number-from-di-string/
+
+```Java
+class Solution {
+    public String smallestNumber(String pattern) {
+        StringBuilder result = new StringBuilder(), stack = new StringBuilder();
+        for (int i = 0; i <= pattern.length(); i++) {
+            stack.append((char) ('1' + i));
+            if (i == pattern.length() || pattern.charAt(i) == 'I') {
+                result.append(stack.reverse());
+                stack = new StringBuilder();
+            }
+        }
+        return result.toString();
+    }
+}
+```
+
+[69]
+
+[70]
+
+[71]
