@@ -2079,7 +2079,28 @@ class Solution {
 }
 ```
 
-[69]
+[69] 2221. Find Triangular Sum of an Array
+
+https://leetcode.com/problems/find-triangular-sum-of-an-array/
+
+```Java
+class Solution {
+    public int triangularSum(int[] nums) {
+        return explore(nums)[0];
+    }
+
+    public int[] explore(int[] nums) {
+        if (nums.length == 1) {
+            return nums;
+        }
+        int[] next = new int[nums.length - 1];
+        for (int i = 0; i < next.length; i++) {
+            next[i] = (nums[i] + nums[i + 1]) % 10;
+        }
+        return explore(next);
+    }
+}
+```
 
 [70]
 
