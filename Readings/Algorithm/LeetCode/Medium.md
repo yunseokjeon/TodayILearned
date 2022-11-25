@@ -2125,4 +2125,40 @@ class Solution {
 }
 ```
 
-[71]
+[71] 1871. Jump Game VII
+
+https://leetcode.com/problems/jump-game-vii/
+
+```Java
+class Solution {
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        System.out.println(s.canReach("011010", 2, 3));
+    }
+
+    public boolean canReach(String s, int minJump, int maxJump) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(0);
+        int maxReach = 0;
+
+        while (!queue.isEmpty()) {
+            int index = queue.remove();
+            if (index == s.length() - 1) {
+                return true;
+            }
+            for (int j = Math.max(index + minJump, maxReach); j <= Math.min(index + maxJump, s.length() - 1); j++) {
+                if (s.charAt(j) == '0') {
+                    queue.add(j);
+                }
+            }
+            maxReach = Math.min(index + maxJump + 1, s.length() - 1);
+        }
+
+        return false;
+    }
+}
+```
+
+[72]
+
+[73]
