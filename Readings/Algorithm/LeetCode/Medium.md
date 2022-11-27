@@ -23,25 +23,23 @@ class Solution {
 }
 ```
 
-```C++
-class Solution {
-public:
-    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-        ListNode *dummyHead = new ListNode(0);
-        ListNode *current = dummyHead;
-        int carry = 0;
-        while (l1 != NULL || l2 != NULL || carry != 0) {
-            int number1 = l1 ? l1->val : 0;
-            int number2 = l2 ? l2->val : 0;
-            int sum = number1 + number2 + carry;
-            current->next = new ListNode(sum % 10);
-            carry = sum / 10;
-            current = current->next;
-            l1 = l1 ? l1->next : nullptr;
-            l2 = l2 ? l2->next : nullptr;
-        }
-        return dummyHead->next;
+```TypeScript
+function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+    const dummy: ListNode = new ListNode();
+    let current: ListNode = dummy;
+    let carry: number = 0;
+
+    while (l1 !== null || l2 !== null || carry !== 0) {
+        let number1 = l1 !== null ? l1.val : 0;
+        let number2 = l2 !== null ? l2.val : 0;
+        let sum = number1 + number2 + carry;
+        current.next = new ListNode(Math.floor(sum % 10));
+        carry = Math.floor(sum / 10);
+        current = current.next;
+        l1 = l1 !== null ? l1.next : null;
+        l2 = l2 !== null ? l2.next : null;
     }
+    return dummy.next;
 };
 ```
 
@@ -68,6 +66,22 @@ class Solution {
         return result;
     }
 }
+```
+
+```TypeScript
+function lengthOfLongestSubstring(s: string): number {
+    let map: Map<string, number> = new Map();
+    let result = 0;
+    let currentIndex = 0;
+    s.split("").forEach((character, index) => {
+        if (map.has(character)) {
+            currentIndex = Math.max(currentIndex, map.get(character)! + 1);
+        }
+        result = Math.max(result, index - currentIndex + 1);
+        map.set(character, index);
+    })
+    return result;
+};
 ```
 
 [3] 5. Longest Palindromic Substring
@@ -2159,6 +2173,28 @@ class Solution {
 }
 ```
 
-[72]
+[72] 669. Trim a Binary Search Tree
+
+https://leetcode.com/problems/trim-a-binary-search-tree/
+
+```TypeScript
+function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | null {
+    const trim = (node: TreeNode | null): TreeNode | null => {
+        if (!node) {
+            return null;
+        } else if (node.val > high) {
+            return trim(node.left);
+        } else if (node.val < low) {
+            return trim(node.right);
+        } else {
+            node.left = trim(node.left);
+            node.right = trim(node.right);
+            return node;
+        }
+    }
+
+    return trim(root);
+};
+```
 
 [73]
