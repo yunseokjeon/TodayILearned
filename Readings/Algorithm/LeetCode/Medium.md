@@ -2197,4 +2197,22 @@ function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | n
 };
 ```
 
-[73]
+[73] 1109. Corporate Flight Bookings
+
+```TypeScript
+function corpFlightBookings(bookings: number[][], n: number): number[] {
+    const result: number[] = Array(n).fill(0);
+    for (let booking of bookings) {
+        for (let i = booking[0] - 1; i < booking[1]; i++) {
+            result[i] += booking[2];
+        }
+    }
+    return result;
+};
+```
+
+[74]
+
+[75]
+
+
