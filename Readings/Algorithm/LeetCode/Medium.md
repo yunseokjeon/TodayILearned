@@ -869,6 +869,45 @@ class Solution {
 }
 ```
 
+```TypeScript
+function maxTwoEvents(events: number[][]): number {
+    let data = [], result = 0, maxPreSum = 0;
+    for (const [start, end, score] of events) {
+        data.push([start, score, 1]);
+        data.push([end, score, -1]);
+    }
+    data.sort((x, y) => {
+        if (x[0] !== y[0]) {
+            return x[0] - y[0];
+        }
+        return y[2] - x[2];
+    })
+
+    /*
+    [[1, 3, 2], [4, 5, 2], [2, 4, 3]]
+
+    [
+      [ 1, 2, 1 ],
+      [ 2, 3, 1 ],
+      [ 3, 2, -1 ],
+      [ 4, 2, 1 ],
+      [ 4, 3, -1 ],
+      [ 5, 2, -1 ]
+    ]
+     */
+
+    for (const [, score, flag] of data) {
+        if (flag === -1) {
+            maxPreSum = Math.max(maxPreSum, score);
+        }else{
+            result = Math.max(result, maxPreSum + score);
+        }
+    }
+
+    return result;
+};
+```
+
 [31] 2326. Spiral Matrix IV
 
 https://leetcode.com/problems/spiral-matrix-iv/
