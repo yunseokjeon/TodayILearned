@@ -117,6 +117,34 @@ class Solution {
 }
 ```
 
+```TypeScript
+function longestPalindrome(s: string): string {
+    if (s.length < 2) {
+        return s;
+    }
+    let result: string = '';
+    for (let i = 0; i < s.length; i++) {
+        let first = explorer(i, i, s);
+        let second = explorer(i, i + 1, s);
+        let current = first.length >= second.length ? first : second;
+        result = result.length > current.length ? result : current;
+    }
+    return result;
+};
+
+function explorer(left: number, right: number, s: string) {
+    let current: string = '';
+
+    while (left >= 0 && right < s.length && s[left] === s[right]) {
+        current = s.substring(left, right + 1);
+        left--;
+        right++;
+    }
+
+    return current;
+}
+```
+
 [4] 6. Zigzag Conversion
 
 https://leetcode.com/problems/zigzag-conversion/
@@ -149,6 +177,36 @@ class Solution {
         return result.toString();
     }
 }
+```
+
+```TypeScript
+function convert(s: string, numRows: number): string {
+    if (s.length < numRows || numRows < 2) {
+        return s;
+    }
+    const rows: string[] = Array(numRows).fill('');
+
+    let index = 0;
+    let direction = 1;
+
+    for (const c of s) {
+        if (index === 0) {
+            direction = 1;
+        } else if (index === numRows - 1) {
+            direction = -1;
+        }
+
+        rows[index] = rows[index] + c;
+        index += direction;
+    }
+
+
+    let result: string = '';
+    for (let row of rows) {
+        result += row;
+    }
+    return result;
+};
 ```
 
 [5] 7. Reverse Integer
