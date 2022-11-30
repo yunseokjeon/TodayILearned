@@ -2250,7 +2250,52 @@ function corpFlightBookings(bookings: number[][], n: number): number[] {
 };
 ```
 
-[74]
+[74] 752. Open the Lock
+
+https://leetcode.com/problems/open-the-lock/
+
+```TypeScript
+function openLock(deadends: string[], target: string): number {
+
+    const getCombinations = (combination: string) => {
+        const answer = [];
+        for (let i = 0; i < combination.length; i++) {
+            answer.push(combination.slice(0, i) + ((+combination[i] + 1) % 10) + combination.slice(i + 1));
+            answer.push(combination.slice(0, i) + ((+combination[i] + 9) % 10) + combination.slice(i + 1));
+        }
+        return answer;
+    }
+
+    const dead = new Set(deadends);
+    let count = 0;
+    let queue = ['0000'];
+    const seen = new Set(['0000']);
+
+    while (queue.length) {
+        const next = [];
+        for (let combination of queue) {
+            if (combination === target) {
+                return count;
+            }
+            if (dead.has(combination)) {
+                continue;
+            }
+            for (let c of getCombinations(combination)) {
+                if (seen.has(c)) {
+                    continue;
+                }
+                seen.add(c);
+                next.push(c);
+            }
+        }
+
+        count++;
+        queue = next;
+    }
+
+    return -1;
+};
+```
 
 [75]
 
