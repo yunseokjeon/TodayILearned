@@ -231,6 +231,15 @@ class Solution {
 }
 ```
 
+```TypeScript
+function reverse(x: number): number {
+    let result = x < 0 ?
+        parseInt(Math.abs(x).toString().split('').reverse().join('')) * -1 :
+        parseInt(x.toString().split('').reverse().join(''));
+    return Math.abs(result) < Math.pow(2, 31) ? result : 0;
+};
+```
+
 [6] 11. Container With Most Water
 
 https://leetcode.com/problems/container-with-most-water/
@@ -251,6 +260,22 @@ class Solution {
         return result;
     }
 }
+```
+
+```TypeScript
+function maxArea(height: number[]): number {
+    let result = 0, left = 0, right = height.length - 1;
+    while (left < right) {
+        let now = (right - left) * Math.min(height[left], height[right]);
+        result = Math.max(result, now);
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    return result;
+};
 ```
 
 [7] 16. 3Sum Closest
