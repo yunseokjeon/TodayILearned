@@ -307,6 +307,29 @@ class Solution {
 }
 ```
 
+```TypeScript
+function threeSumClosest(nums: number[], target: number): number {
+    nums.sort((x, y) => x - y);
+    let N = nums.length;
+    let result = nums[0] + nums[1] + nums[N - 1];
+    for (let i = 0; i < N; i++) {
+        let left = i + 1, right = N - 1;
+        while (left < right) {
+            let sum = nums[i] + nums[left] + nums[right];
+            if (Math.abs(sum - target) < Math.abs(result - target)) {
+                result = sum;
+            }
+            if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
+    return result;
+};
+```
+
 [8] 19. Remove Nth Node From End of List
 
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
@@ -328,6 +351,24 @@ class Solution {
         return dummy.next;
     }
 }
+```
+```TypeScript
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+    let dummy = new ListNode();
+    dummy.next = head;
+    let fast: ListNode | null = dummy, slow: ListNode | null = dummy;
+    for (let i = 0; i <= n; i++) {
+        fast = fast!.next;
+    }
+
+    while (fast) {
+        fast = fast.next;
+        slow = slow!.next
+    }
+
+    slow!.next = slow!.next!.next;
+    return dummy.next;
+};
 ```
 
 [9] 22. Generate Parentheses
@@ -358,6 +399,27 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function generateParenthesis(n: number): string[] {
+    let result: string[] = [];
+
+    const backtrack = (left: number, right: number, combination: string, count: number) => {
+        if (right === count) {
+            result.push(combination);
+            return;
+        }
+        if (left < count) {
+            backtrack(left + 1, right, combination + '(', count);
+        }
+        if (right < left) {
+            backtrack(left, right + 1, combination + ')', count);
+        }
+    }
+
+    backtrack(0, 0, '', n);
+    return result;
+};
+```
 
 [10] 24. Swap Nodes in Pairs
 
@@ -376,6 +438,22 @@ class Solution {
         return second;
     }
 }
+```
+```TypeScript
+function swapPairs(head: ListNode | null): ListNode | null {
+    if (!head) {
+        return head;
+    }
+    let temp = head;
+    head = head.next;
+    if (head) {
+        temp.next = swapPairs(head.next);
+        head.next = temp;
+    } else {
+        head=temp;
+    }
+    return head;
+};
 ```
 
 [11] 36. Valid Sudoku
@@ -422,6 +500,39 @@ class Solution {
 }
 ```
 
+```TypeScript
+function isValidSudoku(board: string[][]): boolean {
+    let rows: Set<String>[] = [];
+    let cols: Set<String>[] = [];
+    let boxes: Set<String>[] = [];
+
+    for (let i = 0; i < 9; i++) {
+        rows.push(new Set<string>());
+        cols.push(new Set<string>());
+        boxes.push(new Set<string>());
+    }
+
+    for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+            let now = board[r][c];
+            if (now === '.') {
+                continue;
+            }
+            const boxIndex = Math.floor(r / 3) * 3 + Math.floor(c / 3);
+
+            if (rows[r].has(now) || cols[c].has(now) || boxes[boxIndex].has(now)) {
+                return false;
+            }
+
+            rows[r].add(now);
+            cols[c].add(now);
+            boxes[boxIndex].add(now);
+        }
+    }
+    return true;
+};
+```
+
 [12] 39. Combination Sum
 
 https://leetcode.com/problems/combination-sum/
@@ -449,6 +560,29 @@ class Solution {
         return results;
     }
 }
+```
+```TypeScript
+function combinationSum(candidates: number[], target: number): number[][] {
+    let result: number[][] = [];
+
+    const backtrack = (remain: number, solution: number[], index: number) => {
+        if (remain === 0) {
+            result.push(solution);
+            return;
+        }
+        if (remain < 0) {
+            return;
+        }
+        for (let i = index; i < candidates.length; i++) {
+            let newSolution = [...solution, candidates[i]];
+            backtrack(remain - candidates[i], newSolution, i);
+        }
+    }
+
+    backtrack(target, [], 0);
+    return result;
+
+};
 ```
 
 [13] 116. Populating Next Right Pointers in Each Node
@@ -538,6 +672,31 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function lengthOfLongestSubstringTwoDistinct(s: string): number {
+    let N = s.length;
+    if (N < 3) {
+        return N;
+    }
+    let left = 0, right = 0, result = 2;
+    let map: Map<string, number> = new Map<string, number>();
+
+    while (right < N) {
+        map.set(s[right], right++);
+        if (map.size === 3) {
+            let deleteIndex = Number.MAX_SAFE_INTEGER;
+            map.forEach(((value, key) => {
+                deleteIndex = Math.min(deleteIndex, value);
+            }))
+            map.delete(s[deleteIndex]);
+            left = deleteIndex + 1;
+        }
+        result = Math.max(result, right - left);
+    }
+
+    return result;
+};
+```
 
 [16] 333. Largest BST Subtree
 
@@ -572,6 +731,38 @@ class Solution {
         return helper(root).maxSize;
     }
 }
+```
+```TypeScript
+class NodeValue {
+    minNode: number
+    maxNode: number
+    maxSize: number
+
+    constructor(minNode: number, maxNode: number, maxSize: number) {
+        this.minNode = minNode;
+        this.maxNode = maxNode;
+        this.maxSize = maxSize;
+    }
+}
+
+const helper = (root: TreeNode | null) => {
+    if (!root) {
+        return new NodeValue(Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER, 0);
+    }
+    let left: NodeValue = helper(root.left);
+    let right: NodeValue = helper(root.right);
+    if (left.maxNode < root.val && root.val < right.minNode) {
+        return new NodeValue(Math.min(left.minNode, root.val),
+            Math.max(root.val, right.maxNode), left.maxSize + right.maxSize + 1
+        )
+    }
+
+    return new NodeValue(Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER, Math.max(left.maxSize, right.maxSize));
+}
+
+function largestBSTSubtree(root: TreeNode | null): number {
+    return helper(root).maxSize;
+};
 ```
 
 [17] 334. Increasing Triplet Subsequence
