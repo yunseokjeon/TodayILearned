@@ -9,6 +9,7 @@
 }
 
 .about__card {
+    position: relative;
     padding: 48px;
     text-align: center;
     color: white;
@@ -52,6 +53,7 @@
 
 @media (min-width: 769px) {
 
+    /*PC의 경우 가로 전체를 차지한다.*/
     #about {
         grid-column: 1 / -1;
     }
@@ -62,6 +64,7 @@
         transition: all 350ms;
     }
 
+    /*.about에 호버가 됐을 때, .about__card중에 호버되지 않을 것들*/
     .about:hover .about__card:not(:hover) {
         transform: scale(0.9);
     }

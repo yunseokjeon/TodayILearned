@@ -1,20 +1,26 @@
 .intro {
+    /*relative 라는 것은 내부에 들어갈 요소에서 absolute나 fixed를 사용할 것이란 이야기*/
     position: relative;
     background-image: url('../images/intro-bg.jpg');
+    /*cover가 아니라 contain이었으면 작은 사진이 반복된다.*/
     background-size: cover;
     background-position: center;
 }
 
 /* 배경 이미지를 반투명 검정으로 가리기 */
 .intro__dark {
+    /*absolute면서 위, 아래, 좌우가 0이니 .intro 부분을 꽉 채운다.*/
     position: absolute;
     top: 0; bottom: 0;
     left: 0; right: 0;
+    /*center 덕분에 글자가 가운데로 온다.*/
     text-align: center;
+    /*0.67이니까 검정색 샐로판지로 덮은 느낌이 난다.*/
     background-color: rgba(0, 0, 0, 0.67);
 }
 
 .intro__type {
+    /*그냥 flex로 하면은 가로를 꽉 채우게 되고, 글자가 왼쪽으로 치우친다.*/
     display: inline-flex;
     gap: 0.32em;
     font-family: var(--font-code);
@@ -23,6 +29,7 @@
     color: white;
 }
 
+/*문자열로 시작하는 클래스*/
 [class^="intro__tilt"] {
     position: absolute;
     bottom: 0;
@@ -38,6 +45,7 @@
     opacity: 0.5;
 }
 
+/*애니메이션 정의*/
 @keyframes blink {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -52,11 +60,13 @@
 
 @media (max-width: 768px) {
     .intro {
+        /*세로를 꽉 채우기*/
         height: 100vh;
     }
 
     .intro__type {
         margin-top: 36vh;
+        /*column이어서 모바일에서 문장의 줄바꿈이 나타나다.*/
         flex-direction: column;
         text-align: left;
     }
@@ -64,6 +74,7 @@
 
 @media (min-width: 769px) {
     .intro {
+        /*세로를 500만 채우기*/
         height: 500px;
     }
 
@@ -71,7 +82,10 @@
         margin-top: 172px;
         align-items: center;
     }
+
+    /*PC에서 이모지와 문장이 조화롭게 배치되게 하기 위해서 필요하다.*/
     .intro__type span {
+        /*inline-block이어서 margin-bottom이 먹는다.*/
         display: inline-block;
         vertical-align: middle;
         margin-bottom: 0.25em;

@@ -15,6 +15,7 @@
 }
 
 .header__homelink {
+    /*a tag가 기본이 inline이라 height가 먹질 않는다.*/
     display: inline-block;
     padding: 0 24px;
     height: var(--height-toolbar);
@@ -39,11 +40,15 @@
 }
 
 @media (max-width: 768px) {
+    /*모바일에서는 네비게이션이 보이지 않도록.
+    네이게이션이 없어지니 header__menu-btn이 오른쪽에 붙게 된다.
+    */
     .header__nav {
         display: none;
     }
     /* 체크박스 인풋을 버튼으로 커스터마이즈 */
     .header__menu-btn {
+        /*체크박스의 기본 속성 제거*/
         all: unset;
         display: block;
         width: var(--height-toolbar);
@@ -56,7 +61,7 @@
     .header__menu-btn:checked {
         background-color: var(--color-dark);
     }
-
+    /*체크된 상태에서 그 다음에 오는 header__nav*/
     .header__menu-btn:checked + .header__nav {
         display: inherit;
         position: absolute;
@@ -73,6 +78,7 @@
     .header__nav-item a {
         width: 100vw;
     }
+    /*마지막 항목만 빼고 하얀색 밑줄 추가된다.*/
     .header__nav-item:not(:last-child) {
         border-bottom: 2px solid rgba(255, 255, 255, 0.06);
     }
@@ -80,7 +86,9 @@
 
 @media (min-width: 769px) {
     .header__nav-item {
+        /*inline-block이니 나란히 가로로 배치.*/
         display: inline-block;
+        /*relative라는 건 내부에 absolute가 온다는 의미.*/
         position: relative;
     }
     .header__nav-item:last-child {
@@ -91,6 +99,7 @@
         padding: 0 0.8em;
     }
 
+    /*네비게이션 아이템 밑에 하얀 밑줄 애니메이션이 나타난다.*/
     .header__nav-item::after {
         content: '';
         position: absolute;

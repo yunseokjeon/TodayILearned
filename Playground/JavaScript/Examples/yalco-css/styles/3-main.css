@@ -1,3 +1,6 @@
+/*style.css에서 font-weight: normal;로 초기화 했다.*/
+
+
 .section {
     padding: 64px 16px;
     text-align: center;
@@ -16,6 +19,7 @@
 
 @media (min-width: 769px) {
 
+    /*모바일에서 세로로 한줄로 나오니까 이 부분이 불필요하다.*/
     main {
         display: grid;
         grid-template-columns: 1fr 1fr;
