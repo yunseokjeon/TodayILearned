@@ -1,6 +1,7 @@
 
 .html-css {
     margin: 56px 0;
+    /*article이 왼쪽으로 붙지 않고 가운데로 정렬되게 하기 위해.*/
     display: inline-flex;
     gap: 56px;
 }
