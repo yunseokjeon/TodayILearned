@@ -788,6 +788,23 @@ class Solution {
 }
 ```
 
+```TypeScript
+function increasingTriplet(nums: number[]): boolean {
+    let first = Number.MAX_VALUE;
+    let second = Number.MAX_VALUE;
+    for (const number of nums) {
+        if (number <= first) {
+            first = number;
+        } else if (number <= second) {
+            second = number;
+        } else {
+            return true;
+        }
+    }
+    return false;
+};
+```
+
 [18] 386. Lexicographical Numbers
 
 https://leetcode.com/problems/lexicographical-numbers/
@@ -817,6 +834,27 @@ class Solution {
 }
 ```
 
+```TypeScript
+function lexicalOrder(n: number): number[] {
+    const result: number[] = [];
+    for (let i = 1; i < 10; i++) {
+        dfs(i, n, result)
+    }
+    return result;
+};
+
+const dfs = (current: number, n: number, result: number[]) => {
+    if (current > n) {
+        return;
+    } else {
+        result.push(current);
+        for (let i = 0; i < 10; i++) {
+            dfs(current * 10 + i, n, result);
+        }
+    }
+}
+```
+
 [19] 646. Maximum Length of Pair Chain
 
 https://leetcode.com/problems/maximum-length-of-pair-chain/
@@ -835,6 +873,19 @@ class Solution {
         return result;
     }
 }
+```
+```TypeScript
+function findLongestChain(pairs: number[][]): number {
+    pairs.sort((a, b) => a[1] - b[1]);
+    let result = 0, current = Number.MIN_SAFE_INTEGER;
+    for (const pair of pairs) {
+        if (current < pair[0]) {
+            current = pair[1];
+            result++;
+        }
+    }
+    return result;
+};
 ```
 
 [20] 659. Split Array into Consecutive Subsequences
@@ -867,7 +918,37 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function isPossible(nums: number[]): boolean {
+    let count: Map<number, number> = new Map(), tail: Map<number, number> = new Map();
 
+    for (const n of nums) {
+        const value = count.get(n) ? count.get(n)! + 1 : 1;
+        count.set(n, value);
+    }
+
+    for (const n of nums) {
+        if (count.get(n) === 0) {
+            continue;
+        } else if (tail.get(n)! > 0) {
+            tail.set(n, tail.get(n)! - 1);
+            const value = tail.get(n + 1) ? tail.get(n + 1)! + 1 : 1;
+            tail.set(n + 1, value);
+        } else if (count.get(n + 1)! > 0 && count.get(n + 2)! > 0) {
+            count.set(n + 1, count.get(n + 1)! - 1);
+            count.set(n + 2, count.get(n + 2)! - 1);
+            const value = tail.get(n + 3) ? tail.get(n + 3)! + 1 : 1;
+            tail.set(n + 3, value);
+        } else {
+            return false;
+        }
+
+        count.set(n, count.get(n)! - 1);
+    }
+
+    return true;
+};
+```
 [21] 776. Split BST
 
 https://leetcode.com/problems/split-bst/
