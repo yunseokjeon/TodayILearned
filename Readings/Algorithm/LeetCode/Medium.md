@@ -973,7 +973,23 @@ class Solution {
     }
 }
 ```
-
+```TypeScript
+function splitBST(root: TreeNode | null, target: number): Array<TreeNode | null> {
+    if (!root) {
+        return [null, null];
+    } else if (root.val <= target) {
+        const result = splitBST(root.right, target);
+        root.right = result[0];
+        result[0] = root;
+        return result;
+    } else {
+        const result = splitBST(root.left, target);
+        root.left = result[1];
+        result[1] = root;
+        return result;
+    }
+};
+```
 [22] 946. Validate Stack Sequences
 
 https://leetcode.com/problems/validate-stack-sequences/
@@ -995,7 +1011,21 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function validateStackSequences(pushed: number[], popped: number[]): boolean {
+    const stack = [];
+    let i = 0;
 
+    for (let element of pushed) {
+        stack.push(element);
+        while (stack.length && stack[stack.length - 1] === popped[i]) {
+            stack.pop();
+            i++;
+        }
+    }
+    return pushed.length === i;
+};
+```
 [23] 1197. Minimum Knight Moves
 
 https://leetcode.com/problems/minimum-knight-moves/
