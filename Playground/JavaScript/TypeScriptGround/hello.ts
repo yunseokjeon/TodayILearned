@@ -1,3 +1,8 @@
+/*
+WebStorm으로 TypeScript debug 모드 사용하기
+https://ivvve.github.io/2019/12/17/js/ts/typescript-webstorm-debug/
+ */
+
 class TreeNode {
     val: number
     left: TreeNode | null
@@ -9,4 +14,6 @@ class TreeNode {
         this.right = (right === undefined ? null : right)
     }
 }
+
+
 

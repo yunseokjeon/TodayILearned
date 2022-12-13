@@ -919,6 +919,7 @@ class Solution {
 }
 ```
 ```TypeScript
+// ?
 function isPossible(nums: number[]): boolean {
     let count: Map<number, number> = new Map(), tail: Map<number, number> = new Map();
 
@@ -945,6 +946,12 @@ function isPossible(nums: number[]): boolean {
 
         count.set(n, count.get(n)! - 1);
     }
+    
+    /*
+    nums = [1,2,3,3,4,5]
+    count = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+    tail = {4: 1, 6: 1}
+     */
 
     return true;
 };
@@ -974,6 +981,7 @@ class Solution {
 }
 ```
 ```TypeScript
+// ?
 function splitBST(root: TreeNode | null, target: number): Array<TreeNode | null> {
     if (!root) {
         return [null, null];
