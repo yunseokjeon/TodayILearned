@@ -1056,7 +1056,30 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function minKnightMoves(x: number, y: number): number {
+    const memo: Map<string, number> = new Map();
 
+    const dfs = (x: number, y: number): number => {
+        const key = x.toString() + "." + y.toString();
+        if (memo.has(key)) {
+            return <number>memo.get(key);
+        }
+
+        if (x + y === 0) {
+            return 0;
+        } else if (x + y === 2) {
+            return 2;
+        } else {
+            const result: number = Math.min(<number>dfs(Math.abs(x - 2), Math.abs(y - 1)), dfs(Math.abs(x - 1), Math.abs(y - 2)) as number) + 1;
+            memo.set(key, result);
+            return result;
+        }
+    }
+
+    return dfs(Math.abs(x), Math.abs(y));
+};
+```
 [24] 1219. Path with Maximum Gold
 
 https://leetcode.com/problems/path-with-maximum-gold/
