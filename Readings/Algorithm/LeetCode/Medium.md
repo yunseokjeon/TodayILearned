@@ -1122,6 +1122,35 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function getMaximumGold(grid: number[][]): number {
+    const DIR: number[] = [0, 1, 0, -1, 0];
+
+    const findMaxGold = (grid: number[][], m: number, n: number, r: number, c: number) => {
+        if (r < 0 || r === m || c < 0 || c === n || grid[r][c] === 0) {
+            return 0;
+        }
+
+        const origin = grid[r][c];
+        grid[r][c] = 0;
+        let maxGold = 0;
+        for (let i = 0; i < 4; i++) {
+            maxGold = Math.max(maxGold, findMaxGold(grid, m, n, r + DIR[i], c + DIR[i + 1]) as number);
+        }
+        grid[r][c] = origin;
+        return origin + maxGold;
+    }
+
+    const m = grid.length, n = grid[0].length;
+    let result = 0;
+    for (let r = 0; r < m; r++) {
+        for (let c = 0; c < n; c++) {
+            result = Math.max(result, findMaxGold(grid, m, n, r, c));
+        }
+    }
+    return result;
+};
+```
 
 [25] 1325. Delete Leaves With a Given Value
 
