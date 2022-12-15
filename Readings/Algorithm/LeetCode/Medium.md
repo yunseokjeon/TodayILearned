@@ -616,7 +616,31 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function connect(root: Node | null): Node | null {
+    if (!root) {
+        return null;
+    }
+    const queue = [root];
 
+    while (queue.length) {
+        const size = queue.length;
+        const level = queue.slice();
+
+        for (let i = 0; i < size; i++) {
+            const current = queue.shift();
+            current!.next = level[i + 1];
+            if (current.left) {
+                queue.push(current.left);
+            }
+            if (current.right) {
+                queue.push(current.right);
+            }
+        }
+    }
+    return root;
+};
+```
 [14] 146. LRU Cache
 
 https://leetcode.com/problems/lru-cache/
