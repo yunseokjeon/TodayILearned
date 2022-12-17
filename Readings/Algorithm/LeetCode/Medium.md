@@ -1193,6 +1193,17 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function removeLeafNodes(root: TreeNode | null, target: number): TreeNode | null {
+    if (root?.left) {
+        root.left = removeLeafNodes(root.left, target);
+    }
+    if (root?.right) {
+        root.right = removeLeafNodes(root.right, target);
+    }
+    return (root?.left === root?.right && root?.val === target) ? null : root;
+};
+```
 
 [26] 1404. Number of Steps to Reduce a Number in Binary Representation to One
 
@@ -1214,6 +1225,40 @@ class Solution {
         return result + carry;
     }
 }
+```
+```TypeScript
+function numSteps(s: string, steps = 0): number {
+    const container = s.split('').map(Number);
+
+    const div = () => container.pop();
+    const inc = () => {
+        let N = container.length, i = N - 1, carry = 1;
+        container[i] = 0;   // 1 + 1 = 0 and carry = 1
+        while (--i >= 0 && carry) {
+            if (container[i]) {
+                container[i] = 0;   // 1 + 1 = 0 and carry = 1
+            } else {
+                container[i] = 1; // 0 + 1 = 1 and carry = 0
+                carry = 0;
+            }
+        }
+        if (carry) {
+            container.unshift(1);
+        }
+    }
+
+    while (container.length > 1) {
+        if (container[container.length - 1] === 0) {
+            // 짝수
+            div();
+        } else {
+            inc();
+        }
+        steps++;
+    }
+
+    return steps;
+};
 ```
 
 [27] 1430. Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree
