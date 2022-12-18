@@ -1425,7 +1425,7 @@ function createElementNS( name ) {
   *
   * It is roughly similar to the well-known MurmurHash/xxHash algorithms. It uses a combination
   * of multiplication and Xorshift to generate the hash, but not as thorough. As a result it's
-  * faster than either would be in JavaScript and significantly simpler to implement. Keep in
+  * faster than either would be in Frontend and significantly simpler to implement. Keep in
   * mind this is not a secure algorithm, if privacy/security is a concern, this is not for you.
   *
   * @param {string} str
