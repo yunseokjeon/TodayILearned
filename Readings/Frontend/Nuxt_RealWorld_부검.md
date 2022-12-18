@@ -154,4 +154,6 @@ declare module '@nuxt/types' {
 
 declare module 'vue/types/vue'를 사용하면, Vue.$repository 가 타입 체크에서 걸리지 않고 사용할 수 있게 된다.
 
+declare module '@nuxt/types'를 설정함으로서, useContext()를 통해 $repository를 손쉽게 조회할 수 있는 것 같다.
+
 
