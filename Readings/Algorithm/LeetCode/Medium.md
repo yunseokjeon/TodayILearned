@@ -1282,7 +1282,22 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function isValidSequence(root: TreeNode | null, arr: number[]): boolean {
 
+    const dfs = (node: TreeNode, arr: number[], depth: number): boolean => {
+        if (!node || depth >= arr.length || arr[depth] !== node.val) {
+            return false;
+        }
+        if (!node.left && !node.right) {
+            return depth + 1 === arr.length;
+        }
+        return dfs(node.left as TreeNode, arr, depth + 1) || dfs(node.right as TreeNode, arr, depth + 1);
+    }
+
+    return dfs(root as TreeNode, arr, 0);
+};
+```
 [28] 1730. Shortest Path to Get Food
 
 https://leetcode.com/problems/shortest-path-to-get-food/
