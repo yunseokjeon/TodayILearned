@@ -1,3 +1,4 @@
+```CSS
 .intro {
     position: 
     background-image:
@@ -5,7 +6,6 @@
     background-position: 
 }
 
-/* 배경 이미지를 반투명 검정으로 가리기 */
 .intro__dark {
     position: 
     top: 
@@ -25,7 +25,6 @@
     color: 
 }
 
-/*문자열로 시작하는 클래스*/
 [class^="intro__tilt"] {
     position: 
     bottom: 
@@ -82,3 +81,4 @@
         margin-bottom:
     }
 }
+```

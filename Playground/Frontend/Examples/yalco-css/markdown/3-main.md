@@ -1,3 +1,4 @@
+```CSS
 .section {
     padding:
     text-align: 
@@ -20,3 +21,4 @@
         grid-template-columns: 
     }
 }
+```
