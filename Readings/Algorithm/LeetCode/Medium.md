@@ -1480,7 +1480,48 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function spiralMatrix(m: number, n: number, head: ListNode | null): number[][] {
+    const matrix = new Array(m).fill('').map(() => new Array(n).fill(-1));
+    let row = 0, col = 0;
+    let direction = 'right';
+    while (head) {
+        matrix[row][col] = head.val;
 
+        if (direction === 'right') {
+            if (col + 1 === n || matrix[row][col + 1] !== -1) {
+                direction = 'down';
+                row++;
+            } else {
+                col++;
+            }
+        } else if (direction === 'down') {
+            if (row + 1 === m || matrix[row + 1][col] !== -1) {
+                direction = 'left';
+                col--;
+            } else {
+                row++;
+            }
+        } else if (direction === 'left') {
+            if (col === 0 || matrix[row][col - 1] !== -1) {
+                direction = 'up';
+                row--;
+            } else {
+                col--;
+            }
+        } else if (direction === 'up') {
+            if (row === 0 || matrix[row - 1][col] !== -1) {
+                direction = 'right';
+                col++;
+            } else {
+                row--;
+            }
+        }
+        head = head.next;
+    }
+    return matrix;
+};
+```
 [32] 18. 4Sum
 
 https://leetcode.com/problems/4sum/
@@ -1543,6 +1584,48 @@ class Solution {
         return result;
     }
 }
+```
+```TypeScript
+function fourSum(nums: number[], target: number): number[][] {
+    function twoSum(nums: number[], target: number): number[][] {
+        let result: number[][] = [];
+        let left: number = 0, right: number = nums.length - 1;
+        while (left < right) {
+            let sum = nums[left] + nums[right];
+            if (sum < target || (left > 0 && nums[left - 1] == nums[left])) {
+                left++;
+            } else if (sum > target || (right < nums.length - 1 && nums[right] == nums[right + 1])) {
+                right--;
+            } else {
+                result.push([nums[left], nums[right]]);
+                left++;
+                right--;
+            }
+        }
+        return result;
+    }
+
+    function kSum(nums: number[], target: number, k: number): number[][] {
+        let result: number[][] = [];
+        if (!nums.length) {
+            return result;
+        }
+        if (k == 2) {
+            return twoSum(nums, target);
+        }
+        for (let i = 0; i < nums.length; i++) {
+            if (i == 0 || nums[i - 1] != nums[i]) {
+                for (let items of kSum(nums.slice(i + 1), target - nums[i], k - 1)) {
+                    result.push([...items, nums[i]]);
+                }
+            }
+        }
+        return result;
+    }
+
+    nums.sort((a, b) => a - b);
+    return kSum(nums, target, 4);
+};
 ```
 
 [33] 71. Simplify Path
