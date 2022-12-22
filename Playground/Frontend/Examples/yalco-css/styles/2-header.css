@@ -4,10 +4,12 @@
 
     /* 스크롤업되는 컨텐츠 위로 올라오도록 */
     z-index: 2;
-
+    /*top이 0이니까 가장 위에 가서 붙음*/
     top: 0;
     height: var(--height-toolbar);
+    /*justify-content — controls alignment of all items on the main axis.*/
     justify-content: space-between;
+    /*align-items — controls alignment of all items on the cross axis.*/
     align-items: center;
     background-color: var(--color-main);
 
@@ -63,7 +65,9 @@
     }
     /*체크된 상태에서 그 다음에 오는 header__nav*/
     .header__menu-btn:checked + .header__nav {
+        /*display : none 취소하기*/
         display: inherit;
+        /*.header  -> position: sticky*/
         position: absolute;
         top: var(--height-toolbar);
         right: 0;
