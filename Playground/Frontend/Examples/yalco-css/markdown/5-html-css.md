@@ -1,8 +1,8 @@
+```CSS
 
 .html-css {
     margin: 56px 0;
-    /*article이 왼쪽으로 붙지 않고 가운데로 정렬되게 하기 위해.*/
-    display: inline-flex;
+    display: 
     gap: 56px;
 }
 
@@ -16,7 +16,6 @@
 }
 .html-css__title {
     font-size: var(--font-size-subtitle);
-    /* font-weight: bold; */
     font-weight: 100;
 }
 ._html .html-css__title em { color: #F16528; }
@@ -31,47 +30,42 @@
     color: var(--color-lighter);
 }
 
-/* 초록색 체크표시 */
 .html-css__spec dd::before {
     content: '';
-    /*너비와 높이를 가져야 하니까*/
-    display: inline-block;
+    display: 
     margin-right: 0.4em;
     width: 12px;
     height: 6px;
     border-left: 4px solid var(--color-sub);
     border-bottom: 4px solid var(--color-sub);
     vertical-align: 0.2em;
-    transform: rotate(-45deg);
+    transform: 
 }
 
 .html-css__thumb {
-    position: relative;
+    position: 
 }
 
-/* 로고 아래 그림자 */
 .html-css__thumb::after {
     content: '';
-    position: absolute;
+    position: 
     left: 0;
     height: 10%;
     background-color: black;
-    border-radius: 50%;
+    border-radius: 
 }
 
-/* 둥둥 오르내리는 효과 */
 @keyframes logo-hover {
-    from { transform: translateY(0); }
-    to { transform: translateY(10px); }
+    from { transform:  }
+    to { transform:  }
 }
 
 .html-css__logo {
     animation-name: logo-hover;
     animation-duration: 800ms;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    /*애니메이션 정방향 재생 후 역방향 재생.*/
-    animation-direction: alternate;
+    animation-timing-function: 
+    animation-iteration-count: 
+    animation-direction: 
 }
 
 /* 짙고 옅어지는 애니메이션 */
@@ -83,9 +77,9 @@
 .html-css__thumb::after {
     animation-name: logo-shadow;
     animation-duration: 800ms;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation-timing-function: 
+    animation-iteration-count: 
+    animation-direction: 
 }
 
 @media (max-width: 768px) {
@@ -134,3 +128,4 @@
         width: 144px;
     }
 }
+```
