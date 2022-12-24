@@ -1340,6 +1340,46 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function getFood(grid: string[][]): number {
+    if (!grid || !grid.length) {
+        return -1;
+    }
+
+    const queue: number[][] = [];
+    const directions: number[][] = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+    const rowLength = grid.length;
+    const colLength = grid[0].length;
+
+    for (let r = 0; r < rowLength; r++) {
+        for (let c = 0; c < colLength; c++) {
+            if (grid[r][c] === '*') {
+                queue.push([r, c, 0]);
+                break;
+            }
+        }
+    }
+
+    while (queue.length) {
+        const current: number[] = queue.shift() as number[];
+        const step = current[2];
+        for (const direction of directions) {
+            const row = current[0] + direction[0];
+            const col = current[1] + direction[1];
+            if (row < 0 || row >= rowLength || col < 0 || col >= colLength || grid[row][col] === 'X') {
+                continue;
+            }
+            if (grid[row][col] === '#') {
+                return step+1;
+            }
+            grid[row][col] = 'X';
+            queue.push([row, col, step + 1]);
+        }
+    }
+
+    return -1;
+};
+```
 
 [29] 1885. Count Pairs in Two Arrays
 
@@ -1368,7 +1408,26 @@ class Solution {
     }
 }
 ```
-
+```TypeScript
+function countPairs(nums1: number[], nums2: number[]): number {
+    const N = nums1.length;
+    const diff: number[] = Array(N);
+    for (let i = 0; i < N; i++) {
+        diff[i] = nums1[i] - nums2[i];
+    }
+    let left = 0, right = N - 1, result = 0;
+    diff.sort((a, b) => a - b);
+    while (left < right) {
+        if (diff[left] + diff[right] > 0) {
+            result += (right - left);
+            right--;
+        } else {
+            left++;
+        }
+    }
+    return result;
+};
+```
 [30] 2054. Two Best Non-Overlapping Events
 
 https://leetcode.com/problems/two-best-non-overlapping-events/
