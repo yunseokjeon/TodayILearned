@@ -441,18 +441,14 @@ class Solution {
 ```
 ```TypeScript
 function swapPairs(head: ListNode | null): ListNode | null {
-    if (!head) {
+    if (!head || !head.next) {
         return head;
     }
-    let temp = head;
-    head = head.next;
-    if (head) {
-        temp.next = swapPairs(head.next);
-        head.next = temp;
-    } else {
-        head=temp;
-    }
-    return head;
+    let first = head;
+    let second = head.next;
+    first.next = swapPairs(second.next);
+    second.next = first;
+    return second;
 };
 ```
 
