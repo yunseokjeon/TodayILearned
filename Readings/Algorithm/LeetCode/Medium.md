@@ -1716,7 +1716,32 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function simplifyPath(path: string): string {
+    const stack: string[] = [];
+    const components = path.split('/');
 
+    for (const component of components) {
+        if (component === '.' || component === '') {
+            continue;
+        } else if (component === '..') {
+            if (stack.length) {
+                stack.pop();
+            }
+        } else {
+            stack.push(component);
+        }
+    }
+
+    let result = '';
+    for (const s of stack) {
+        result += '/';
+        result += s;
+    }
+
+    return result.length ? result : '/';
+};
+```
 [34] 1144. Decrease Elements To Make Array Zigzag
 
 https://leetcode.com/problems/decrease-elements-to-make-array-zigzag/
@@ -1735,7 +1760,20 @@ class Solution {
     }
 }
 ```
+```TypeScript
+function movesToMakeZigzag(nums: number[]): number {
+    const result: number[] = Array(2).fill(0);
+    let N = nums.length, left, right;
 
+    for (let i = 0; i < N; i++) {
+        left = 0 < i ? nums[i - 1] : 1001;
+        right = i + 1 < N ? nums[i + 1] : 1001;
+        result[i % 2] += Math.max(0, nums[i] - Math.min(left, right) + 1);
+    }
+
+    return Math.min(result[0], result[1]);
+};
+```
 [35] 456. 132 Pattern
 
 https://leetcode.com/problems/132-pattern/
