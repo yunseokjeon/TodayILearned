@@ -1812,7 +1812,35 @@ class Solution {
      */
 }
 ```
+```TypeScript
+function find132pattern(nums: number[]): boolean {
+    const N: number = nums.length;
+    if (N < 3) {
+        return false;
+    }
 
+    const stack: number[] = [];
+    const min: number[] = Array(N).fill(0);
+    min[0] = nums[0];
+    for (let i = 1; i < N; i++) {
+        min[i] = Math.min(min[i - 1], nums[i]);
+    }
+
+    for (let j = N - 1; j >= 0; j--) {
+        if (nums[j] > min[j]) {
+            while (stack.length && stack[stack.length - 1] <= min[j]) {
+                stack.pop();
+            }
+            while (stack.length && nums[j] > stack[stack.length - 1]) {
+                return true;
+            }
+            stack.push(nums[j]);
+        }
+    }
+
+    return false;
+};
+```
 [36] 633. Sum of Square Numbers
 
 https://leetcode.com/problems/sum-of-square-numbers/
