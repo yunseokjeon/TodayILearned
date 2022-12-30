@@ -1858,7 +1858,17 @@ class Solution {
     }
 }
 ```
-
+``` TypeScript
+function judgeSquareSum(c: number): boolean {
+    for (let a = 0; a * a <= c; a++) {
+        let b = Math.sqrt(c - a * a);
+        if (b === Math.floor(b)) {
+            return true;
+        }
+    }
+    return false;
+};
+```
 [37] 755. Pour Water
 
 https://leetcode.com/problems/pour-water/
