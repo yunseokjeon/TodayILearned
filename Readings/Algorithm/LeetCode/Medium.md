@@ -1893,7 +1893,24 @@ class Solution {
     }
 }
 ```
-
+```TypeScript
+function pourWater(heights: number[], volume: number, k: number): number[] {
+    for (let i = 0; i < volume; i++) {
+        let current = k;
+        while (current > 0 && heights[current - 1] <= heights[current]) {
+            current--;
+        }
+        while (current < heights.length - 1 && heights[current] >= heights[current + 1]) {
+            current++;
+        }
+        while (k < current && heights[current - 1] === heights[current]) {
+            current--;
+        }
+        heights[current]++;
+    }
+    return heights;
+};
+```
 [38] 1999. Smallest Greater Multiple Made of Two Digits
 
 https://leetcode.com/problems/smallest-greater-multiple-made-of-two-digits/
