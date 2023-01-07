@@ -2973,8 +2973,21 @@ class Solution {
 ```
 
 [72] 669. Trim a Binary Search Tree
-
 https://leetcode.com/problems/trim-a-binary-search-tree/
+
+```Java
+class Solution {
+    public TreeNode trimBST(TreeNode root, int low, int high) {
+        if (root == null) return root;
+        if (root.val > high) return trimBST(root.left, low, high);
+        if (root.val < low) return trimBST(root.right, low, high);
+
+        root.left = trimBST(root.left, low, high);
+        root.right = trimBST(root.right, low, high);
+        return root;
+    }
+}
+```
 
 ```TypeScript
 function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | null {
@@ -2998,6 +3011,10 @@ function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | n
 
 [73] 1109. Corporate Flight Bookings
 
+https://leetcode.com/problems/corporate-flight-bookings/
+
+
+
 ```TypeScript
 function corpFlightBookings(bookings: number[][], n: number): number[] {
     const result: number[] = Array(n).fill(0);
@@ -3013,6 +3030,40 @@ function corpFlightBookings(bookings: number[][], n: number): number[] {
 [74] 752. Open the Lock
 
 https://leetcode.com/problems/open-the-lock/
+
+```Java
+class Solution {
+    public int openLock(String[] deadends, String target) {
+        Queue<String> queue = new LinkedList<>();
+        Set<String> visited = new HashSet<>(Arrays.asList(deadends));
+        int depth = -1;
+        queue.addAll(Arrays.asList("0000"));
+        while (!queue.isEmpty()) {
+            depth++;
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                String node = queue.poll();
+                if (node.equals(target))
+                    return depth;
+                if (visited.contains(node))
+                    continue;
+                visited.add(node);
+                queue.addAll(getSuccessors(node));
+            }
+        }
+        return -1;
+    }
+
+    private List<String> getSuccessors(String str) {
+        List<String> result = new LinkedList<>();
+        for (int i = 0; i < str.length(); i++) {
+            result.add(str.substring(0, i) + (str.charAt(i) == '0' ? 9 : str.charAt(i) - '0' - 1) + str.substring(i + 1));
+            result.add(str.substring(0, i) + (str.charAt(i) == '9' ? 0 : str.charAt(i) - '0' + 1) + str.substring(i + 1));
+        }
+        return result;
+    }
+}
+```
 
 ```TypeScript
 function openLock(deadends: string[], target: string): number {
