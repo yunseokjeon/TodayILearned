@@ -4,3 +4,5 @@
 
 [Top 23 spring-data-jpa Open-Source Projects](https://www.libhunt.com/topic/spring-data-jpa)
 
+[Top Python libraries of 2022](https://tryolabs.com/blog/2022/12/26/top-python-libraries-2022)
+
