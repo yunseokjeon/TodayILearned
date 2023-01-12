@@ -3013,7 +3013,47 @@ function trimBST(root: TreeNode | null, low: number, high: number): TreeNode | n
 
 https://leetcode.com/problems/corporate-flight-bookings/
 
+```Java
+class Solution {
+    /*
+    문제 링크
+    https://leetcode.com/problems/corporate-flight-bookings/
 
+     */
+    public int[] corpFlightBookings(int[][] bookings, int n) {
+        // bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5
+
+        int[] result = new int[n];
+
+        for (int[] b : bookings) {
+            result[b[0] - 1] += b[2];
+            if (b[1] < n) {
+                result[b[1]] -= b[2];   
+            }
+        }
+
+        // result : [10, 45, -10, -20, 0]
+
+        for (int i = 1; i < n; i++) {
+            result[i] += result[i - 1]; 
+        }
+
+        // result : [10, 55, 45, 25, 25]
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        /*
+        bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5
+         */
+        Solution s = new Solution();
+        int[][] bookings = new int[][]{{1, 2, 10}, {2, 3, 20}, {2, 5, 25}};
+        int n = 5;
+        s.corpFlightBookings(bookings, n);
+    }
+}
+```
 
 ```TypeScript
 function corpFlightBookings(bookings: number[][], n: number): number[] {
