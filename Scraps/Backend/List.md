@@ -10,3 +10,5 @@
 
 [Visualizing Mastodon Internals](https://dev.to/appmap/visualizing-mastodon-internals-1198)
 
+[CTO가 커리어를 걸고 비트 레벨까지 내려가서 DB를 해킹했던 이야기](https://tech.devsisters.com/posts/bit-level-database-hacking/)
+
