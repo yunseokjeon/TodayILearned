@@ -12,3 +12,5 @@
 
 [CTO가 커리어를 걸고 비트 레벨까지 내려가서 DB를 해킹했던 이야기](https://tech.devsisters.com/posts/bit-level-database-hacking/)
 
+[How does MySQL store data](https://stackoverflow.com/questions/10378693/how-does-mysql-store-data)
+

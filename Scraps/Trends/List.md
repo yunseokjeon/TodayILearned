@@ -2,3 +2,5 @@
 
 [Awesome Open Source](https://awesomeopensource.com/)
 
+[GitHub Trending](https://github.com/trending)
+
