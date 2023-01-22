@@ -913,6 +913,24 @@ function findLongestChain(pairs: number[][]): number {
 https://leetcode.com/problems/split-array-into-consecutive-subsequences/
 
 ```Java
+/*
+nums = [1, 2, 3, 3, 4, 5]
+freq = {1:1, 2:1, 3:2, 4:1, 5:1}
+
+num = 1, 
+freq = {1:0, 2:0, 3:1, 4:1, 5:1}
+append = {4:1}
+
+nums = 2, continue
+
+num = 3, 
+freq = {1:0, 2:0, 3:0, 4:0, 5:0}
+append = {4:1, 6:1}
+
+num = 3, continue
+num = 4, continue
+num = 5, continue
+*/
 class Solution {
     public boolean isPossible(int[] nums) {
         Map<Integer, Integer> freq = new HashMap<>(), append = new HashMap<>();
