@@ -6,3 +6,11 @@
 
 [Let’s Create a Snake game using Flutter and Flame!](https://blog.devgenius.io/lets-create-a-snake-game-using-flutter-and-flame-38482d3cf0ff)
 
+[RangeSlider Widget for Flutter](https://flutterawesome.com/rangeslider-widget-for-flutter/)
+
+[A fluid design slider that works just like the Slider material widget](https://flutterawesome.com/a-fluid-design-slider-that-works-just-like-the-slider-material-widget-2/)
+
+[Flutter vertical slider widget to customize the appearance of the slider](https://flutterawesome.com/flutter-vertical-slider-widget-to-customize-the-appearance-of-the-slider/)
+
+[Circle Slider using CustomPainte (canvas) on Flutter](https://flutterawesome.com/circle-slider-using-custompainte-canvas-on-flutter/)
+

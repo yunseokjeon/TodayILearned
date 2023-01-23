@@ -4,3 +4,4 @@
 
 [GitHub Trending](https://github.com/trending)
 
+[Flutter Awesome](https://flutterawesome.com/)
