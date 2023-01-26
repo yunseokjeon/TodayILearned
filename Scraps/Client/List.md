@@ -14,3 +14,8 @@
 
 [Circle Slider using CustomPainte (canvas) on Flutter](https://flutterawesome.com/circle-slider-using-custompainte-canvas-on-flutter/)
 
+[Drawing Bezier curves and Splines with CustomPaint flutter](https://jasper-dev.hashnode.dev/drawing-bezier-curves-and-splines-with-custompaint-flutter)
+
+[Paths in Flutter: A Visual Guide](https://medium.com/flutter-community/paths-in-flutter-a-visual-guide-6c906464dcd0)
+
+[CustomPainter, Path - 말풍선 그리기](https://heewookji.github.io/2021/01/04/CustomPainter/)
