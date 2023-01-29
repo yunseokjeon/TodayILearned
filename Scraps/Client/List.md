@@ -21,3 +21,20 @@
 [CustomPainter, Path - 말풍선 그리기](https://heewookji.github.io/2021/01/04/CustomPainter/)
 
 [sponge_bob](https://github.com/JasperEssien2/sponge_bob)
+
+[Evan Wallace](https://madebyevan.com/)
+
+[Evan Wallace GitHub](https://github.com/evanw)
+
+[RealWorld](https://github.com/gothinkster/realworld)
+
+[Todo list 만들기는 이제 그만](https://techblog.woowahan.com/2672/)
+
+[WebRTC Nuts & Bolts](https://news.hada.io/topic?id=6646)
+
+제법 신기한 Github 프로필에 잔디 먹는 뱀 🐍 추가하는 방법을 포스팅해보았습니다 😁
+
+https://6h15m.github.io/github/readme/2021/07/20/github-snake.html
+
+https://twitter.com/20olev/status/1417465824911130625?s=20
+
