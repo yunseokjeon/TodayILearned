@@ -32,9 +32,23 @@
 
 [WebRTC Nuts & Bolts](https://news.hada.io/topic?id=6646)
 
+<hr>
+
 제법 신기한 Github 프로필에 잔디 먹는 뱀 🐍 추가하는 방법을 포스팅해보았습니다 😁
 
 https://6h15m.github.io/github/readme/2021/07/20/github-snake.html
 
 https://twitter.com/20olev/status/1417465824911130625?s=20
+
+<hr>
+
+좋은 개발자가 작성한 좋은 코드를 읽고 수정하며 배우는 경험을 가장 값 비싸게 여기는데, 이번 Flutter팀이 발표한 Flutter News Kit 프로젝트가 참 좋다.
+
+Yet another hello world 앱이 아닌 프로덕선 퀄리티 앱을 오픈소스 + 모듈화해 흔한 피쳐(eg 온보딩) 코드 재사용 가능하다
+
+[오전 12:57 · 2023년 1월 28일](https://twitter.com/dylayed/status/1619001685795540993)
+
+<hr>
+
+[60 Days Of Flutter : Building a Messenger from Scratch](https://medium.com/@adityadroid/60-days-of-flutter-building-a-messenger-from-scratch-ab2c89e1fd0f)
 
