@@ -2023,6 +2023,9 @@ https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
 ```Java
 class Solution {
     public int maxScore(int[] cardPoints, int k) {
+
+        // cardPoints = {1, 2, 3, 4, 5, 6, 1}, k = 3
+
         int n = cardPoints.length;
         int[] frontSetOfCards = new int[k + 1];
         int[] rearSetOfCards = new int[k + 1];
@@ -2032,12 +2035,22 @@ class Solution {
             rearSetOfCards[i + 1] = rearSetOfCards[i] + cardPoints[n - i - 1];
         }
 
+        /*
+        frontSetOfCards = {0, 1, 3, 6}
+        rearSetOfCards = {0, 1, 7, 12}
+         */
+
         int maxScore = 0;
         for (int i = 0; i <= k; i++) {
             int currentScore = frontSetOfCards[i] + rearSetOfCards[k - i];
             maxScore = Math.max(currentScore, maxScore);
         }
         return maxScore;
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        s.maxScore(new int[]{1, 2, 3, 4, 5, 6, 1}, 3);
     }
 }
 ```
