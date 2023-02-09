@@ -58,3 +58,7 @@ Yet another hello world 앱이 아닌 프로덕선 퀄리티 앱을 오픈소스
 
 [Convert SVGs to Flutter Custom Paint Code](https://fluttershapemaker.com/)
 
+[Exponentially Better Rotations](https://thenumb.at/Exponential-Rotations/)
+
+[INVESTING.COM 클론 코딩(feat. Vue JS SSR, CANVAS API)](https://zuminternet.github.io/zum-front-investing-clone/)
+
