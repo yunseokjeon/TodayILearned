@@ -57,3 +57,24 @@ LLM을 위시한 초대형 모델들이 지금이야 개비싸지만 한 5년 �
 [Illustrating Reinforcement Learning from Human Feedback (RLHF)](https://huggingface.co/blog/rlhf)
 
 [챗GPT는 어떻게 학습되었을까 - Human Feedback Reinforcement Learning (RLHF)](https://littlefoxdiary.tistory.com/111)
+
+[GPT in 60 Lines of NumPy](https://jaykmody.com/blog/gpt-from-scratch/)
+
+<hr>
+
+간단한 예시만으로 언어모델이 외부의 툴을 사용할 수 있게 학습시킬 수 있답니다. 대규모 언어모델은 텍스트 생성은 그럴싸하게 잘하지만 어이없게도 단순한 산수 계산을 틀리기도 하는데 이런 방법을 쓰면 언어모델이 계산기를 사용해서 정확한 계산 결과를 내게 할 수도 있습니다.
+
+[오전 10:47 · 2023년 2월 10일](https://twitter.com/idgmatrix/status/1623861138873290753)
+
+Toolformer: Language Models Can Teach Themselves to Use Tools
+
+introduce Toolformer, a model trained to decide which APIs to call, when to call them, what arguments to pass, and how to best incorporate the results into future token prediction
+
+abs: https://arxiv.org/abs/2302.04761
+
+[오전 10:39 · 2023년 2월 10일](https://twitter.com/_akhaliq/status/1623859135132344320)
+
+<hr>
+
+[Solving a machine-learning mystery](https://news.mit.edu/2023/large-language-models-in-context-learning-0207)
+

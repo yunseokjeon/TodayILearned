@@ -15,3 +15,5 @@
 [How does MySQL store data](https://stackoverflow.com/questions/10378693/how-does-mysql-store-data)
 
 [Build Your Own Redis with C/C++ 책 공개](https://news.hada.io/topic?id=8367)
+
+[시스템 디자인 가이드](https://www.joinc.co.kr/w/complete_guide_system_design)
