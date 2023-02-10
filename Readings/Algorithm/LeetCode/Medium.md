@@ -1003,8 +1003,7 @@ class Solution {
     public TreeNode[] splitBST(TreeNode root, int V) {
         if (root == null) {
             return new TreeNode[]{null, null};
-        }
-        else if (root.val <= V) {
+        } else if (root.val <= V) {
             TreeNode[] result = splitBST(root.right, V);
             root.right = result[0];
             result[0] = root;
@@ -1015,6 +1014,31 @@ class Solution {
             result[1] = root;
             return result;
         }
+    }
+
+    /*
+    4(TreeNode@470) - left : 2(TreeNode@472) , right : 6(TreeNode@471)
+
+    2(TreeNode@472) - left : 1(TreeNode@474) , right : 3(TreeNode@475)
+
+    6(TreeNode@471) - left : 5(TreeNode@476) , right : 7(TreeNode@477)
+
+    result = [2(TreeNode@474), 3(TreeNode@475)]
+    root.left = 3(TreeNode@475)
+    result[1] : 4(TreeNode@470)
+     */
+
+    public static void main(String[] args) {
+        TreeNode one = new TreeNode(1);
+        TreeNode three = new TreeNode(3);
+        TreeNode five = new TreeNode(5);
+        TreeNode seven = new TreeNode(7);
+        TreeNode two = new TreeNode(2, one, three);
+        TreeNode six = new TreeNode(6, five, seven);
+        TreeNode four = new TreeNode(4, two, six);
+
+        Solution s = new Solution();
+        s.splitBST(four, 2);
     }
 }
 ```
@@ -2491,6 +2515,103 @@ TrieNode.count == 0 ->
 root TrieNode에 time에 세팅된 상태에서 me가 들어오면 반복문 후 Map에 저장되는 객체는 TrieNode[]에 i를 가지고 있는, 즉 count가 1인 객체이다.
 TrieNode.count == 0라는 의미는 인코딩이 될 수 없는(다른 단어에 포함될 수 없는) 글자이니 결과에 반영되어야 함을 의미한다.
  */
+ 
+ /*
+words = ["time", "me", "bell"]
+
+1) i = 0, j = -1
+root(TrieNode@471)
+- count = 1
+- children[4] = TrieNode@480
+
+TrieNode@480
+- count = 1
+- children[12] = TrieNode@482
+
+TrieNode@482
+- count = 1
+- children[8] = TrieNode@484
+
+TrieNode@484
+- count = 1
+- children[19] = TrieNode@474
+
+TrieNode@474
+- count = 0
+- children
+
+map ->
+TrieNode@474 : 0
+
+2) i = 1, j = -1
+root(TrieNode@471)
+- count = 1
+- children[4] = TrieNode@480
+
+TrieNode@480
+- count = 1
+- children[12] = TrieNode@482
+
+TrieNode@482
+- count = 1
+- children[8] = TrieNode@484
+
+TrieNode@484
+- count = 1
+- children[19] = TrieNode@474
+
+TrieNode@474
+- count = 0
+- children
+
+map ->
+TrieNode@474 : 0
+TrieNode@482 : 1
+
+3) i = 2, j = -1
+root(TrieNode@471)
+- count = 2
+- children[4] = TrieNode@480, children[11] = TrieNode@506
+
+TrieNode@480
+- count = 1
+- children[12] = TrieNode@482
+
+TrieNode@482
+- count = 1
+- children[8] = TrieNode@484
+
+TrieNode@484
+- count = 1
+- children[19] = TrieNode@474
+
+TrieNode@474
+- count = 1
+- children
+
+TrieNode@506
+- count = 1
+- children[11] = TrieNode@509
+
+TrieNode@509
+- count = 1
+- children[4] = TrieNode@512
+
+TrieNode@512
+- count = 1
+- children[1] = TrieNode@515
+
+TrieNode@515
+- count = 0
+- children
+
+map ->
+TrieNode@474 : 0 (count = 0)
+TrieNode@482 : 1 (count = 1)
+TrieNode@515 : 2 (count = 0)
+
+*/
+
 
 class Solution {
     public int minimumLengthEncoding(String[] words) {
