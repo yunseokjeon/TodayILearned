@@ -62,3 +62,12 @@ Yet another hello world 앱이 아닌 프로덕선 퀄리티 앱을 오픈소스
 
 [INVESTING.COM 클론 코딩(feat. Vue JS SSR, CANVAS API)](https://zuminternet.github.io/zum-front-investing-clone/)
 
+<hr>
+
+Lidar.exe 
+My short experimental horror game based on the addon for garrys mod "LIDAR".
+You are in complete darkness and to see something you need to use your lidar scanner.
+https://kenforest.itch.io/lidar-exe
+[오전 5:52 · 2022년 8월 10일](https://twitter.com/andreybugrin/status/1557107575929376769)
+
+<hr>
