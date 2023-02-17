@@ -3300,6 +3300,82 @@ function openLock(deadends: string[], target: string): number {
 };
 ```
 
-[75]
+[75] 426. Convert Binary Search Tree to Sorted Doubly Linked List
+
+https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
+
+```Java 
+/*
+        4
+      2   5
+   1    3
+
+1) node = 1, first = 1, last = 1
+2) node = 2, last.right = 2, 2.left = 1, last = 2
+3) node = 3, last.right = 3, 3.left = 2, last = 3
+4) node = 4, last.right = 4, 4.left = 3, last = 4
+5) node = 5, last.right = 5, 5.left = 4, last = 5
+ */
+
+class Solution {
+    // the smallest (first) and the largest (last) nodes
+    Node first = null;
+    Node last = null;
+
+    public void helper(Node node) {
+        if (node != null) {
+            // left
+            helper(node.left);
+            // node
+            if (last != null) {
+                // link the previous node (last)
+                // with the current one (node)
+                last.right = node;
+                node.left = last;
+            } else {
+                // keep the smallest node
+                // to close DLL later on
+                first = node;
+            }
+            last = node;
+            // right
+            helper(node.right);
+        }
+    }
+
+    public Node treeToDoublyList(Node root) {
+        if (root == null)
+            return null;
+
+        helper(root);
+        // close DLL
+        last.right = first;
+        first.left = last;
+        return first;
+    }
+
+    public static void main(String[] args) {
+        Node one = new Node(1);
+        Node three = new Node(3);
+        Node two = new Node(2, one, three);
+        Node five = new Node(5);
+        Node four = new Node(4, two, five);
+
+        Solution s = new Solution();
+        s.treeToDoublyList(four);
+    }
+}
+```
+
+[76]
+
+[77]
+
+[78]
+
+[79]
+
+[80]
+
 
 
