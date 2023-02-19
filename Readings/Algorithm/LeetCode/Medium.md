@@ -3367,7 +3367,27 @@ class Solution {
 }
 ```
 
-[76]
+[76] 1877. Minimize Maximum Pair Sum in Array
+
+https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/
+
+```Java 
+class Solution {
+    public int minPairSum(int[] nums) {
+        Arrays.sort(nums);
+        int result = 0, n = nums.length;
+        for (int i = 0; i < n / 2; ++i)
+            result = Math.max(result, nums[i] + nums[n - i - 1]);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[] nums = new int[]{3, 5, 2, 3};
+        s.minPairSum(nums);
+    }
+}
+```
 
 [77]
 
