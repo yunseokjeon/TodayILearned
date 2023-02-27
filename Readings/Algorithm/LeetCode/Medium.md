@@ -3389,13 +3389,171 @@ class Solution {
 }
 ```
 
-[77]
+[77] 40. Combination Sum II
 
-[78]
+https://leetcode.com/problems/combination-sum-ii/
 
-[79]
+```Java
+/*
+Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output:
+    [
+        [1,1,6],
+        [1,2,5],
+        [1,7],
+        [2,6]
+    ]
+ */
 
-[80]
+class Solution {
 
+    List<List<Integer>> result = new ArrayList<>();
 
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        backtrack(0, target, candidates, new LinkedList<>());
+        return result;
+    }
+
+    public void backtrack(int start, int remain, int[] candidates, LinkedList<Integer> combination) {
+        if (remain == 0) {
+            result.add(new ArrayList<>(combination));
+            return;
+        }
+        if (remain < 0) {
+            return;
+        }
+        for (int i = start; i < candidates.length; i++) {
+            if (i > start && candidates[i - 1] == candidates[i]) {
+                continue;
+            }
+            combination.add(candidates[i]);
+            backtrack(i + 1, remain - candidates[i], candidates, combination);
+            combination.removeLast();
+        }
+    }
+}
+```
+
+[78] 2501. Longest Square Streak in an Array
+
+https://leetcode.com/problems/longest-square-streak-in-an-array/
+
+```Java 
+class Solution {
+    public int longestSquareStreak(int[] nums) {
+        Map<Integer, Integer> dp = new HashMap<>();
+        int result = 0;
+        Arrays.sort(nums);
+
+        for (int num : nums) {
+            int root = (int) Math.sqrt(num);
+            if (root * root == num) {
+                // 조건을 만족하는 square streak므로 길이 늘려나가기.
+                dp.put(num, dp.getOrDefault(root, 0) + 1);
+            } else {
+                dp.put(num, 1);
+            }
+            result = Math.max(result, dp.get(num));
+        }
+        return result < 2 ? -1 : result;
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        s.longestSquareStreak(new int[]{4, 3, 6, 16, 8, 2});
+    }
+}
+```
+
+[79] 1277. Count Square Submatrices with All Ones
+
+https://leetcode.com/problems/count-square-submatrices-with-all-ones/
+
+```Java 
+class Solution {
+    public int countSquares(int[][] matrix) {
+
+        /*
+        matrix :
+        [
+          [0, 1, 1, 1],
+          [1, 1, 1, 1],
+          [0, 1, 1, 1]
+        ]
+         */
+        int result = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] > 0 && i > 0 && j > 0) {
+                    matrix[i][j] = Math.min(matrix[i - 1][j - 1], Math.min(matrix[i - 1][j], matrix[i][j - 1])) + 1;
+                }
+                result += matrix[i][j];
+            }
+        }
+        /*
+
+        matrix[i][j] 는 가장 큰 사각형의 크기이자, 사각형의 숫자.
+
+        matrix :
+        [
+          [0, 1, 1, 1],
+          [1, 1, 2, 2],
+          [0, 1, 2, 3]
+        ]
+         */
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[][] matrix = new int[][]{{0, 1, 1, 1}, {1, 1, 1, 1}, {0, 1, 1, 1}};
+        Solution s = new Solution();
+        System.out.println(s.countSquares(matrix));;
+    }
+}
+```
+
+[80] 340. Longest Substring with At Most K Distinct Characters
+
+https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
+
+```Java 
+/*
+Input: s = "eceba", k = 2
+Output: 3
+Explanation: The substring is "ece" with length 3.
+ */
+class Solution {
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        int[] count = new int[256]; // ASCII 256 characters
+
+        int i = 0, size = 0, result = 0;
+
+        for (int j = 0; j < s.length(); j++) {
+            if (count[s.charAt(j)]++ == 0) {
+                size++;
+            }
+            while (size > k && i < s.length()) {
+                count[s.charAt(i)]--;
+                if (count[s.charAt(i)] == 0) {
+                    size--;
+                }
+                i++;
+            }
+            result = Math.max(result, j - i + 1);
+        }
+        return result;
+    }
+}
+```
+
+[81]
+
+[82]
+
+[83]
+
+[84]
+
+[85]
 
