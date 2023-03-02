@@ -8,7 +8,7 @@ class Solution {
         ListNode dummy = new ListNode();
         ListNode current = dummy;
         int carry = 0;
-        while (l1 != null || l2 != null | carry != 0) {
+        while (l1 != null || l2 != null || carry != 0) {
             int num1 = l1 != null ? l1.val : 0;
             int num2 = l2 != null ? l2.val : 0;
             int sum = num1 + num2 + carry;
@@ -21,6 +21,29 @@ class Solution {
         return dummy.next;
     }
 }
+```
+
+```C++
+class Solution {
+public:
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+        ListNode *dummy = new ListNode(0);
+        ListNode *current = dummy;
+        int carry = 0;
+
+        while (l1 != nullptr || l2 != nullptr || carry != 0) {
+            int num1 = l1 != nullptr ? l1->val : 0;
+            int num2 = l2 != nullptr ? l2->val : 0;
+            int sum = num1 + num2 + carry;
+            carry = sum / 10;
+            current->next = new ListNode(sum % 10);
+            current = current->next;
+            l1 = l1 != nullptr ? l1->next : nullptr;
+            l2 = l2 != nullptr ? l2->next : nullptr;
+        }
+        return dummy->next;
+    }
+};
 ```
 
 ```TypeScript
