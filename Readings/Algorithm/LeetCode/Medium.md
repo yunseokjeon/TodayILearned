@@ -3547,7 +3547,182 @@ class Solution {
 }
 ```
 
-[81]
+[81] 2572. Count the Number of Square-Free Subsets
+
+https://leetcode.com/problems/count-the-number-of-square-free-subsets/
+
+```Java
+class Solution {
+
+    int MOD = (int) 1e9 + 7;
+
+    // nums = {3, 4, 4, 5}
+    public int squareFreeSubsets(int[] nums) {
+
+        // 1 <= nums.length <= 1000
+        // 10 prime
+        int[][] dp = new int[1010][1 << 11];
+        for (int[] d : dp) {
+            Arrays.fill(d, -1);
+        }
+
+        // 1 <= nums[i] <= 30
+        int[] primes = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+        int[] numsPrimeMask = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            numsPrimeMask[i] = computeMask(nums[i], primes);
+        }
+        // numsPrimeMask = {4, -1, -1, 8}
+
+        return (dfs(0, 1, numsPrimeMask, dp) - 1 + MOD) % MOD;
+    }
+
+    private int dfs(int position, int productMask, int[] numsPrimeMask, int[][] dp) {
+        if (position >= numsPrimeMask.length) {
+            return 1;
+        }
+
+        if (dp[position][productMask] != -1) {
+            return dp[position][productMask];
+        }
+
+        int answer = dfs(position + 1, productMask, numsPrimeMask, dp);
+        
+        if ((productMask & numsPrimeMask[position]) == 0) {
+            answer = (answer + dfs(position + 1,
+                    productMask | numsPrimeMask[position], numsPrimeMask, dp)) % MOD;
+        }
+
+        /*
+        position : 3, productMask : 1, numsPrimeMask : [4, -1, -1, 8]
+        answer : 1
+
+        1 & 8 -> 0001 & 1000 -> 0
+
+        position : 4, productMask : 9 -> return 1 -> answer : 2
+         */
+
+        return dp[position][productMask] = answer;
+    }
+
+    private int computeMask(int x, int[] primes) {
+        int mask = 0;
+        for (int i = 0; i < primes.length; i++) {
+            int p = primes[i];
+            int count = 0;
+
+            while (x % p == 0) {
+                x /= p;
+                count++;
+            }
+
+            if (count == 0) continue;
+            if (count == 1) mask |= (1 << (i + 1));
+            // Integer.toBinaryString(-1) -> "11111111111111111111111111111111"
+            if (count >= 2) return -1;
+        }
+        return mask;
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        s.squareFreeSubsets(new int[]{3, 4, 4, 5});
+    }
+}
+/*
+1) square-free integer - 1이 아닌 제곱수를 인수로 갖지 않는 양의 정수
+4는 제곱수를 인수로 갖는다. 4 = 2 * 2.
+
+2) 따라서 8이나 45는 square-free integer가 아니다. 왜냐하면 8 = 1 * 2 * 4  = 1 * 8 이다. 45 = 1 * 45 = 5 * 9 = 5 * 3 * 3.
+그래서 subset을 찾을 때, 선택된 element들의 곱을 했을 때, element들 중에 '겹치는 소인수'가 나오면 안 된다.
+결국 subset에 있는 element 중에 새 element와 겹치는 소인수가 있으면 탈락이고 아니면 담을 수 있다.
+
+3) 빠른 연산을 위해 사전 작업. 가능한 소수가 10개니까, 비트 10개로 표현할 수 있다고 생각한 것.
+
+4) 두 element의 곱이 square-free한지는 어떻게 알까?  두 비트 표현 중에 겹치는 소인수가 있는지 찾으면 된다. 그게 AND(&) 연산자가 하는 일.
+
+5) 두 개의 element가 겹치는 소인수가 없어서 하나의 subset으로 넣은 후에 다음 element를 subset에 포함시켜야 할지 어떻게 판단할까?
+선택된 두 element의 곱의 비트 표현식을 가지고 있다가, 새로운 element와 AND 연산을 해서 판단하면 좋을 것이다.
+두 element의 곱의 비트 표현식을 위해 OR(|) 연산을 한다.
+ */
+
+/*
+1) position : 0 productMask : 1 numsPrimeMask : [4, -1, -1, 8]
+dfs(position + 1, productMask, numsPrimeMask, dp)
+
+2) position : 1 productMask : 1
+dfs(position + 1, productMask, numsPrimeMask, dp)
+
+3) position : 2 productMask : 1
+dfs(position + 1, productMask, numsPrimeMask, dp)
+
+4) position : 3 produtMask : 1
+dfs(position + 1, productMask, numsPrimeMask, dp)
+
+5) position : 4 productMask : 1
+return 1
+
+6) position : 3 productMask : 1
+answer : 1
+(answer + dfs(position + 1,
+                    productMask | numsPrimeMask[position], numsPrimeMask, dp)) % MOD
+
+7) position : 4 productMask : 9
+return 1
+
+8) position : 3 productMask : 1
+return dp[3][1] = 2
+
+9) position : 2 productMask : 1
+answer : 2
+return dp[2][1] = 2
+
+10) position : 1 productMask : 1
+answer : 2
+return dp[1][1] = 2
+
+11) position : 0 productMask : 1
+answer : 2
+(answer + dfs(position + 1,
+                    productMask | numsPrimeMask[position], numsPrimeMask, dp)) % MOD
+
+12) position : 1 productMask : 5
+dfs(position + 1, productMask, numsPrimeMask, dp)
+
+13) position : 2 productMask : 5
+dfs(position + 1, productMask, numsPrimeMask, dp)
+
+14) position : 3 productMask : 5
+dfs(position + 1, productMask, numsPrimeMask, dp)
+
+15) position : 4 productMask : 5
+return 1
+
+16) position : 3 productMask : 5
+answer : 1
+(answer + dfs(position + 1,
+                    productMask | numsPrimeMask[position], numsPrimeMask, dp)) % MOD;
+
+17) position : 4 productMask : 13
+return 1
+
+18) position : 3 productMask : 5
+return dp[3][5] = 2
+
+19) position : 2 productMask : 5
+answer : 2
+return dp[2][5] = 2
+
+20) position : 1 productMask : 5
+answer : 2
+return dp[1][5] = 2
+
+21) position : 0 productMask : 1
+answer : 4
+return dp[0][1] = 4
+ */
+```
 
 [82]
 
