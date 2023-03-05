@@ -23,6 +23,34 @@ class Solution {
 }
 ```
 
+```Rust
+impl Solution {
+    pub fn add_two_numbers(
+        l1: Option<Box<ListNode>>,
+        l2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+
+        let mut dummy = ListNode::new(0);
+        let mut current = &mut dummy;
+        let mut carry = 0;
+        let mut l1 = l1.as_ref();
+        let mut l2 = l2.as_ref();
+
+        while l1.is_some() || l2.is_some() || carry != 0 {
+            let num1 = l1.map_or(0, |node| node.val);
+            let num2 = l2.map_or(0, |node| node.val);
+            let sum = num1 + num2 + carry;
+            carry = sum / 10;
+            current.next = Some(Box::new(ListNode::new(sum % 10)));
+            current = current.next.as_mut().unwrap();
+            l1 = l1.and_then(|node| node.next.as_ref());
+            l2 = l2.and_then(|node| node.next.as_ref());
+        }
+        return dummy.next;
+    }
+}
+```
+
 ```C++
 class Solution {
 public:
@@ -86,6 +114,33 @@ class Solution {
             map.put(s.charAt(i), i);
             result = Math.max(result, i - j + 1);
         }
+        return result;
+    }
+}
+```
+
+```Rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn length_of_longest_substring(s: String) -> i32 {
+        let mut result = 0;
+        if s.is_empty() {
+            return result;
+        }
+        let mut map = HashMap::new();
+        let (mut i, mut j) = (0, 0);
+        for c in s.chars() {
+
+            if let Some(index) = map.get(&c) {
+                j = j.max(*index + 1);
+            }
+
+            map.insert(c, i);
+            result = result.max(i - j + 1);
+            i += 1;
+        }
+
         return result;
     }
 }
@@ -3747,7 +3802,68 @@ return dp[0][1] = 4
  */
 ```
 
-[82]
+[82] 1983. Widest Pair of Indices With Equal Range Sum
+
+https://leetcode.com/problems/widest-pair-of-indices-with-equal-range-sum/
+
+```Java
+class Solution {
+    public int widestPairOfIndices(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        int result = 0, sum = 0;
+        for (int i = 0; i < nums1.length; i++) {
+            sum += nums1[i] - nums2[i];
+            result = Math.max(result, i - map.getOrDefault(sum, i));
+            map.putIfAbsent(sum, i);
+        }
+        return result;
+    }
+
+    /*
+    nums1 : [1, 1, 0, 1]
+    nums2 : [0, 1, 1, 0]
+
+    map : {0:-1}
+    result : 0
+    sum : 0
+
+    i = 0)
+    sum : 1
+    result : 0
+    map : {0:-1, 1:0}
+
+    i = 1)
+    sum : 1
+    result : 1
+    map : {0:-1, 1:0}
+
+    i = 2)
+    sum : 0
+    result : 3
+    map : {0:-1, 1:0}
+
+    i = 3)
+    sum : 1
+    result : 3
+    map : {0:-1, 1:0}
+
+    map에서 sum을 key로 값을 꺼낸다는 것의 의미?
+
+    nums1[0] - nums2[0] == 0, map[0] : -1을 확인하고,
+    nums1[0] - nums2[0] - nums1[1] - nums2[1] == 0인 상황을 상정해 보자.
+    이 말은 nums1[i] + nums1[i+1] + ... + nums1[j] == nums2[i] + nums2[i+1] + ... + nums2[j] 인 조건을 충족한다는 의미이고,
+    거리를 업데이트 가능한지 확인해야 할 상황인 것이다.
+     */
+
+    public static void main(String[] args) {
+        int[] nums1 = new int[]{1, 1, 0, 1};
+        int[] nums2 = new int[]{0, 1, 1, 0};
+        Solution s = new Solution();
+        s.widestPairOfIndices(nums1, nums2);
+    }
+}
+```
 
 [83]
 
