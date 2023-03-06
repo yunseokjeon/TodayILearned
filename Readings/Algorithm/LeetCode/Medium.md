@@ -23,29 +23,6 @@ class Solution {
 }
 ```
 
-```C++
-class Solution {
-public:
-    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-        ListNode *dummy = new ListNode(0);
-        ListNode *current = dummy;
-        int carry = 0;
-
-        while (l1 != nullptr || l2 != nullptr || carry != 0) {
-            int num1 = l1 != nullptr ? l1->val : 0;
-            int num2 = l2 != nullptr ? l2->val : 0;
-            int sum = num1 + num2 + carry;
-            carry = sum / 10;
-            current->next = new ListNode(sum % 10);
-            current = current->next;
-            l1 = l1 != nullptr ? l1->next : nullptr;
-            l2 = l2 != nullptr ? l2->next : nullptr;
-        }
-        return dummy->next;
-    }
-};
-```
-
 ```Rust
 impl Solution {
     pub fn add_two_numbers(
@@ -72,6 +49,29 @@ impl Solution {
         return dummy.next;
     }
 }
+```
+
+```C++
+class Solution {
+public:
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+        ListNode *dummy = new ListNode(0);
+        ListNode *current = dummy;
+        int carry = 0;
+
+        while (l1 != nullptr || l2 != nullptr || carry != 0) {
+            int num1 = l1 != nullptr ? l1->val : 0;
+            int num2 = l2 != nullptr ? l2->val : 0;
+            int sum = num1 + num2 + carry;
+            carry = sum / 10;
+            current->next = new ListNode(sum % 10);
+            current = current->next;
+            l1 = l1 != nullptr ? l1->next : nullptr;
+            l2 = l2 != nullptr ? l2->next : nullptr;
+        }
+        return dummy->next;
+    }
+};
 ```
 
 ```TypeScript
@@ -119,28 +119,6 @@ class Solution {
 }
 ```
 
-```C++
-class Solution {
-public:
-    int lengthOfLongestSubstring(string s) {
-        int result = 0;
-        if (s.length() == 0) {
-            return result;
-        }
-        unordered_map<char, int> map;
-        for (int i = 0, j = 0; i < s.length(); i++) {
-            if (map.count(s[i])) {
-                j = max(j, map[s[i]] + 1);
-                map[s[i]] = i;
-            }
-            map[s[i]] = i;
-            result = max(result, i - j + 1);
-        }
-        return result;
-    }
-};
-```
-
 ```Rust
 use std::collections::HashMap;
 
@@ -166,6 +144,28 @@ impl Solution {
         return result;
     }
 }
+```
+
+```C++
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int result = 0;
+        if (s.length() == 0) {
+            return result;
+        }
+        unordered_map<char, int> map;
+        for (int i = 0, j = 0; i < s.length(); i++) {
+            if (map.count(s[i])) {
+                j = max(j, map[s[i]] + 1);
+                map[s[i]] = i;
+            }
+            map[s[i]] = i;
+            result = max(result, i - j + 1);
+        }
+        return result;
+    }
+};
 ```
 
 ```TypeScript
